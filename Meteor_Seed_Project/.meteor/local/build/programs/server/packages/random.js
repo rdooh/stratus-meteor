@@ -7,7 +7,7 @@ var _ = Package.underscore._;
 /* Package-scope variables */
 var Random;
 
-(function () {
+(function(){
 
 //////////////////////////////////////////////////////////////////////////////////////
 //                                                                                  //
@@ -102,7 +102,7 @@ var Alea = function () {                                                        
   } (Array.prototype.slice.call(arguments)));                                       // 85
 };                                                                                  // 86
                                                                                     // 87
-var UNMISTAKABLE_CHARS = "23456789ABCDEFGHJKLMNPQRSTWXYZabcdefghijkmnopqrstuvwxyz"; // 88
+var UNMISTAKABLE_CHARS = "23456789ABCDEFGHJKLMNPQRSTWXYZabcdefghijkmnopqrstuvwxyz";
 var BASE64_CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" +         // 89
   "0123456789-_";                                                                   // 90
                                                                                     // 91
@@ -243,7 +243,7 @@ Random.createWithSeeds = function () {                                          
 
 
 
-(function () {
+(function(){
 
 //////////////////////////////////////////////////////////////////////////////////////
 //                                                                                  //

@@ -21,4 +21,4 @@ Router.route('/', function () {
 });
 
 
-})();
+}).call(this);

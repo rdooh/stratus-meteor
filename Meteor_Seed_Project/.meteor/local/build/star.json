@@ -1,19 +1,17 @@
 {
   "format": "site-archive-pre1",
-  "builtBy": "Meteor METEOR@1.1.0.2",
+  "builtBy": "Meteor METEOR@1.2.0.2",
   "programs": [
     {
       "name": "web.browser",
       "arch": "web.browser",
-      "path": "programs/web.browser/program.json",
-      "nodePath": []
+      "path": "programs/web.browser/program.json"
     },
     {
       "name": "server",
       "arch": "os.osx.x86_64",
-      "path": "programs/server/boot.js",
-      "nodePath": []
+      "path": "programs/server/boot.js"
     }
   ],
-  "meteorRelease": "METEOR@1.1.0.2"
+  "meteorRelease": "METEOR@1.2.0.2"
 }

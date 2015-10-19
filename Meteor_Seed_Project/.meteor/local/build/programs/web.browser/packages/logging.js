@@ -2,15 +2,8 @@
 //                                                                      //
 // This is a generated file. You can view the original                  //
 // source in your browser if your browser supports source maps.         //
-//                                                                      //
-// If you are using Chrome, open the Developer Tools and click the gear //
-// icon in its lower right corner. In the General Settings panel, turn  //
-// on 'Enable source maps'.                                             //
-//                                                                      //
-// If you are using Firefox 23, go to `about:config` and set the        //
-// `devtools.debugger.source-maps-enabled` preference to true.          //
-// (The preference should be on by default in Firefox 24; versions      //
-// older than 23 do not support source maps.)                           //
+// Source maps are supported by all recent versions of Chrome, Safari,  //
+// and Firefox, and by Internet Explorer 11.                            //
 //                                                                      //
 //////////////////////////////////////////////////////////////////////////
 
@@ -25,7 +18,7 @@ var EJSON = Package.ejson.EJSON;
 /* Package-scope variables */
 var Log;
 
-(function () {
+(function(){
 
 /////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                     //
@@ -132,7 +125,7 @@ Log._getCallerDetails = function () {                                           
       return {file: "eval"};                                                           // 97
     }                                                                                  // 98
                                                                                        // 99
-    if (!line.match(/packages\/(?:local-test:)?logging(?:\/|\.js)/))                   // 100
+    if (!line.match(/packages\/(?:local-test[:_])?logging(?:\/|\.js)/))                // 100
       break;                                                                           // 101
   }                                                                                    // 102
                                                                                        // 103
@@ -204,7 +197,7 @@ _.each(['debug', 'info', 'warn', 'error'], function (level) {                   
   };                                                                                   // 169
 });                                                                                    // 170
                                                                                        // 171
-// tries to parse line as EJSON. returns object if parse is successful, or null if not // 172
+// tries to parse line as EJSON. returns object if parse is successful, or null if not
 Log.parse = function (line) {                                                          // 173
   var obj = null;                                                                      // 174
   if (line && line.charAt(0) === '{') { // might be json generated from calling 'Log'  // 175

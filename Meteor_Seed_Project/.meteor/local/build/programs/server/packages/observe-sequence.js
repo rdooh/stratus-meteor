@@ -4,15 +4,15 @@
 var Meteor = Package.meteor.Meteor;
 var Tracker = Package.tracker.Tracker;
 var Deps = Package.tracker.Deps;
-var LocalCollection = Package.minimongo.LocalCollection;
-var Minimongo = Package.minimongo.Minimongo;
+var MongoID = Package['mongo-id'].MongoID;
+var DiffSequence = Package['diff-sequence'].DiffSequence;
 var _ = Package.underscore._;
 var Random = Package.random.Random;
 
 /* Package-scope variables */
 var ObserveSequence, seqChangedToEmpty, seqChangedToArray, seqChangedToCursor;
 
-(function () {
+(function(){
 
 ///////////////////////////////////////////////////////////////////////////////////
 //                                                                               //
@@ -31,8 +31,8 @@ var warn = function () {                                                        
   }                                                                              // 9
 };                                                                               // 10
                                                                                  // 11
-var idStringify = LocalCollection._idStringify;                                  // 12
-var idParse = LocalCollection._idParse;                                          // 13
+var idStringify = MongoID.idStringify;                                           // 12
+var idParse = MongoID.idParse;                                                   // 13
                                                                                  // 14
 ObserveSequence = {                                                              // 15
   _suppressWarnings: 0,                                                          // 16
@@ -44,7 +44,7 @@ ObserveSequence = {                                                             
   //                                                                             // 22
   // @param sequenceFunc {Function} a reactive function returning a              // 23
   //     sequence type. The currently supported sequence types are:              // 24
-  //     'null', arrays and cursors.                                             // 25
+  //     Array, Cursor, and null.                                                // 25
   //                                                                             // 26
   // @param callbacks {Object} similar to a specific subset of                   // 27
   //     callbacks passed to `cursor.observe`                                    // 28
@@ -105,7 +105,7 @@ ObserveSequence = {                                                             
         var seqArray; // same structure as `lastSeqArray` above.                 // 83
                                                                                  // 84
         if (activeObserveHandle) {                                               // 85
-          // If we were previously observing a cursor, replace lastSeqArray with // 86
+          // If we were previously observing a cursor, replace lastSeqArray with
           // more up-to-date information.  Then stop the old observe.            // 87
           lastSeqArray = _.map(lastSeq.fetch(), function (doc) {                 // 88
             return {_id: doc._id, item: doc};                                    // 89
@@ -172,7 +172,7 @@ var isStoreCursor = function (cursor) {                                         
 // `seqArray` and calls appropriate functions from `callbacks`.                  // 150
 // Reuses Minimongo's diff algorithm implementation.                             // 151
 var diffArray = function (lastSeqArray, seqArray, callbacks) {                   // 152
-  var diffFn = Package.minimongo.LocalCollection._diffQueryOrderedChanges;       // 153
+  var diffFn = Package['diff-sequence'].DiffSequence.diffQueryOrderedChanges;    // 153
   var oldIdObjects = [];                                                         // 154
   var newIdObjects = [];                                                         // 155
   var posOld = {}; // maps from idStringify'd ids                                // 156
@@ -241,7 +241,7 @@ var diffArray = function (lastSeqArray, seqArray, callbacks) {                  
       // There are two cases:                                                    // 219
       //   1. The element is moved forward. Then all the positions in between    // 220
       //   are moved back.                                                       // 221
-      //   2. The element is moved back. Then the positions in between *and* the // 222
+      //   2. The element is moved back. Then the positions in between *and* the
       //   element that is currently standing on the moved element's future      // 223
       //   position are moved forward.                                           // 224
       _.each(posCur, function (elCurPosition, id) {                              // 225
@@ -314,7 +314,7 @@ seqChangedToArray = function (lastSeqArray, array, callbacks) {                 
                item === undefined) {                                             // 292
       id = item;                                                                 // 293
     } else if (typeof item === 'object') {                                       // 294
-      id = (item && item._id) || index;                                          // 295
+      id = (item && _.has(item, '_id')) ? item._id : index;                      // 295
     } else {                                                                     // 296
       throw new Error("{{#each}} doesn't support arrays with " +                 // 297
                       "elements of type " + typeof item);                        // 298

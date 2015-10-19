@@ -8,7 +8,7 @@ var IdMap = Package['id-map'].IdMap;
 /* Package-scope variables */
 var MaxHeap, MinHeap, MinMaxHeap;
 
-(function () {
+(function(){
 
 ////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                    //
@@ -28,7 +28,7 @@ var MaxHeap, MinHeap, MinMaxHeap;
 //       mappings internally. Standard IdMap is used by default.                      // 10
 MaxHeap = function (comparator, options) {                                            // 11
   if (! _.isFunction(comparator))                                                     // 12
-    throw new Error('Passed comparator is invalid, should be a comparison function'); // 13
+    throw new Error('Passed comparator is invalid, should be a comparison function');
   var self = this;                                                                    // 14
                                                                                       // 15
   // a C-style comparator that is given two values and returns a number,              // 16
@@ -252,7 +252,7 @@ function parentIdx (i) { return (i - 1) >> 1; }                                 
 
 
 
-(function () {
+(function(){
 
 ////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                    //
@@ -289,7 +289,7 @@ _.extend(MinHeap.prototype, {                                                   
 
 
 
-(function () {
+(function(){
 
 ////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                    //

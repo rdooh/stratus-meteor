@@ -8,7 +8,7 @@ var Deps = Package.tracker.Deps;
 /* Package-scope variables */
 var ReactiveVar;
 
-(function () {
+(function(){
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                              //
@@ -49,7 +49,7 @@ var ReactiveVar;
  * @instanceName reactiveVar                                                                                    // 31
  * @summary Constructor for a ReactiveVar, which represents a single reactive variable.                         // 32
  * @locus Client                                                                                                // 33
- * @param {Any} initialValue The initial value to set.  `equalsFunc` is ignored when setting the initial value. // 34
+ * @param {Any} initialValue The initial value to set.  `equalsFunc` is ignored when setting the initial value.
  * @param {Function} [equalsFunc] Optional.  A function of two arguments, called on the old value and the new value whenever the ReactiveVar is set.  If it returns true, no set is performed.  If omitted, the default `equalsFunc` returns true if its arguments are `===` and are of type number, boolean, string, undefined, or null.
  */                                                                                                             // 36
 ReactiveVar = function (initialValue, equalsFunc) {                                                             // 37

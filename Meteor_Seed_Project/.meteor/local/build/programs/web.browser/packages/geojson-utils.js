@@ -2,15 +2,8 @@
 //                                                                      //
 // This is a generated file. You can view the original                  //
 // source in your browser if your browser supports source maps.         //
-//                                                                      //
-// If you are using Chrome, open the Developer Tools and click the gear //
-// icon in its lower right corner. In the General Settings panel, turn  //
-// on 'Enable source maps'.                                             //
-//                                                                      //
-// If you are using Firefox 23, go to `about:config` and set the        //
-// `devtools.debugger.source-maps-enabled` preference to true.          //
-// (The preference should be on by default in Firefox 24; versions      //
-// older than 23 do not support source maps.)                           //
+// Source maps are supported by all recent versions of Chrome, Safari,  //
+// and Firefox, and by Internet Explorer 11.                            //
 //                                                                      //
 //////////////////////////////////////////////////////////////////////////
 
@@ -21,9 +14,9 @@
 var Meteor = Package.meteor.Meteor;
 
 /* Package-scope variables */
-var GeoJSON, module;
+var module, GeoJSON;
 
-(function () {
+(function(){
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                         //
@@ -45,7 +38,7 @@ module = {exports:{}};                                                          
 
 
 
-(function () {
+(function(){
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                         //
@@ -303,7 +296,7 @@ module = {exports:{}};                                                          
                                                                                                            // 248
   gju.simplify = function (source, kink) { /* source[] array of geojson points */                          // 249
     /* kink	in metres, kinks above this depth kept  */                                                     // 250
-    /* kink depth is the height of the triangle abc where a-b and b-c are two consecutive line segments */ // 251
+    /* kink depth is the height of the triangle abc where a-b and b-c are two consecutive line segments */
     kink = kink || 20;                                                                                     // 252
     source = source.map(function (o) {                                                                     // 253
       return {                                                                                             // 254
@@ -443,7 +436,7 @@ module = {exports:{}};                                                          
 
 
 
-(function () {
+(function(){
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                         //

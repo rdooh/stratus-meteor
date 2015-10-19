@@ -8,7 +8,7 @@ var EJSON = Package.ejson.EJSON;
 /* Package-scope variables */
 var IdMap;
 
-(function () {
+(function(){
 
 ////////////////////////////////////////////////////////////////////////////////
 //                                                                            //
@@ -24,8 +24,8 @@ IdMap = function (idStringify, idParse) {                                     //
 };                                                                            // 6
                                                                               // 7
 // Some of these methods are designed to match methods on OrderedDict, since  // 8
-// (eg) ObserveMultiplex and _CachingChangeObserver use them interchangeably. // 9
-// (Conceivably, this should be replaced with "UnorderedDict" with a specific // 10
+// (eg) ObserveMultiplex and _CachingChangeObserver use them interchangeably.
+// (Conceivably, this should be replaced with "UnorderedDict" with a specific
 // set of methods that overlap between the two.)                              // 11
                                                                               // 12
 _.extend(IdMap.prototype, {                                                   // 13
@@ -81,7 +81,7 @@ _.extend(IdMap.prototype, {                                                   //
     self._map[key] = def;                                                     // 63
     return def;                                                               // 64
   },                                                                          // 65
-  // Assumes that values are EJSON-cloneable, and that we don't need to clone // 66
+  // Assumes that values are EJSON-cloneable, and that we don't need to clone
   // IDs (ie, that nobody is going to mutate an ObjectId).                    // 67
   clone: function () {                                                        // 68
     var self = this;                                                          // 69

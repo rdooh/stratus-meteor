@@ -2,15 +2,8 @@
 //                                                                      //
 // This is a generated file. You can view the original                  //
 // source in your browser if your browser supports source maps.         //
-//                                                                      //
-// If you are using Chrome, open the Developer Tools and click the gear //
-// icon in its lower right corner. In the General Settings panel, turn  //
-// on 'Enable source maps'.                                             //
-//                                                                      //
-// If you are using Firefox 23, go to `about:config` and set the        //
-// `devtools.debugger.source-maps-enabled` preference to true.          //
-// (The preference should be on by default in Firefox 24; versions      //
-// older than 23 do not support source maps.)                           //
+// Source maps are supported by all recent versions of Chrome, Safari,  //
+// and Firefox, and by Internet Explorer 11.                            //
 //                                                                      //
 //////////////////////////////////////////////////////////////////////////
 
@@ -23,12 +16,13 @@ var _ = Package.underscore._;
 var Blaze = Package.blaze.Blaze;
 var UI = Package.blaze.UI;
 var Handlebars = Package.blaze.Handlebars;
+var Spacebars = Package.spacebars.Spacebars;
 var HTML = Package.htmljs.HTML;
 
 /* Package-scope variables */
 var Template;
 
-(function () {
+(function(){
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                              //
@@ -56,7 +50,7 @@ Template.__checkName = function (name) {                                        
   //    These are specified in RESERVED_TEMPLATE_NAMES.                                                         // 18
   if (name in Template || _.contains(RESERVED_TEMPLATE_NAMES, name)) {                                          // 19
     if ((Template[name] instanceof Template) && name !== "body")                                                // 20
-      throw new Error("There are multiple templates named '" + name + "'. Each template needs a unique name."); // 21
+      throw new Error("There are multiple templates named '" + name + "'. Each template needs a unique name.");
     throw new Error("This template name is reserved: " + name);                                                 // 22
   }                                                                                                             // 23
 };                                                                                                              // 24
@@ -115,6 +109,116 @@ Template.__body__ = Template.body;                                              
 Template.__body__.__contentParts = Template.body.contentViews;                                                  // 77
 Template.__body__.__instantiate = Template.body.renderToDocument;                                               // 78
                                                                                                                 // 79
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+}).call(this);
+
+
+
+
+
+
+(function(){
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                              //
+// packages/templating/template.dynamic.js                                                                      //
+//                                                                                                              //
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                                //
+                                                                                                                // 1
+Template.__checkName("__dynamic");                                                                              // 2
+Template["__dynamic"] = new Template("Template.__dynamic", (function() {                                        // 3
+  var view = this;                                                                                              // 4
+  return [ Blaze.View("lookup:checkContext", function() {                                                       // 5
+    return Spacebars.mustache(view.lookup("checkContext"));                                                     // 6
+  }), "\n  ", Blaze.If(function() {                                                                             // 7
+    return Spacebars.call(view.lookup("dataContextPresent"));                                                   // 8
+  }, function() {                                                                                               // 9
+    return [ "\n    ", Spacebars.include(view.lookupTemplate("__dynamicWithDataContext")), "\n  " ];            // 10
+  }, function() {                                                                                               // 11
+    return [ "\n    \n    ", Blaze._TemplateWith(function() {                                                   // 12
+      return {                                                                                                  // 13
+        template: Spacebars.call(view.lookup("template")),                                                      // 14
+        data: Spacebars.call(view.lookup(".."))                                                                 // 15
+      };                                                                                                        // 16
+    }, function() {                                                                                             // 17
+      return Spacebars.include(view.lookupTemplate("__dynamicWithDataContext"));                                // 18
+    }), "\n  " ];                                                                                               // 19
+  }) ];                                                                                                         // 20
+}));                                                                                                            // 21
+                                                                                                                // 22
+Template.__checkName("__dynamicWithDataContext");                                                               // 23
+Template["__dynamicWithDataContext"] = new Template("Template.__dynamicWithDataContext", (function() {          // 24
+  var view = this;                                                                                              // 25
+  return Spacebars.With(function() {                                                                            // 26
+    return Spacebars.dataMustache(view.lookup("chooseTemplate"), view.lookup("template"));                      // 27
+  }, function() {                                                                                               // 28
+    return [ "\n    ", Blaze._TemplateWith(function() {                                                         // 29
+      return Spacebars.call(Spacebars.dot(view.lookup(".."), "data"));                                          // 30
+    }, function() {                                                                                             // 31
+      return Spacebars.include(view.lookupTemplate(".."));                                                      // 32
+    }), "    \n  " ];                                                                                           // 33
+  });                                                                                                           // 34
+}));                                                                                                            // 35
+                                                                                                                // 36
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+}).call(this);
+
+
+
+
+
+
+(function(){
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                              //
+// packages/templating/dynamic.js                                                                               //
+//                                                                                                              //
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                                //
+var Template = Blaze.Template;                                                                                  // 1
+                                                                                                                // 2
+/**                                                                                                             // 3
+ * @isTemplate true                                                                                             // 4
+ * @memberOf Template                                                                                           // 5
+ * @function dynamic                                                                                            // 6
+ * @summary Choose a template to include dynamically, by name.                                                  // 7
+ * @locus Templates                                                                                             // 8
+ * @param {String} template The name of the template to include.                                                // 9
+ * @param {Object} [data] Optional. The data context in which to include the                                    // 10
+ * template.                                                                                                    // 11
+ */                                                                                                             // 12
+                                                                                                                // 13
+Template.__dynamicWithDataContext.helpers({                                                                     // 14
+  chooseTemplate: function (name) {                                                                             // 15
+    return Blaze._getTemplate(name, function () {                                                               // 16
+      return Template.instance();                                                                               // 17
+    });                                                                                                         // 18
+  }                                                                                                             // 19
+});                                                                                                             // 20
+                                                                                                                // 21
+Template.__dynamic.helpers({                                                                                    // 22
+  dataContextPresent: function () {                                                                             // 23
+    return _.has(this, "data");                                                                                 // 24
+  },                                                                                                            // 25
+  checkContext: function () {                                                                                   // 26
+    if (! _.has(this, "template")) {                                                                            // 27
+      throw new Error("Must specify name in the 'template' argument " +                                         // 28
+                      "to {{> Template.dynamic}}.");                                                            // 29
+    }                                                                                                           // 30
+                                                                                                                // 31
+    _.each(this, function (v, k) {                                                                              // 32
+      if (k !== "template" && k !== "data") {                                                                   // 33
+        throw new Error("Invalid argument to {{> Template.dynamic}}: " +                                        // 34
+                        k);                                                                                     // 35
+      }                                                                                                         // 36
+    });                                                                                                         // 37
+  }                                                                                                             // 38
+});                                                                                                             // 39
+                                                                                                                // 40
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }).call(this);

@@ -10,4 +10,4 @@ Template["mainLayout"] = new Template("Template.mainLayout", (function() {
   }, "\n\n            ", HTML.Raw("<!-- Page wrapper -->"), "\n            ", Spacebars.include(view.lookupTemplate("topNavbar")), "\n\n            ", HTML.Raw("<!-- Main view  -->"), "\n            ", Spacebars.include(view.lookupTemplate("yield")), "\n\n            ", HTML.Raw("<!-- Footer -->"), "\n            ", Spacebars.include(view.lookupTemplate("footer")), "\n\n        "), "\n        ", HTML.Raw("<!-- End page wrapper-->"), "\n\n    "), HTML.Raw("\n    <!-- End wrapper-->") ];
 }));
 
-})();
+}).call(this);

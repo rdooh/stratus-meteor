@@ -8,7 +8,7 @@ var _ = Package.underscore._;
 /* Package-scope variables */
 var BlazeTools, toJSLiteral, toObjectLiteralKey, ToJSVisitor;
 
-(function () {
+(function(){
 
 ///////////////////////////////////////////////////////////////////////////////////////
 //                                                                                   //
@@ -27,7 +27,7 @@ BlazeTools = {};                                                                
 
 
 
-(function () {
+(function(){
 
 ///////////////////////////////////////////////////////////////////////////////////////
 //                                                                                   //
@@ -145,74 +145,90 @@ BlazeTools.parseIdentifierName = function (scanner) {                           
   return scanner.input.substring(startPos, scanner.pos);                             // 108
 };                                                                                   // 109
                                                                                      // 110
-BlazeTools.parseStringLiteral = function (scanner) {                                 // 111
-  var startPos = scanner.pos;                                                        // 112
-  var rest = scanner.rest();                                                         // 113
-  var match = rStringQuote.exec(rest);                                               // 114
-  if (! match)                                                                       // 115
-    return null;                                                                     // 116
-                                                                                     // 117
-  var quote = match[0];                                                              // 118
-  scanner.pos++;                                                                     // 119
-  rest = scanner.rest();                                                             // 120
-                                                                                     // 121
-  var jsonLiteral = '"';                                                             // 122
-                                                                                     // 123
-  while (match) {                                                                    // 124
-    match = rStringMiddle.exec(rest);                                                // 125
-    if (match) {                                                                     // 126
-      jsonLiteral += match[0];                                                       // 127
-    } else {                                                                         // 128
-      match = rEscapeSequence.exec(rest);                                            // 129
-      if (match) {                                                                   // 130
-        var esc = match[0];                                                          // 131
-        // Convert all string escapes to JSON-compatible string escapes, so we       // 132
-        // can use JSON.parse for some of the work.  JSON strings are not the        // 133
-        // same as JS strings.  They don't support `\0`, `\v`, `\'`, or hex          // 134
-        // escapes.                                                                  // 135
-        if (esc === '\\0')                                                           // 136
-          jsonLiteral += '\\u0000';                                                  // 137
-        else if (esc === '\\v')                                                      // 138
-          // Note: IE 8 doesn't correctly parse '\v' in JavaScript.                  // 139
-          jsonLiteral += '\\u000b';                                                  // 140
-        else if (esc.charAt(1) === 'x')                                              // 141
-          jsonLiteral += '\\u00' + esc.slice(2);                                     // 142
-        else if (esc === '\\\'')                                                     // 143
-          jsonLiteral += "'";                                                        // 144
-        else                                                                         // 145
-          jsonLiteral += esc;                                                        // 146
-      } else {                                                                       // 147
-        match = rLineContinuation.exec(rest);                                        // 148
-        if (! match) {                                                               // 149
-          match = rStringQuote.exec(rest);                                           // 150
-          if (match) {                                                               // 151
-            var c = match[0];                                                        // 152
-            if (c !== quote) {                                                       // 153
-              if (c === '"')                                                         // 154
-                jsonLiteral += '\\';                                                 // 155
-              jsonLiteral += c;                                                      // 156
-            }                                                                        // 157
-          }                                                                          // 158
-        }                                                                            // 159
-      }                                                                              // 160
-    }                                                                                // 161
-    if (match) {                                                                     // 162
-      scanner.pos += match[0].length;                                                // 163
-      rest = scanner.rest();                                                         // 164
-      if (match[0] === quote)                                                        // 165
-        break;                                                                       // 166
-    }                                                                                // 167
-  }                                                                                  // 168
-                                                                                     // 169
-  if (match[0] !== quote)                                                            // 170
-    scanner.fatal("Unterminated string literal");                                    // 171
-                                                                                     // 172
-  jsonLiteral += '"';                                                                // 173
-  var text = scanner.input.substring(startPos, scanner.pos);                         // 174
-  var value = JSON.parse(jsonLiteral);                                               // 175
-  return { text: text, value: value };                                               // 176
-};                                                                                   // 177
-                                                                                     // 178
+BlazeTools.parseExtendedIdentifierName = function (scanner) {                        // 111
+  // parse an identifier name optionally preceded by '@'                             // 112
+  if (scanner.peek() === '@') {                                                      // 113
+    scanner.pos++;                                                                   // 114
+    var afterAt = BlazeTools.parseIdentifierName(scanner);                           // 115
+    if (afterAt) {                                                                   // 116
+      return '@' + afterAt;                                                          // 117
+    } else {                                                                         // 118
+      scanner.pos--;                                                                 // 119
+      return null;                                                                   // 120
+    }                                                                                // 121
+  } else {                                                                           // 122
+    return BlazeTools.parseIdentifierName(scanner);                                  // 123
+  }                                                                                  // 124
+};                                                                                   // 125
+                                                                                     // 126
+BlazeTools.parseStringLiteral = function (scanner) {                                 // 127
+  var startPos = scanner.pos;                                                        // 128
+  var rest = scanner.rest();                                                         // 129
+  var match = rStringQuote.exec(rest);                                               // 130
+  if (! match)                                                                       // 131
+    return null;                                                                     // 132
+                                                                                     // 133
+  var quote = match[0];                                                              // 134
+  scanner.pos++;                                                                     // 135
+  rest = scanner.rest();                                                             // 136
+                                                                                     // 137
+  var jsonLiteral = '"';                                                             // 138
+                                                                                     // 139
+  while (match) {                                                                    // 140
+    match = rStringMiddle.exec(rest);                                                // 141
+    if (match) {                                                                     // 142
+      jsonLiteral += match[0];                                                       // 143
+    } else {                                                                         // 144
+      match = rEscapeSequence.exec(rest);                                            // 145
+      if (match) {                                                                   // 146
+        var esc = match[0];                                                          // 147
+        // Convert all string escapes to JSON-compatible string escapes, so we       // 148
+        // can use JSON.parse for some of the work.  JSON strings are not the        // 149
+        // same as JS strings.  They don't support `\0`, `\v`, `\'`, or hex          // 150
+        // escapes.                                                                  // 151
+        if (esc === '\\0')                                                           // 152
+          jsonLiteral += '\\u0000';                                                  // 153
+        else if (esc === '\\v')                                                      // 154
+          // Note: IE 8 doesn't correctly parse '\v' in JavaScript.                  // 155
+          jsonLiteral += '\\u000b';                                                  // 156
+        else if (esc.charAt(1) === 'x')                                              // 157
+          jsonLiteral += '\\u00' + esc.slice(2);                                     // 158
+        else if (esc === '\\\'')                                                     // 159
+          jsonLiteral += "'";                                                        // 160
+        else                                                                         // 161
+          jsonLiteral += esc;                                                        // 162
+      } else {                                                                       // 163
+        match = rLineContinuation.exec(rest);                                        // 164
+        if (! match) {                                                               // 165
+          match = rStringQuote.exec(rest);                                           // 166
+          if (match) {                                                               // 167
+            var c = match[0];                                                        // 168
+            if (c !== quote) {                                                       // 169
+              if (c === '"')                                                         // 170
+                jsonLiteral += '\\';                                                 // 171
+              jsonLiteral += c;                                                      // 172
+            }                                                                        // 173
+          }                                                                          // 174
+        }                                                                            // 175
+      }                                                                              // 176
+    }                                                                                // 177
+    if (match) {                                                                     // 178
+      scanner.pos += match[0].length;                                                // 179
+      rest = scanner.rest();                                                         // 180
+      if (match[0] === quote)                                                        // 181
+        break;                                                                       // 182
+    }                                                                                // 183
+  }                                                                                  // 184
+                                                                                     // 185
+  if (! match || match[0] !== quote)                                                 // 186
+    scanner.fatal("Unterminated string literal");                                    // 187
+                                                                                     // 188
+  jsonLiteral += '"';                                                                // 189
+  var text = scanner.input.substring(startPos, scanner.pos);                         // 190
+  var value = JSON.parse(jsonLiteral);                                               // 191
+  return { text: text, value: value };                                               // 192
+};                                                                                   // 193
+                                                                                     // 194
 ///////////////////////////////////////////////////////////////////////////////////////
 
 }).call(this);
@@ -222,7 +238,7 @@ BlazeTools.parseStringLiteral = function (scanner) {                            
 
 
 
-(function () {
+(function(){
 
 ///////////////////////////////////////////////////////////////////////////////////////
 //                                                                                   //
@@ -247,7 +263,7 @@ BlazeTools.EmitCode.prototype.toJS = function (visitor) {                       
                                                                                      // 15
 // Turns any JSONable value into a JavaScript literal.                               // 16
 toJSLiteral = function (obj) {                                                       // 17
-  // See <http://timelessrepo.com/json-isnt-a-javascript-subset> for `\u2028\u2029`. // 18
+  // See <http://timelessrepo.com/json-isnt-a-javascript-subset> for `\u2028\u2029`.
   // Also escape Unicode surrogates.                                                 // 19
   return (JSON.stringify(obj)                                                        // 20
           .replace(/[\u2028\u2029\ud800-\udfff]/g, function (c) {                    // 21

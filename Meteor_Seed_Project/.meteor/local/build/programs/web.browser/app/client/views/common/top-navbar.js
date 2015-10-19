@@ -40,4 +40,4 @@ Template.topNavbar.events({
 
 });
 
-})();
+}).call(this);

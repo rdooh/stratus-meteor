@@ -4,5 +4,4 @@
     $('#side-menu').metisMenu();
 
 };
-
-})();
+}).call(this);

@@ -2,15 +2,8 @@
 //                                                                      //
 // This is a generated file. You can view the original                  //
 // source in your browser if your browser supports source maps.         //
-//                                                                      //
-// If you are using Chrome, open the Developer Tools and click the gear //
-// icon in its lower right corner. In the General Settings panel, turn  //
-// on 'Enable source maps'.                                             //
-//                                                                      //
-// If you are using Firefox 23, go to `about:config` and set the        //
-// `devtools.debugger.source-maps-enabled` preference to true.          //
-// (The preference should be on by default in Firefox 24; versions      //
-// older than 23 do not support source maps.)                           //
+// Source maps are supported by all recent versions of Chrome, Safari,  //
+// and Firefox, and by Internet Explorer 11.                            //
 //                                                                      //
 //////////////////////////////////////////////////////////////////////////
 
@@ -20,13 +13,11 @@
 /* Imports */
 var Meteor = Package.meteor.Meteor;
 var _ = Package.underscore._;
-var Log = Package.logging.Log;
-var JSON = Package.json.JSON;
 
 /* Package-scope variables */
 var Reload;
 
-(function () {
+(function(){
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                         //
@@ -221,7 +212,7 @@ Reload._migrate = function (tryReload, options) {                               
       Meteor._debug("Couldn't save data for migration to sessionStorage", err);            // 185
     }                                                                                      // 186
   } else {                                                                                 // 187
-    Meteor._debug("Browser does not support sessionStorage. Not saving migration state."); // 188
+    Meteor._debug("Browser does not support sessionStorage. Not saving migration state.");
   }                                                                                        // 189
                                                                                            // 190
   return true;                                                                             // 191
@@ -271,7 +262,7 @@ Reload._reload = function (options) {                                           
 
 
 
-(function () {
+(function(){
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                         //

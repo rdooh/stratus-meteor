@@ -2,15 +2,8 @@
 //                                                                      //
 // This is a generated file. You can view the original                  //
 // source in your browser if your browser supports source maps.         //
-//                                                                      //
-// If you are using Chrome, open the Developer Tools and click the gear //
-// icon in its lower right corner. In the General Settings panel, turn  //
-// on 'Enable source maps'.                                             //
-//                                                                      //
-// If you are using Firefox 23, go to `about:config` and set the        //
-// `devtools.debugger.source-maps-enabled` preference to true.          //
-// (The preference should be on by default in Firefox 24; versions      //
-// older than 23 do not support source maps.)                           //
+// Source maps are supported by all recent versions of Chrome, Safari,  //
+// and Firefox, and by Internet Explorer 11.                            //
 //                                                                      //
 //////////////////////////////////////////////////////////////////////////
 
@@ -23,7 +16,7 @@ var _ = Package.underscore._;
 /* Package-scope variables */
 var Meteor;
 
-(function () {
+(function(){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                        //
@@ -58,7 +51,7 @@ Meteor = {                                                                      
 if (typeof __meteor_runtime_config__ === 'object' &&                                                      // 25
     __meteor_runtime_config__.PUBLIC_SETTINGS) {                                                          // 26
   /**                                                                                                     // 27
-   * @summary `Meteor.settings` contains deployment-specific configuration options. You can initialize settings by passing the `--settings` option (which takes the name of a file containing JSON data) to `meteor run` or `meteor deploy`. When running your server directly (e.g. from a bundle), you instead specify settings by putting the JSON directly into the `METEOR_SETTINGS` environment variable. If you don't provide any settings, `Meteor.settings` will be an empty object.  If the settings object contains a key named `public`, then `Meteor.settings.public` will be available on the client as well as the server.  All other properties of `Meteor.settings` are only defined on the server.
+   * @summary `Meteor.settings` contains deployment-specific configuration options. You can initialize settings by passing the `--settings` option (which takes the name of a file containing JSON data) to `meteor run` or `meteor deploy`. When running your server directly (e.g. from a bundle), you instead specify settings by putting the JSON directly into the `METEOR_SETTINGS` environment variable. If the settings object contains a key named `public`, then `Meteor.settings.public` will be available on the client as well as the server.  All other properties of `Meteor.settings` are only defined on the server.  You can rely on `Meteor.settings` and `Meteor.settings.public` being defined objects (not undefined) on both client and server even if there are no settings specified.  Changes to `Meteor.settings.public` at runtime will be picked up by new client connections.
    * @locus Anywhere                                                                                      // 29
    * @type {Object}                                                                                       // 30
    */                                                                                                     // 31
@@ -74,7 +67,7 @@ if (typeof __meteor_runtime_config__ === 'object' &&                            
 
 
 
-(function () {
+(function(){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                        //
@@ -166,10 +159,10 @@ _.extend(Meteor, {                                                              
                                                                                                           // 82
   /**                                                                                                     // 83
    * @memberOf Meteor                                                                                     // 84
-   * @summary Wrap a function that takes a callback function as its final parameter. On the server, the wrapped function can be used either synchronously (without passing a callback) or asynchronously (when a callback is passed). On the client, a callback is always required; errors will be logged if there is no callback. If a callback is provided, the environment captured when the original function was called will be restored in the callback.
+   * @summary Wrap a function that takes a callback function as its final parameter. The signature of the callback of the wrapped function should be `function(error, result){}`. On the server, the wrapped function can be used either synchronously (without passing a callback) or asynchronously (when a callback is passed). On the client, a callback is always required; errors will be logged if there is no callback. If a callback is provided, the environment captured when the original function was called will be restored in the callback.
    * @locus Anywhere                                                                                      // 86
    * @param {Function} func A function that takes a callback as its final parameter                       // 87
-   * @param {Object} [context] Optional `this` object against which the original function will be invoked // 88
+   * @param {Object} [context] Optional `this` object against which the original function will be invoked
    */                                                                                                     // 89
   wrapAsync: function (fn, context) {                                                                     // 90
     return function (/* arguments */) {                                                                   // 91
@@ -260,7 +253,7 @@ function logErr(err) {                                                          
 
 
 
-(function () {
+(function(){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                        //
@@ -419,7 +412,7 @@ Meteor._setImmediate =                                                          
 
 
 
-(function () {
+(function(){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                        //
@@ -507,7 +500,7 @@ _.extend(Meteor, {                                                              
 
 
 
-(function () {
+(function(){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                        //
@@ -577,7 +570,7 @@ Meteor.makeErrorType = function (name, constructor) {                           
  * // on the client                                                                                       // 60
  * Meteor.call("methodName", function (error) {                                                           // 61
  *   // identify the error                                                                                // 62
- *   if (error.error === "logged-out") {                                                                  // 63
+ *   if (error && error.error === "logged-out") {                                                         // 63
  *     // show a nice error message                                                                       // 64
  *     Session.set("errorMessage", "Please log in to post a comment.");                                   // 65
  *   }                                                                                                    // 66
@@ -597,41 +590,40 @@ Meteor.Error = Meteor.makeErrorType(                                            
   function (error, reason, details) {                                                                     // 80
     var self = this;                                                                                      // 81
                                                                                                           // 82
-    // Currently, a numeric code, likely similar to a HTTP code (eg,                                      // 83
-    // 404, 500). That is likely to change though.                                                        // 84
-    self.error = error;                                                                                   // 85
-                                                                                                          // 86
-    // Optional: A short human-readable summary of the error. Not                                         // 87
-    // intended to be shown to end users, just developers. ("Not Found",                                  // 88
-    // "Internal Server Error")                                                                           // 89
-    self.reason = reason;                                                                                 // 90
-                                                                                                          // 91
-    // Optional: Additional information about the error, say for                                          // 92
-    // debugging. It might be a (textual) stack trace if the server is                                    // 93
-    // willing to provide one. The corresponding thing in HTTP would be                                   // 94
-    // the body of a 404 or 500 response. (The difference is that we                                      // 95
-    // never expect this to be shown to end users, only developers, so                                    // 96
-    // it doesn't need to be pretty.)                                                                     // 97
-    self.details = details;                                                                               // 98
-                                                                                                          // 99
-    // This is what gets displayed at the top of a stack trace. Current                                   // 100
-    // format is "[404]" (if no reason is set) or "File not found [404]"                                  // 101
-    if (self.reason)                                                                                      // 102
-      self.message = self.reason + ' [' + self.error + ']';                                               // 103
-    else                                                                                                  // 104
-      self.message = '[' + self.error + ']';                                                              // 105
-  });                                                                                                     // 106
-                                                                                                          // 107
-// Meteor.Error is basically data and is sent over DDP, so you should be able to                          // 108
-// properly EJSON-clone it. This is especially important because if a                                     // 109
-// Meteor.Error is thrown through a Future, the error, reason, and details                                // 110
-// properties become non-enumerable so a standard Object clone won't preserve                             // 111
-// them and they will be lost from DDP.                                                                   // 112
-Meteor.Error.prototype.clone = function () {                                                              // 113
-  var self = this;                                                                                        // 114
-  return new Meteor.Error(self.error, self.reason, self.details);                                         // 115
-};                                                                                                        // 116
-                                                                                                          // 117
+    // String code uniquely identifying this kind of error.                                               // 83
+    self.error = error;                                                                                   // 84
+                                                                                                          // 85
+    // Optional: A short human-readable summary of the error. Not                                         // 86
+    // intended to be shown to end users, just developers. ("Not Found",                                  // 87
+    // "Internal Server Error")                                                                           // 88
+    self.reason = reason;                                                                                 // 89
+                                                                                                          // 90
+    // Optional: Additional information about the error, say for                                          // 91
+    // debugging. It might be a (textual) stack trace if the server is                                    // 92
+    // willing to provide one. The corresponding thing in HTTP would be                                   // 93
+    // the body of a 404 or 500 response. (The difference is that we                                      // 94
+    // never expect this to be shown to end users, only developers, so                                    // 95
+    // it doesn't need to be pretty.)                                                                     // 96
+    self.details = details;                                                                               // 97
+                                                                                                          // 98
+    // This is what gets displayed at the top of a stack trace. Current                                   // 99
+    // format is "[404]" (if no reason is set) or "File not found [404]"                                  // 100
+    if (self.reason)                                                                                      // 101
+      self.message = self.reason + ' [' + self.error + ']';                                               // 102
+    else                                                                                                  // 103
+      self.message = '[' + self.error + ']';                                                              // 104
+  });                                                                                                     // 105
+                                                                                                          // 106
+// Meteor.Error is basically data and is sent over DDP, so you should be able to                          // 107
+// properly EJSON-clone it. This is especially important because if a                                     // 108
+// Meteor.Error is thrown through a Future, the error, reason, and details                                // 109
+// properties become non-enumerable so a standard Object clone won't preserve                             // 110
+// them and they will be lost from DDP.                                                                   // 111
+Meteor.Error.prototype.clone = function () {                                                              // 112
+  var self = this;                                                                                        // 113
+  return new Meteor.Error(self.error, self.reason, self.details);                                         // 114
+};                                                                                                        // 115
+                                                                                                          // 116
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }).call(this);
@@ -641,7 +633,7 @@ Meteor.Error.prototype.clone = function () {                                    
 
 
 
-(function () {
+(function(){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                        //
@@ -697,7 +689,7 @@ _.extend(Meteor._SynchronousQueue.prototype, {                                  
             // for.                                                                                       // 46
             throw e;                                                                                      // 47
           } else {                                                                                        // 48
-            Meteor._debug("Exception in queued task: " + e.stack);                                        // 49
+            Meteor._debug("Exception in queued task: " + (e.stack || e));                                 // 49
           }                                                                                               // 50
         }                                                                                                 // 51
       }                                                                                                   // 52
@@ -745,7 +737,7 @@ _.extend(Meteor._SynchronousQueue.prototype, {                                  
 
 
 
-(function () {
+(function(){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                        //
@@ -771,7 +763,7 @@ var ready = function() {                                                        
         // Cordova indicates that all the cordova plugins files have been loaded                          // 16
         // and plugins are ready to be used when the "deviceready" callback                               // 17
         // fires. Even though we wait for the "deviceready" event, plugins                                // 18
-        // have been observed to still not be not ready (likely a Cordova bug).                           // 19
+        // have been observed to still not be ready (likely a Cordova bug).                               // 19
         // We check the availability of the Cordova-Update plugin (the only                               // 20
         // plugin that we always include for sure) and retry a bit later if it                            // 21
         // is nowhere to be found. Experiments have found that either all                                 // 22
@@ -837,7 +829,7 @@ Meteor.startup = function (cb) {                                                
 
 
 
-(function () {
+(function(){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                        //
@@ -908,7 +900,7 @@ Meteor._suppress_log = function (count) {                                       
   suppress += count;                                                                                      // 61
 };                                                                                                        // 62
                                                                                                           // 63
-Meteor._supressed_log_expected = function () {                                                            // 64
+Meteor._suppressed_log_expected = function () {                                                           // 64
   return suppress !== 0;                                                                                  // 65
 };                                                                                                        // 66
                                                                                                           // 67
@@ -922,7 +914,31 @@ Meteor._supressed_log_expected = function () {                                  
 
 
 
-(function () {
+(function(){
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                        //
+// packages/meteor/string_utils.js                                                                        //
+//                                                                                                        //
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                          //
+// Like Perl's quotemeta: quotes all regexp metacharacters.                                               // 1
+// Code taken from                                                                                        // 2
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions                      // 3
+Meteor._escapeRegExp = function (string) {                                                                // 4
+    return String(string).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");                                         // 5
+};                                                                                                        // 6
+                                                                                                          // 7
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+}).call(this);
+
+
+
+
+
+
+(function(){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                        //
@@ -1005,7 +1021,7 @@ Meteor._nodeCodeMustBeInFiber = function () {                                   
 
 
 
-(function () {
+(function(){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                        //

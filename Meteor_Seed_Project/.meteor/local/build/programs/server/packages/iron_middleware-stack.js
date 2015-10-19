@@ -3,16 +3,17 @@
 /* Imports */
 var Meteor = Package.meteor.Meteor;
 var _ = Package.underscore._;
+var EJSON = Package.ejson.EJSON;
 var Iron = Package['iron:core'].Iron;
 
 /* Package-scope variables */
 var Handler, MiddlewareStack, Iron;
 
-(function () {
+(function(){
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                     //
-// packages/iron:middleware-stack/lib/handler.js                                                       //
+// packages/iron_middleware-stack/lib/handler.js                                                       //
 //                                                                                                     //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                                                        //
@@ -146,11 +147,11 @@ Handler.prototype.clone = function () {                                         
 
 
 
-(function () {
+(function(){
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                     //
-// packages/iron:middleware-stack/lib/middleware_stack.js                                              //
+// packages/iron_middleware-stack/lib/middleware_stack.js                                              //
 //                                                                                                     //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                                                        //
@@ -283,9 +284,9 @@ MiddlewareStack.prototype.concat = function (/* stack1, stack2, */) {           
   var ret = new MiddlewareStack;                                                                       // 127
   var concat = Array.prototype.concat;                                                                 // 128
   var clonedThisStack = EJSON.clone(this._stack);                                                      // 129
-  var clonedOtherStacks = _.map(_.toArray(arguments), function (s) { return EJSON.clone(s._stack); }); // 130
+  var clonedOtherStacks = _.map(_.toArray(arguments), function (s) { return EJSON.clone(s._stack); });
   ret._stack = concat.apply(clonedThisStack, clonedOtherStacks);                                       // 131
-  this.length = ret._stack.length;                                                                     // 132
+  ret.length = ret._stack.length;                                                                      // 132
   return ret;                                                                                          // 133
 };                                                                                                     // 134
                                                                                                        // 135

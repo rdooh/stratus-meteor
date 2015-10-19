@@ -7,7 +7,7 @@ var _ = Package.underscore._;
 /* Package-scope variables */
 var OrderedDict;
 
-(function () {
+(function(){
 
 ///////////////////////////////////////////////////////////////////////////////////
 //                                                                               //
@@ -49,7 +49,7 @@ OrderedDict = function (/* ... */) {                                            
                                                                                  // 32
 _.extend(OrderedDict.prototype, {                                                // 33
   // the "prefix keys with a space" thing comes from here                        // 34
-  // https://github.com/documentcloud/underscore/issues/376#issuecomment-2815649 // 35
+  // https://github.com/documentcloud/underscore/issues/376#issuecomment-2815649
   _k: function (key) { return " " + this._stringify(key); },                     // 36
                                                                                  // 37
   empty: function () {                                                           // 38

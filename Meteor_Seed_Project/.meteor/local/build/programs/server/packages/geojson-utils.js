@@ -4,9 +4,9 @@
 var Meteor = Package.meteor.Meteor;
 
 /* Package-scope variables */
-var GeoJSON, module;
+var module, GeoJSON;
 
-(function () {
+(function(){
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                         //
@@ -28,7 +28,7 @@ module = {exports:{}};                                                          
 
 
 
-(function () {
+(function(){
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                         //
@@ -286,7 +286,7 @@ module = {exports:{}};                                                          
                                                                                                            // 248
   gju.simplify = function (source, kink) { /* source[] array of geojson points */                          // 249
     /* kink	in metres, kinks above this depth kept  */                                                     // 250
-    /* kink depth is the height of the triangle abc where a-b and b-c are two consecutive line segments */ // 251
+    /* kink depth is the height of the triangle abc where a-b and b-c are two consecutive line segments */
     kink = kink || 20;                                                                                     // 252
     source = source.map(function (o) {                                                                     // 253
       return {                                                                                             // 254
@@ -426,7 +426,7 @@ module = {exports:{}};                                                          
 
 
 
-(function () {
+(function(){
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                         //

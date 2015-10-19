@@ -5,9 +5,9 @@ var Meteor = Package.meteor.Meteor;
 var _ = Package.underscore._;
 
 /* Package-scope variables */
-var RoutePolicy, RoutePolicyTest;
+var RoutePolicyTest, RoutePolicy;
 
-(function () {
+(function(){
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                             //
@@ -71,7 +71,7 @@ _.extend(RoutePolicyConstructor.prototype, {                                    
                                                                                                                // 54
     var existingType = self.urlPrefixTypes[urlPrefix];                                                         // 55
     if (existingType && existingType !== type)                                                                 // 56
-      return 'the route URL prefix ' + urlPrefix + ' has already been declared to be of type ' + existingType; // 57
+      return 'the route URL prefix ' + urlPrefix + ' has already been declared to be of type ' + existingType;
                                                                                                                // 58
     return null;                                                                                               // 59
   },                                                                                                           // 60

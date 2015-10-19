@@ -18,4 +18,4 @@ Template["notFound"] = new Template("Template.notFound", (function() {
   }, "Go to Dashboard"), "\n            "), "\n        "), "\n    ");
 }));
 
-})();
+}).call(this);

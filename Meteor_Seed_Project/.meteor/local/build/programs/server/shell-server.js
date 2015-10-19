@@ -5,17 +5,36 @@ var fs = require("fs");
 var net = require("net");
 var tty = require("tty");
 var vm = require("vm");
-var Fiber = require("fibers");
 var _ = require("underscore");
 var INFO_FILE_MODE = 0600; // Only the owner can read or write.
 var EXITING_MESSAGE =
   // Exported so that ./client.js can know what to expect.
   exports.EXITING_MESSAGE = "Shell exiting...";
 
+var Promise = require("meteor-promise");
+// Only require("fibers") if somehow Promise.Fiber is not yet defined.
+Promise.Fiber = Promise.Fiber || require("fibers");
+
 // Invoked by the server process to listen for incoming connections from
 // shell clients. Each connection gets its own REPL instance.
 exports.listen = function listen(shellDir) {
-  new Server(shellDir).listen();
+  function callback() {
+    new Server(shellDir).listen();
+  }
+
+  // If the server is still in the very early stages of starting up,
+  // Meteor.startup may not available yet.
+  if (typeof Meteor === "object") {
+    Meteor.startup(callback);
+  } else if (typeof __meteor_bootstrap__ === "object") {
+    var hooks = __meteor_bootstrap__.startupHooks;
+    if (hooks) {
+      hooks.push(callback);
+    } else {
+      // As a fallback, just call the callback asynchronously.
+      process.nextTick(callback);
+    }
+  }
 };
 
 // Disabling the shell causes all attached clients to disconnect and exit.
@@ -158,9 +177,14 @@ Sp.startREPL = function startREPL(options) {
   // History persists across shell sessions!
   self.initializeHistory();
 
+  // Save the global `_` object in the server.  This is probably defined by the
+  // underscore package.  It is unlikely to be the same object as the `var _ =
+  // require('underscore')` in this file!
+  var originalUnderscore = repl.context._;
+
   Object.defineProperty(repl.context, "_", {
     // Force the global _ variable to remain bound to underscore.
-    get: function () { return _; },
+    get: function () { return originalUnderscore; },
 
     // Expose the last REPL result as __ instead of _.
     set: function(lastResult) {
@@ -235,23 +259,59 @@ function getTerminalWidth() {
   }
 }
 
-// Shell commands need to be executed in fibers in case they call into
-// code that yields.
+// Shell commands need to be executed in a Fiber in case they call into
+// code that yields. Using a Promise is an even better idea, since it runs
+// its callbacks in Fibers drawn from a pool, so the Fibers are recycled.
+var evalCommandPromise = Promise.resolve();
+
 function evalCommand(command, context, filename, callback) {
-  Fiber(function() {
-    try {
-      var result = vm.runInThisContext(command, filename);
-    } catch (error) {
-      if (process.domain) {
-        process.domain.emit("error", error);
-        process.domain.exit();
-      } else {
-        callback(error);
+  if (Package.ecmascript) {
+    var noParens = stripParens(command);
+    if (noParens !== command) {
+      var classMatch = /^\s*class\s+(\w+)/.exec(noParens);
+      if (classMatch && classMatch[1] !== "extends") {
+        // If the command looks like a named ES2015 class, we remove the
+        // extra layer of parentheses added by the REPL so that the
+        // command will be evaluated as a class declaration rather than as
+        // a named class expression. Note that you can still type (class A
+        // {}) explicitly to evaluate a named class expression. The REPL
+        // code that calls evalCommand handles named function expressions
+        // similarly (first with and then without parentheses), but that
+        // code doesn't know about ES2015 classes, which is why we have to
+        // handle them here.
+        command = noParens;
       }
+    }
+
+    try {
+      command = Package.ecmascript.ECMAScript.compileForShell(command);
+    } catch (error) {
+      callback(error);
       return;
     }
-    callback(null, result);
-  }).run();
+  }
+
+  try {
+    var script = new vm.Script(command, {
+      filename: filename,
+      displayErrors: false
+    });
+  } catch (parseError) {
+    callback(parseError);
+    return;
+  }
+
+  evalCommandPromise.then(function () {
+    callback(null, script.runInThisContext());
+  }).catch(callback);
+}
+
+function stripParens(command) {
+  if (command.charAt(0) === "(" &&
+      command.charAt(command.length - 1) === ")") {
+    return command.slice(1, command.length - 1);
+  }
+  return command;
 }
 
 // This function allows a persistent history of shell commands to be saved

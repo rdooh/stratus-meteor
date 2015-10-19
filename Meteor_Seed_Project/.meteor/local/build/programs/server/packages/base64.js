@@ -6,7 +6,7 @@ var Meteor = Package.meteor.Meteor;
 /* Package-scope variables */
 var Base64;
 
-(function () {
+(function(){
 
 //////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                      //
@@ -16,7 +16,7 @@ var Base64;
                                                                                         //
 // Base 64 encoding                                                                     // 1
                                                                                         // 2
-var BASE_64_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"; // 3
+var BASE_64_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
                                                                                         // 4
 var BASE_64_VALS = {};                                                                  // 5
                                                                                         // 6

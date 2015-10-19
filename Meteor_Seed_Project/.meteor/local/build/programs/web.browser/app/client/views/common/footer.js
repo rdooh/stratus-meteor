@@ -5,5 +5,4 @@
     // $('.footer').addClass('fixed');
 
 };
-
-})();
+}).call(this);

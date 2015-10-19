@@ -7,7 +7,7 @@ var _ = Package.underscore._;
 /* Package-scope variables */
 var WebAppHashing;
 
-(function () {
+(function(){
 
 //////////////////////////////////////////////////////////////////////////////
 //                                                                          //
@@ -46,7 +46,7 @@ WebAppHashing.calculateClientHash =                                         // 1
                                                                             // 29
   _.each(manifest, function (resource) {                                    // 30
       if ((! includeFilter || includeFilter(resource.type)) &&              // 31
-          (resource.where === 'client' || resource.where === 'internal')) { // 32
+          (resource.where === 'client' || resource.where === 'internal')) {
       hash.update(resource.path);                                           // 33
       hash.update(resource.hash);                                           // 34
     }                                                                       // 35

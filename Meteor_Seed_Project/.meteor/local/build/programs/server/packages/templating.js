@@ -6,6 +6,7 @@ var _ = Package.underscore._;
 var Blaze = Package.blaze.Blaze;
 var UI = Package.blaze.UI;
 var Handlebars = Package.blaze.Handlebars;
+var Spacebars = Package.spacebars.Spacebars;
 var HTML = Package.htmljs.HTML;
 
 

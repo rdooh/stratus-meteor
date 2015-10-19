@@ -33,4 +33,4 @@ Template["topNavigation"] = new Template("Template.topNavigation", (function() {
   }, "\n                            ", HTML.Raw('<i class="fa fa-sign-out"></i>'), " Log out\n                        "), "\n                    "), "\n                "), "\n            "), "\n        "), "\n    ");
 }));
 
-})();
+}).call(this);

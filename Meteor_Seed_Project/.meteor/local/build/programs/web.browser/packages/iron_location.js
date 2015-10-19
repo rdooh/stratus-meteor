@@ -2,15 +2,8 @@
 //                                                                      //
 // This is a generated file. You can view the original                  //
 // source in your browser if your browser supports source maps.         //
-//                                                                      //
-// If you are using Chrome, open the Developer Tools and click the gear //
-// icon in its lower right corner. In the General Settings panel, turn  //
-// on 'Enable source maps'.                                             //
-//                                                                      //
-// If you are using Firefox 23, go to `about:config` and set the        //
-// `devtools.debugger.source-maps-enabled` preference to true.          //
-// (The preference should be on by default in Firefox 24; versions      //
-// older than 23 do not support source maps.)                           //
+// Source maps are supported by all recent versions of Chrome, Safari,  //
+// and Firefox, and by Internet Explorer 11.                            //
 //                                                                      //
 //////////////////////////////////////////////////////////////////////////
 
@@ -29,11 +22,11 @@ var Iron = Package['iron:core'].Iron;
 /* Package-scope variables */
 var urlToHashStyle, urlFromHashStyle, fixHashPath, State, Location;
 
-(function () {
+(function(){
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                          //
-// packages/iron:location/lib/utils.js                                                                      //
+// packages/iron_location/lib/utils.js                                                                      //
 //                                                                                                          //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                                                             //
@@ -139,11 +132,11 @@ fixHashPath = function (pathname) {                                             
 
 
 
-(function () {
+(function(){
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                          //
-// packages/iron:location/lib/state.js                                                                      //
+// packages/iron_location/lib/state.js                                                                      //
 //                                                                                                          //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                                                             //
@@ -187,11 +180,11 @@ State.prototype.cancelUrlChange = function () {                                 
 
 
 
-(function () {
+(function(){
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                          //
-// packages/iron:location/lib/location.js                                                                   //
+// packages/iron_location/lib/location.js                                                                   //
 //                                                                                                          //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                                                             //
@@ -224,7 +217,7 @@ var replaceStateUndefined = function() {                                        
 }                                                                                                           // 27
                                                                                                             // 28
 var shouldUseHashPaths = function () {                                                                      // 29
-  return Location.options.useHashPaths || isIE8() || isIE9() || usingAppcache() || replaceStateUndefined(); // 30
+  return Location.options.useHashPaths || isIE8() || isIE9() || usingAppcache() || replaceStateUndefined();
 };                                                                                                          // 31
                                                                                                             // 32
 var isUsingHashPaths = function () {                                                                        // 33

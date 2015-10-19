@@ -9,9 +9,9 @@ var Boilerplate = Package['boilerplate-generator'].Boilerplate;
 var WebAppHashing = Package['webapp-hashing'].WebAppHashing;
 
 /* Package-scope variables */
-var WebApp, main, WebAppInternals;
+var WebApp, WebAppInternals, main;
 
-(function () {
+(function(){
 
 //////////////////////////////////////////////////////////////////////////////////////
 //                                                                                  //
@@ -621,7 +621,7 @@ var runWebAppServer = function () {                                             
     // after the path prefix must start with a / if it exists.)                     // 600
     if (pathPrefix && pathname.substring(0, pathPrefix.length) === pathPrefix &&    // 601
        (pathname.length == pathPrefix.length                                        // 602
-        || pathname.substring(pathPrefix.length, pathPrefix.length + 1) === "/")) { // 603
+        || pathname.substring(pathPrefix.length, pathPrefix.length + 1) === "/")) {
       request.url = request.url.substring(pathPrefix.length);                       // 604
       next();                                                                       // 605
     } else if (pathname === "/favicon.ico" || pathname === "/robots.txt") {         // 606
@@ -680,139 +680,155 @@ var runWebAppServer = function () {                                             
     if (request.url.query && request.url.query['meteor_css_resource']) {            // 659
       // In this case, we're requesting a CSS resource in the meteor-specific       // 660
       // way, but we don't have it.  Serve a static css file that indicates that    // 661
-      // we didn't have it, so we can detect that and refresh.                      // 662
-      headers['Content-Type'] = 'text/css; charset=utf-8';                          // 663
-      res.writeHead(200, headers);                                                  // 664
-      res.write(".meteor-css-not-found-error { width: 0px;}");                      // 665
-      res.end();                                                                    // 666
-      return undefined;                                                             // 667
-    }                                                                               // 668
-                                                                                    // 669
-    // /packages/asdfsad ... /__cordova/dafsdf.js                                   // 670
-    var pathname = connect.utils.parseUrl(req).pathname;                            // 671
-    var archKey = pathname.split('/')[1];                                           // 672
-    var archKeyCleaned = 'web.' + archKey.replace(/^__/, '');                       // 673
+      // we didn't have it, so we can detect that and refresh.  Make sure           // 662
+      // that any proxies or CDNs don't cache this error!  (Normally proxies        // 663
+      // or CDNs are smart enough not to cache error pages, but in order to         // 664
+      // make this hack work, we need to return the CSS file as a 200, which        // 665
+      // would otherwise be cached.)                                                // 666
+      headers['Content-Type'] = 'text/css; charset=utf-8';                          // 667
+      headers['Cache-Control'] = 'no-cache';                                        // 668
+      res.writeHead(200, headers);                                                  // 669
+      res.write(".meteor-css-not-found-error { width: 0px;}");                      // 670
+      res.end();                                                                    // 671
+      return undefined;                                                             // 672
+    }                                                                               // 673
                                                                                     // 674
-    if (! /^__/.test(archKey) || ! _.has(archPath, archKeyCleaned)) {               // 675
-      archKey = WebApp.defaultArch;                                                 // 676
-    } else {                                                                        // 677
-      archKey = archKeyCleaned;                                                     // 678
-    }                                                                               // 679
-                                                                                    // 680
-    var boilerplate;                                                                // 681
-    try {                                                                           // 682
-      boilerplate = getBoilerplate(request, archKey);                               // 683
-    } catch (e) {                                                                   // 684
-      Log.error("Error running template: " + e);                                    // 685
-      res.writeHead(500, headers);                                                  // 686
-      res.end();                                                                    // 687
-      return undefined;                                                             // 688
-    }                                                                               // 689
+    if (request.url.query && request.url.query['meteor_js_resource']) {             // 675
+      // Similarly, we're requesting a JS resource that we don't have.              // 676
+      // Serve an uncached 404. (We can't use the same hack we use for CSS,         // 677
+      // because actually acting on that hack requires us to have the JS            // 678
+      // already!)                                                                  // 679
+      headers['Cache-Control'] = 'no-cache';                                        // 680
+      res.writeHead(404, headers);                                                  // 681
+      res.end("404 Not Found");                                                     // 682
+      return undefined;                                                             // 683
+    }                                                                               // 684
+                                                                                    // 685
+    // /packages/asdfsad ... /__cordova/dafsdf.js                                   // 686
+    var pathname = connect.utils.parseUrl(req).pathname;                            // 687
+    var archKey = pathname.split('/')[1];                                           // 688
+    var archKeyCleaned = 'web.' + archKey.replace(/^__/, '');                       // 689
                                                                                     // 690
-    res.writeHead(200, headers);                                                    // 691
-    res.write(boilerplate);                                                         // 692
-    res.end();                                                                      // 693
-    return undefined;                                                               // 694
-  });                                                                               // 695
+    if (! /^__/.test(archKey) || ! _.has(archPath, archKeyCleaned)) {               // 691
+      archKey = WebApp.defaultArch;                                                 // 692
+    } else {                                                                        // 693
+      archKey = archKeyCleaned;                                                     // 694
+    }                                                                               // 695
                                                                                     // 696
-  // Return 404 by default, if no other handlers serve this URL.                    // 697
-  app.use(function (req, res) {                                                     // 698
-    res.writeHead(404);                                                             // 699
-    res.end();                                                                      // 700
-  });                                                                               // 701
-                                                                                    // 702
-                                                                                    // 703
-  var httpServer = http.createServer(app);                                          // 704
-  var onListeningCallbacks = [];                                                    // 705
+    var boilerplate;                                                                // 697
+    try {                                                                           // 698
+      boilerplate = getBoilerplate(request, archKey);                               // 699
+    } catch (e) {                                                                   // 700
+      Log.error("Error running template: " + e);                                    // 701
+      res.writeHead(500, headers);                                                  // 702
+      res.end();                                                                    // 703
+      return undefined;                                                             // 704
+    }                                                                               // 705
                                                                                     // 706
-  // After 5 seconds w/o data on a socket, kill it.  On the other hand, if          // 707
-  // there's an outstanding request, give it a higher timeout instead (to avoid     // 708
-  // killing long-polling requests)                                                 // 709
-  httpServer.setTimeout(SHORT_SOCKET_TIMEOUT);                                      // 710
-                                                                                    // 711
-  // Do this here, and then also in livedata/stream_server.js, because              // 712
-  // stream_server.js kills all the current request handlers when installing its    // 713
-  // own.                                                                           // 714
-  httpServer.on('request', WebApp._timeoutAdjustmentRequestCallback);               // 715
-                                                                                    // 716
-                                                                                    // 717
-  // start up app                                                                   // 718
-  _.extend(WebApp, {                                                                // 719
-    connectHandlers: packageAndAppHandlers,                                         // 720
-    rawConnectHandlers: rawConnectHandlers,                                         // 721
-    httpServer: httpServer,                                                         // 722
-    // For testing.                                                                 // 723
-    suppressConnectErrors: function () {                                            // 724
-      suppressConnectErrors = true;                                                 // 725
-    },                                                                              // 726
-    onListening: function (f) {                                                     // 727
-      if (onListeningCallbacks)                                                     // 728
-        onListeningCallbacks.push(f);                                               // 729
-      else                                                                          // 730
-        f();                                                                        // 731
-    }                                                                               // 732
-  });                                                                               // 733
-                                                                                    // 734
-  // Let the rest of the packages (and Meteor.startup hooks) insert connect         // 735
-  // middlewares and update __meteor_runtime_config__, then keep going to set up    // 736
-  // actually serving HTML.                                                         // 737
-  main = function (argv) {                                                          // 738
-    WebAppInternals.generateBoilerplate();                                          // 739
-                                                                                    // 740
-    // only start listening after all the startup code has run.                     // 741
-    var localPort = parseInt(process.env.PORT) || 0;                                // 742
-    var host = process.env.BIND_IP;                                                 // 743
-    var localIp = host || '0.0.0.0';                                                // 744
-    httpServer.listen(localPort, localIp, Meteor.bindEnvironment(function() {       // 745
-      if (process.env.METEOR_PRINT_ON_LISTEN)                                       // 746
-        console.log("LISTENING"); // must match run-app.js                          // 747
-                                                                                    // 748
-      var callbacks = onListeningCallbacks;                                         // 749
-      onListeningCallbacks = null;                                                  // 750
-      _.each(callbacks, function (x) { x(); });                                     // 751
-                                                                                    // 752
-    }, function (e) {                                                               // 753
-      console.error("Error listening:", e);                                         // 754
-      console.error(e && e.stack);                                                  // 755
-    }));                                                                            // 756
-                                                                                    // 757
-    return 'DAEMON';                                                                // 758
-  };                                                                                // 759
-};                                                                                  // 760
-                                                                                    // 761
-                                                                                    // 762
-runWebAppServer();                                                                  // 763
+    res.writeHead(200, headers);                                                    // 707
+    res.write(boilerplate);                                                         // 708
+    res.end();                                                                      // 709
+    return undefined;                                                               // 710
+  });                                                                               // 711
+                                                                                    // 712
+  // Return 404 by default, if no other handlers serve this URL.                    // 713
+  app.use(function (req, res) {                                                     // 714
+    res.writeHead(404);                                                             // 715
+    res.end();                                                                      // 716
+  });                                                                               // 717
+                                                                                    // 718
+                                                                                    // 719
+  var httpServer = http.createServer(app);                                          // 720
+  var onListeningCallbacks = [];                                                    // 721
+                                                                                    // 722
+  // After 5 seconds w/o data on a socket, kill it.  On the other hand, if          // 723
+  // there's an outstanding request, give it a higher timeout instead (to avoid     // 724
+  // killing long-polling requests)                                                 // 725
+  httpServer.setTimeout(SHORT_SOCKET_TIMEOUT);                                      // 726
+                                                                                    // 727
+  // Do this here, and then also in livedata/stream_server.js, because              // 728
+  // stream_server.js kills all the current request handlers when installing its    // 729
+  // own.                                                                           // 730
+  httpServer.on('request', WebApp._timeoutAdjustmentRequestCallback);               // 731
+                                                                                    // 732
+                                                                                    // 733
+  // start up app                                                                   // 734
+  _.extend(WebApp, {                                                                // 735
+    connectHandlers: packageAndAppHandlers,                                         // 736
+    rawConnectHandlers: rawConnectHandlers,                                         // 737
+    httpServer: httpServer,                                                         // 738
+    // For testing.                                                                 // 739
+    suppressConnectErrors: function () {                                            // 740
+      suppressConnectErrors = true;                                                 // 741
+    },                                                                              // 742
+    onListening: function (f) {                                                     // 743
+      if (onListeningCallbacks)                                                     // 744
+        onListeningCallbacks.push(f);                                               // 745
+      else                                                                          // 746
+        f();                                                                        // 747
+    }                                                                               // 748
+  });                                                                               // 749
+                                                                                    // 750
+  // Let the rest of the packages (and Meteor.startup hooks) insert connect         // 751
+  // middlewares and update __meteor_runtime_config__, then keep going to set up    // 752
+  // actually serving HTML.                                                         // 753
+  main = function (argv) {                                                          // 754
+    WebAppInternals.generateBoilerplate();                                          // 755
+                                                                                    // 756
+    // only start listening after all the startup code has run.                     // 757
+    var localPort = parseInt(process.env.PORT) || 0;                                // 758
+    var host = process.env.BIND_IP;                                                 // 759
+    var localIp = host || '0.0.0.0';                                                // 760
+    httpServer.listen(localPort, localIp, Meteor.bindEnvironment(function() {       // 761
+      if (process.env.METEOR_PRINT_ON_LISTEN)                                       // 762
+        console.log("LISTENING"); // must match run-app.js                          // 763
                                                                                     // 764
-                                                                                    // 765
-var inlineScriptsAllowed = true;                                                    // 766
-                                                                                    // 767
-WebAppInternals.inlineScriptsAllowed = function () {                                // 768
-  return inlineScriptsAllowed;                                                      // 769
-};                                                                                  // 770
-                                                                                    // 771
-WebAppInternals.setInlineScriptsAllowed = function (value) {                        // 772
-  inlineScriptsAllowed = value;                                                     // 773
-  WebAppInternals.generateBoilerplate();                                            // 774
-};                                                                                  // 775
-                                                                                    // 776
-WebAppInternals.setBundledJsCssPrefix = function (prefix) {                         // 777
-  bundledJsCssPrefix = prefix;                                                      // 778
-  WebAppInternals.generateBoilerplate();                                            // 779
-};                                                                                  // 780
+      var callbacks = onListeningCallbacks;                                         // 765
+      onListeningCallbacks = null;                                                  // 766
+      _.each(callbacks, function (x) { x(); });                                     // 767
+                                                                                    // 768
+    }, function (e) {                                                               // 769
+      console.error("Error listening:", e);                                         // 770
+      console.error(e && e.stack);                                                  // 771
+    }));                                                                            // 772
+                                                                                    // 773
+    return 'DAEMON';                                                                // 774
+  };                                                                                // 775
+};                                                                                  // 776
+                                                                                    // 777
+                                                                                    // 778
+runWebAppServer();                                                                  // 779
+                                                                                    // 780
                                                                                     // 781
-// Packages can call `WebAppInternals.addStaticJs` to specify static                // 782
-// JavaScript to be included in the app. This static JS will be inlined,            // 783
-// unless inline scripts have been disabled, in which case it will be               // 784
-// served under `/<sha1 of contents>`.                                              // 785
-var additionalStaticJs = {};                                                        // 786
-WebAppInternals.addStaticJs = function (contents) {                                 // 787
-  additionalStaticJs["/" + sha1(contents) + ".js"] = contents;                      // 788
-};                                                                                  // 789
-                                                                                    // 790
-// Exported for tests                                                               // 791
-WebAppInternals.getBoilerplate = getBoilerplate;                                    // 792
-WebAppInternals.additionalStaticJs = additionalStaticJs;                            // 793
-                                                                                    // 794
+var inlineScriptsAllowed = true;                                                    // 782
+                                                                                    // 783
+WebAppInternals.inlineScriptsAllowed = function () {                                // 784
+  return inlineScriptsAllowed;                                                      // 785
+};                                                                                  // 786
+                                                                                    // 787
+WebAppInternals.setInlineScriptsAllowed = function (value) {                        // 788
+  inlineScriptsAllowed = value;                                                     // 789
+  WebAppInternals.generateBoilerplate();                                            // 790
+};                                                                                  // 791
+                                                                                    // 792
+WebAppInternals.setBundledJsCssPrefix = function (prefix) {                         // 793
+  bundledJsCssPrefix = prefix;                                                      // 794
+  WebAppInternals.generateBoilerplate();                                            // 795
+};                                                                                  // 796
+                                                                                    // 797
+// Packages can call `WebAppInternals.addStaticJs` to specify static                // 798
+// JavaScript to be included in the app. This static JS will be inlined,            // 799
+// unless inline scripts have been disabled, in which case it will be               // 800
+// served under `/<sha1 of contents>`.                                              // 801
+var additionalStaticJs = {};                                                        // 802
+WebAppInternals.addStaticJs = function (contents) {                                 // 803
+  additionalStaticJs["/" + sha1(contents) + ".js"] = contents;                      // 804
+};                                                                                  // 805
+                                                                                    // 806
+// Exported for tests                                                               // 807
+WebAppInternals.getBoilerplate = getBoilerplate;                                    // 808
+WebAppInternals.additionalStaticJs = additionalStaticJs;                            // 809
+                                                                                    // 810
 //////////////////////////////////////////////////////////////////////////////////////
 
 }).call(this);

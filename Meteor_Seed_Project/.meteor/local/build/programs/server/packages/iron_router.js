@@ -14,13 +14,13 @@ var Iron = Package['iron:core'].Iron;
 var HTML = Package.htmljs.HTML;
 
 /* Package-scope variables */
-var Router, RouteController, CurrentOptions, HTTP_METHODS, Route, route;
+var CurrentOptions, HTTP_METHODS, RouteController, Route, Router, route;
 
-(function () {
+(function(){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                            //
-// packages/iron:router/lib/current_options.js                                                //
+// packages/iron_router/lib/current_options.js                                                //
 //                                                                                            //
 ////////////////////////////////////////////////////////////////////////////////////////////////
                                                                                               //
@@ -39,11 +39,11 @@ CurrentOptions = new Meteor.EnvironmentVariable;                                
 
 
 
-(function () {
+(function(){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                            //
-// packages/iron:router/lib/http_methods.js                                                   //
+// packages/iron_router/lib/http_methods.js                                                   //
 //                                                                                            //
 ////////////////////////////////////////////////////////////////////////////////////////////////
                                                                                               //
@@ -52,8 +52,9 @@ HTTP_METHODS = [                                                                
   'post',                                                                                     // 3
   'put',                                                                                      // 4
   'delete',                                                                                   // 5
-];                                                                                            // 6
-                                                                                              // 7
+  'patch'                                                                                     // 6
+];                                                                                            // 7
+                                                                                              // 8
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
 }).call(this);
@@ -63,11 +64,11 @@ HTTP_METHODS = [                                                                
 
 
 
-(function () {
+(function(){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                            //
-// packages/iron:router/lib/route_controller.js                                               //
+// packages/iron_router/lib/route_controller.js                                               //
 //                                                                                            //
 ////////////////////////////////////////////////////////////////////////////////////////////////
                                                                                               //
@@ -275,11 +276,11 @@ Iron.RouteController = RouteController;                                         
 
 
 
-(function () {
+(function(){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                            //
-// packages/iron:router/lib/route_controller_server.js                                        //
+// packages/iron_router/lib/route_controller_server.js                                        //
 //                                                                                            //
 ////////////////////////////////////////////////////////////////////////////////////////////////
                                                                                               //
@@ -361,11 +362,11 @@ RouteController.prototype._runRoute = function (route, url, done) {             
 
 
 
-(function () {
+(function(){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                            //
-// packages/iron:router/lib/route.js                                                          //
+// packages/iron_router/lib/route.js                                                          //
 //                                                                                            //
 ////////////////////////////////////////////////////////////////////////////////////////////////
                                                                                               //
@@ -397,7 +398,7 @@ Route = function (path, fn, options) {                                          
                                                                                               // 26
   // extend the route function with properties from this instance and its                     // 27
   // prototype.                                                                               // 28
-  _.extend(route, this);                                                                      // 29
+  _.extend(route, this.constructor.prototype);                                                // 29
                                                                                               // 30
   // always good to have options                                                              // 31
   options = route.options = options || {};                                                    // 32
@@ -483,100 +484,109 @@ Route.prototype.findControllerConstructor = function () {                       
   else if (typeof this.options.controller === 'string')                                       // 112
     return resolve(this.options.controller);                                                  // 113
                                                                                               // 114
-  // otherwise do we have a name? try to convert the name to a controller name                // 115
-  // and resolve it to a value                                                                // 116
-  else if (name && (result = resolve(convert(name), {supressErrors: true})))                  // 117
-    return result;                                                                            // 118
+  // is there a default route controller configured?                                          // 115
+  else if (this.router && this.router.options.controller) {                                   // 116
+    if (typeof this.router.options.controller === 'function')                                 // 117
+      return this.router.options.controller;                                                  // 118
                                                                                               // 119
-  // otherwise just use an anonymous route controller                                         // 120
-  else                                                                                        // 121
-    return RouteController;                                                                   // 122
-};                                                                                            // 123
-                                                                                              // 124
-                                                                                              // 125
-/**                                                                                           // 126
- * Create a new controller for the route.                                                     // 127
- */                                                                                           // 128
-Route.prototype.createController = function (options) {                                       // 129
-  options = options || {};                                                                    // 130
-  var C = this.findControllerConstructor();                                                   // 131
-  options.route = this;                                                                       // 132
-  var instance = new C(options);                                                              // 133
-  return instance;                                                                            // 134
-};                                                                                            // 135
-                                                                                              // 136
-Route.prototype.setControllerParams = function (controller, url) {                            // 137
-};                                                                                            // 138
-                                                                                              // 139
-/**                                                                                           // 140
- * Dispatch into the route's middleware stack.                                                // 141
- */                                                                                           // 142
-Route.prototype.dispatch = function (url, context, done) {                                    // 143
-  // call runRoute on the controller which will behave similarly to the previous              // 144
-  // version of IR.                                                                           // 145
-  assert(context._runRoute, "context doesn't have a _runRoute method");                       // 146
-  return context._runRoute(this, url, done);                                                  // 147
-};                                                                                            // 148
-                                                                                              // 149
-/**                                                                                           // 150
- * Returns a relative path for the route.                                                     // 151
- */                                                                                           // 152
-Route.prototype.path = function (params, options) {                                           // 153
-  return this.handler.resolve(params, options);                                               // 154
-};                                                                                            // 155
-                                                                                              // 156
-/**                                                                                           // 157
- * Return a fully qualified url for the route, given a set of parmeters and                   // 158
- * options like hash and query.                                                               // 159
- */                                                                                           // 160
-Route.prototype.url = function (params, options) {                                            // 161
-  var path = this.path(params, options);                                                      // 162
-  var host = (options && options.host) || Meteor.absoluteUrl();                               // 163
-                                                                                              // 164
-  if (host.charAt(host.length-1) === '/');                                                    // 165
-    host = host.slice(0, host.length-1);                                                      // 166
-  return host + path;                                                                         // 167
-};                                                                                            // 168
-                                                                                              // 169
-/**                                                                                           // 170
- * Return a params object for the route given a path.                                         // 171
- */                                                                                           // 172
-Route.prototype.params = function (path) {                                                    // 173
-  return this.handler.params(path);                                                           // 174
-};                                                                                            // 175
-                                                                                              // 176
-/**                                                                                           // 177
- * Add convenience methods for each HTTP verb.                                                // 178
- *                                                                                            // 179
- * Example:                                                                                   // 180
- *  var route = router.route('/item')                                                         // 181
- *    .get(function () { })                                                                   // 182
- *    .post(function () { })                                                                  // 183
- *    .put(function () { })                                                                   // 184
- */                                                                                           // 185
-_.each(HTTP_METHODS, function (method) {                                                      // 186
-  Route.prototype[method] = function (fn) {                                                   // 187
-    // track the method being used for OPTIONS requests.                                      // 188
-    this._methods[method] = true;                                                             // 189
-                                                                                              // 190
-    this._actionStack.push(this._path, fn, {                                                  // 191
-      // give each method a unique name so it doesn't clash with the route's                  // 192
-      // name in the action stack                                                             // 193
-      name: this.getName() + '_' + method.toLowerCase(),                                      // 194
-      method: method,                                                                         // 195
-                                                                                              // 196
-      // for now just make the handler where the same as the route, presumably a              // 197
-      // server route.                                                                        // 198
-      where: this.handler.where,                                                              // 199
-      mount: false                                                                            // 200
-    });                                                                                       // 201
-                                                                                              // 202
-    return this;                                                                              // 203
-  };                                                                                          // 204
-});                                                                                           // 205
-                                                                                              // 206
-Iron.Route = Route;                                                                           // 207
-                                                                                              // 208
+    else if (typeof this.router.options.controller === 'string')                              // 120
+      return resolve(this.router.options.controller);                                         // 121
+  }                                                                                           // 122
+                                                                                              // 123
+  // otherwise do we have a name? try to convert the name to a controller name                // 124
+  // and resolve it to a value                                                                // 125
+  else if (name && (result = resolve(convert(name), {supressErrors: true})))                  // 126
+    return result;                                                                            // 127
+                                                                                              // 128
+  // otherwise just use an anonymous route controller                                         // 129
+  else                                                                                        // 130
+    return RouteController;                                                                   // 131
+};                                                                                            // 132
+                                                                                              // 133
+                                                                                              // 134
+/**                                                                                           // 135
+ * Create a new controller for the route.                                                     // 136
+ */                                                                                           // 137
+Route.prototype.createController = function (options) {                                       // 138
+  options = options || {};                                                                    // 139
+  var C = this.findControllerConstructor();                                                   // 140
+  options.route = this;                                                                       // 141
+  var instance = new C(options);                                                              // 142
+  return instance;                                                                            // 143
+};                                                                                            // 144
+                                                                                              // 145
+Route.prototype.setControllerParams = function (controller, url) {                            // 146
+};                                                                                            // 147
+                                                                                              // 148
+/**                                                                                           // 149
+ * Dispatch into the route's middleware stack.                                                // 150
+ */                                                                                           // 151
+Route.prototype.dispatch = function (url, context, done) {                                    // 152
+  // call runRoute on the controller which will behave similarly to the previous              // 153
+  // version of IR.                                                                           // 154
+  assert(context._runRoute, "context doesn't have a _runRoute method");                       // 155
+  return context._runRoute(this, url, done);                                                  // 156
+};                                                                                            // 157
+                                                                                              // 158
+/**                                                                                           // 159
+ * Returns a relative path for the route.                                                     // 160
+ */                                                                                           // 161
+Route.prototype.path = function (params, options) {                                           // 162
+  return this.handler.resolve(params, options);                                               // 163
+};                                                                                            // 164
+                                                                                              // 165
+/**                                                                                           // 166
+ * Return a fully qualified url for the route, given a set of parmeters and                   // 167
+ * options like hash and query.                                                               // 168
+ */                                                                                           // 169
+Route.prototype.url = function (params, options) {                                            // 170
+  var path = this.path(params, options);                                                      // 171
+  var host = (options && options.host) || Meteor.absoluteUrl();                               // 172
+                                                                                              // 173
+  if (host.charAt(host.length-1) === '/');                                                    // 174
+    host = host.slice(0, host.length-1);                                                      // 175
+  return host + path;                                                                         // 176
+};                                                                                            // 177
+                                                                                              // 178
+/**                                                                                           // 179
+ * Return a params object for the route given a path.                                         // 180
+ */                                                                                           // 181
+Route.prototype.params = function (path) {                                                    // 182
+  return this.handler.params(path);                                                           // 183
+};                                                                                            // 184
+                                                                                              // 185
+/**                                                                                           // 186
+ * Add convenience methods for each HTTP verb.                                                // 187
+ *                                                                                            // 188
+ * Example:                                                                                   // 189
+ *  var route = router.route('/item')                                                         // 190
+ *    .get(function () { })                                                                   // 191
+ *    .post(function () { })                                                                  // 192
+ *    .put(function () { })                                                                   // 193
+ */                                                                                           // 194
+_.each(HTTP_METHODS, function (method) {                                                      // 195
+  Route.prototype[method] = function (fn) {                                                   // 196
+    // track the method being used for OPTIONS requests.                                      // 197
+    this._methods[method] = true;                                                             // 198
+                                                                                              // 199
+    this._actionStack.push(this._path, fn, {                                                  // 200
+      // give each method a unique name so it doesn't clash with the route's                  // 201
+      // name in the action stack                                                             // 202
+      name: this.getName() + '_' + method.toLowerCase(),                                      // 203
+      method: method,                                                                         // 204
+                                                                                              // 205
+      // for now just make the handler where the same as the route, presumably a              // 206
+      // server route.                                                                        // 207
+      where: this.handler.where,                                                              // 208
+      mount: false                                                                            // 209
+    });                                                                                       // 210
+                                                                                              // 211
+    return this;                                                                              // 212
+  };                                                                                          // 213
+});                                                                                           // 214
+                                                                                              // 215
+Iron.Route = Route;                                                                           // 216
+                                                                                              // 217
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
 }).call(this);
@@ -586,11 +596,11 @@ Iron.Route = Route;                                                             
 
 
 
-(function () {
+(function(){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                            //
-// packages/iron:router/lib/router.js                                                         //
+// packages/iron_router/lib/router.js                                                         //
 //                                                                                            //
 ////////////////////////////////////////////////////////////////////////////////////////////////
                                                                                               //
@@ -631,7 +641,7 @@ Router = function (options) {                                                   
   this.configure.call(router, options);                                                       // 35
                                                                                               // 36
   // add proto properties to the router function                                              // 37
-  _.extend(router, this);                                                                     // 38
+  _.extend(router, this.constructor.prototype);                                               // 38
                                                                                               // 39
   // let client and server side routing doing different things here                           // 40
   this.init.call(router, options);                                                            // 41
@@ -1006,11 +1016,11 @@ Iron.Router = Router;                                                           
 
 
 
-(function () {
+(function(){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                            //
-// packages/iron:router/lib/hooks.js                                                          //
+// packages/iron_router/lib/hooks.js                                                          //
 //                                                                                            //
 ////////////////////////////////////////////////////////////////////////////////////////////////
                                                                                               //
@@ -1025,7 +1035,7 @@ if (typeof Template !== 'undefined') {                                          
   /**                                                                                         // 9
    * The default anonymous data not found template.                                           // 10
    */                                                                                         // 11
-  var defaultDataNotFoundTemplate = new Template('DefaultDataNotFoundTemplate', function () { // 12
+  var defaultDataNotFoundTemplate = new Template('DefaultDataNotFoundTemplate', function () {
     return 'Data not found...';                                                               // 13
   });                                                                                         // 14
 }                                                                                             // 15
@@ -1083,11 +1093,11 @@ Router.hooks.dataNotFound = function () {                                       
 
 
 
-(function () {
+(function(){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                            //
-// packages/iron:router/lib/helpers.js                                                        //
+// packages/iron_router/lib/helpers.js                                                        //
 //                                                                                            //
 ////////////////////////////////////////////////////////////////////////////////////////////////
                                                                                               //
@@ -1254,11 +1264,11 @@ UI.registerHelper('linkTo', new Blaze.Template('linkTo', function () {          
 
 
 
-(function () {
+(function(){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                            //
-// packages/iron:router/lib/body_parser_server.js                                             //
+// packages/iron_router/lib/body_parser_server.js                                             //
 //                                                                                            //
 ////////////////////////////////////////////////////////////////////////////////////////////////
                                                                                               //
@@ -1273,11 +1283,11 @@ Router.bodyParser = Npm.require('body-parser');                                 
 
 
 
-(function () {
+(function(){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                            //
-// packages/iron:router/lib/router_server.js                                                  //
+// packages/iron_router/lib/router_server.js                                                  //
 //                                                                                            //
 ////////////////////////////////////////////////////////////////////////////////////////////////
                                                                                               //
@@ -1399,11 +1409,11 @@ Router.prototype.dispatch = function (url, context, done) {                     
 
 
 
-(function () {
+(function(){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                            //
-// packages/iron:router/lib/plugins.js                                                        //
+// packages/iron_router/lib/plugins.js                                                        //
 //                                                                                            //
 ////////////////////////////////////////////////////////////////////////////////////////////////
                                                                                               //
@@ -1430,11 +1440,11 @@ Router.plugins.dataNotFound = function (router, options) {                      
 
 
 
-(function () {
+(function(){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                            //
-// packages/iron:router/lib/global_router.js                                                  //
+// packages/iron_router/lib/global_router.js                                                  //
 //                                                                                            //
 ////////////////////////////////////////////////////////////////////////////////////////////////
                                                                                               //

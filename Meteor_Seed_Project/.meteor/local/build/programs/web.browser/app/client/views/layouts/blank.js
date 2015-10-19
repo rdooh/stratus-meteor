@@ -10,5 +10,4 @@ Template.blankLayout.destroyed = function(){
     // Remove special color for blank layout
     $('body').removeClass('gray-bg');
 };
-
-})();
+}).call(this);

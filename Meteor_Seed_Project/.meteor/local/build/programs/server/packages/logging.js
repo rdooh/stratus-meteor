@@ -8,7 +8,7 @@ var EJSON = Package.ejson.EJSON;
 /* Package-scope variables */
 var Log;
 
-(function () {
+(function(){
 
 /////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                     //
@@ -115,7 +115,7 @@ Log._getCallerDetails = function () {                                           
       return {file: "eval"};                                                           // 97
     }                                                                                  // 98
                                                                                        // 99
-    if (!line.match(/packages\/(?:local-test:)?logging(?:\/|\.js)/))                   // 100
+    if (!line.match(/packages\/(?:local-test[:_])?logging(?:\/|\.js)/))                // 100
       break;                                                                           // 101
   }                                                                                    // 102
                                                                                        // 103
@@ -187,7 +187,7 @@ _.each(['debug', 'info', 'warn', 'error'], function (level) {                   
   };                                                                                   // 169
 });                                                                                    // 170
                                                                                        // 171
-// tries to parse line as EJSON. returns object if parse is successful, or null if not // 172
+// tries to parse line as EJSON. returns object if parse is successful, or null if not
 Log.parse = function (line) {                                                          // 173
   var obj = null;                                                                      // 174
   if (line && line.charAt(0) === '{') { // might be json generated from calling 'Log'  // 175

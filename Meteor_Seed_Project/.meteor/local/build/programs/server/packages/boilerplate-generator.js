@@ -13,7 +13,7 @@ var Handlebars = Package.blaze.Handlebars;
 /* Package-scope variables */
 var Boilerplate;
 
-(function () {
+(function(){
 
 ///////////////////////////////////////////////////////////////////////////////////
 //                                                                               //
@@ -113,7 +113,7 @@ Boilerplate.prototype._generateBoilerplateFromManifestAndSource =               
                                                                                  // 90
     // Note that we are actually depending on eval's local environment capture   // 91
     // so that UI and HTML are visible to the eval'd code.                       // 92
-    // XXX the template we are evaluating relies on the fact that UI is globally // 93
+    // XXX the template we are evaluating relies on the fact that UI is globally
       // available.                                                              // 94
     global.UI = UI;                                                              // 95
     self.func = eval(boilerplateRenderCode);                                     // 96

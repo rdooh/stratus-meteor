@@ -7,7 +7,7 @@ var HTML = Package.htmljs.HTML;
 /* Package-scope variables */
 var HTMLTools, Scanner, makeRegexMatcher, getCharacterReference, getComment, getDoctype, getHTMLToken, getTagToken, TEMPLATE_TAG_POSITION, isLookingAtEndTag, codePointToString, getContent, getRCData;
 
-(function () {
+(function(){
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                             //
@@ -75,7 +75,7 @@ HTMLTools.properCaseAttributeName = function (name) {                           
 
 
 
-(function () {
+(function(){
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                             //
@@ -175,7 +175,7 @@ makeRegexMatcher = function (regex) {                                           
 
 
 
-(function () {
+(function(){
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                             //
@@ -2532,7 +2532,7 @@ var isLegalCodepoint = function (cp) {                                          
   return true;                                                                                                 // 2347
 };                                                                                                             // 2348
                                                                                                                // 2349
-// http://www.whatwg.org/specs/web-apps/current-work/multipage/tokenization.html#consume-a-character-reference // 2350
+// http://www.whatwg.org/specs/web-apps/current-work/multipage/tokenization.html#consume-a-character-reference
 //                                                                                                             // 2351
 // Matches a character reference if possible, including the initial `&`.                                       // 2352
 // Fails fatally in error cases (assuming an initial `&` is matched), like a disallowed codepoint              // 2353
@@ -2545,7 +2545,7 @@ var isLegalCodepoint = function (cp) {                                          
 // either `"`, `'`, or `>` and is supplied when parsing attribute values.  NOTE: In the current spec, the      // 2360
 // value of `allowedChar` doesn't actually seem to end up mattering, but there is still some debate about      // 2361
 // the right approach to ampersands.                                                                           // 2362
-getCharacterReference = HTMLTools.Parse.getCharacterReference = function (scanner, inAttribute, allowedChar) { // 2363
+getCharacterReference = HTMLTools.Parse.getCharacterReference = function (scanner, inAttribute, allowedChar) {
   if (scanner.peek() !== '&')                                                                                  // 2364
     // no ampersand                                                                                            // 2365
     return null;                                                                                               // 2366
@@ -2607,7 +2607,7 @@ getCharacterReference = HTMLTools.Parse.getCharacterReference = function (scanne
 
 
 
-(function () {
+(function(){
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                             //
@@ -3138,7 +3138,7 @@ isLookingAtEndTag = function (scanner, tagName) {                               
 
 
 
-(function () {
+(function(){
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                             //
@@ -3185,7 +3185,7 @@ _assign(HTMLTools.TemplateTag.prototype, {                                      
 
 
 
-(function () {
+(function(){
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                             //
@@ -3365,191 +3365,193 @@ getContent = HTMLTools.Parse.getContent = function (scanner, shouldStopFunc) {  
               attrs.value = textareaValue;                                                                     // 170
             }                                                                                                  // 171
           }                                                                                                    // 172
-        } else {                                                                                               // 173
-          content = getContent(scanner, shouldStopFunc);                                                       // 174
-        }                                                                                                      // 175
-                                                                                                               // 176
-        var endTag = getHTMLToken(scanner);                                                                    // 177
+        } else if (token.n === 'script' || token.n === 'style') {                                              // 173
+          content = getRawText(scanner, token.n, shouldStopFunc);                                              // 174
+        } else {                                                                                               // 175
+          content = getContent(scanner, shouldStopFunc);                                                       // 176
+        }                                                                                                      // 177
                                                                                                                // 178
-        if (! (endTag && endTag.t === 'Tag' && endTag.isEnd && endTag.n === tagName))                          // 179
+        var endTag = getHTMLToken(scanner);                                                                    // 179
+                                                                                                               // 180
+        if (! (endTag && endTag.t === 'Tag' && endTag.isEnd && endTag.n === tagName))                          // 181
           scanner.fatal('Expected "' + tagName + '" end tag' + (looksLikeSelfClose ? ' -- if the "<' + token.n + ' />" tag was supposed to self-close, try adding a space before the "/"' : ''));
-                                                                                                               // 181
-        // XXX support implied end tags in cases allowed by the spec                                           // 182
                                                                                                                // 183
-        // make `content` into an array suitable for applying tag constructor                                  // 184
-        // as in `FOO.apply(null, content)`.                                                                   // 185
-        if (content == null)                                                                                   // 186
-          content = [];                                                                                        // 187
-        else if (! (content instanceof Array))                                                                 // 188
-          content = [content];                                                                                 // 189
-                                                                                                               // 190
-        items.push(HTML.getTag(tagName).apply(                                                                 // 191
-          null, (attrs ? [attrs] : []).concat(content)));                                                      // 192
-      }                                                                                                        // 193
-    } else {                                                                                                   // 194
-      scanner.fatal("Unknown token type: " + token.t);                                                         // 195
-    }                                                                                                          // 196
-  }                                                                                                            // 197
-                                                                                                               // 198
-  if (items.length === 0)                                                                                      // 199
-    return null;                                                                                               // 200
-  else if (items.length === 1)                                                                                 // 201
-    return items[0];                                                                                           // 202
-  else                                                                                                         // 203
-    return items;                                                                                              // 204
-};                                                                                                             // 205
-                                                                                                               // 206
-var pushOrAppendString = function (items, string) {                                                            // 207
-  if (items.length &&                                                                                          // 208
-      typeof items[items.length - 1] === 'string')                                                             // 209
-    items[items.length - 1] += string;                                                                         // 210
-  else                                                                                                         // 211
-    items.push(string);                                                                                        // 212
-};                                                                                                             // 213
-                                                                                                               // 214
-// get RCDATA to go in the lowercase (or camel case) tagName (e.g. "textarea")                                 // 215
-getRCData = HTMLTools.Parse.getRCData = function (scanner, tagName, shouldStopFunc) {                          // 216
-  var items = [];                                                                                              // 217
-                                                                                                               // 218
-  while (! scanner.isEOF()) {                                                                                  // 219
-    // break at appropriate end tag                                                                            // 220
-    if (tagName && isLookingAtEndTag(scanner, tagName))                                                        // 221
-      break;                                                                                                   // 222
-                                                                                                               // 223
-    if (shouldStopFunc && shouldStopFunc(scanner))                                                             // 224
-      break;                                                                                                   // 225
-                                                                                                               // 226
-    var token = getHTMLToken(scanner, 'rcdata');                                                               // 227
-    if (! token)                                                                                               // 228
-      // tokenizer reached EOF on its own, e.g. while scanning                                                 // 229
-      // template comments like `{{! foo}}`.                                                                   // 230
-      continue;                                                                                                // 231
-                                                                                                               // 232
-    if (token.t === 'Chars') {                                                                                 // 233
-      pushOrAppendString(items, token.v);                                                                      // 234
-    } else if (token.t === 'CharRef') {                                                                        // 235
-      items.push(convertCharRef(token));                                                                       // 236
-    } else if (token.t === 'TemplateTag') {                                                                    // 237
-      items.push(token.v);                                                                                     // 238
-    } else {                                                                                                   // 239
-      // (can't happen)                                                                                        // 240
-      scanner.fatal("Unknown or unexpected token type: " + token.t);                                           // 241
-    }                                                                                                          // 242
-  }                                                                                                            // 243
-                                                                                                               // 244
-  if (items.length === 0)                                                                                      // 245
-    return null;                                                                                               // 246
-  else if (items.length === 1)                                                                                 // 247
-    return items[0];                                                                                           // 248
-  else                                                                                                         // 249
-    return items;                                                                                              // 250
-};                                                                                                             // 251
-                                                                                                               // 252
-var getRawText = function (scanner, tagName, shouldStopFunc) {                                                 // 253
-  var items = [];                                                                                              // 254
-                                                                                                               // 255
-  while (! scanner.isEOF()) {                                                                                  // 256
-    // break at appropriate end tag                                                                            // 257
-    if (tagName && isLookingAtEndTag(scanner, tagName))                                                        // 258
-      break;                                                                                                   // 259
-                                                                                                               // 260
-    if (shouldStopFunc && shouldStopFunc(scanner))                                                             // 261
-      break;                                                                                                   // 262
-                                                                                                               // 263
-    var token = getHTMLToken(scanner, 'rawtext');                                                              // 264
-    if (! token)                                                                                               // 265
-      // tokenizer reached EOF on its own, e.g. while scanning                                                 // 266
-      // template comments like `{{! foo}}`.                                                                   // 267
-      continue;                                                                                                // 268
-                                                                                                               // 269
-    if (token.t === 'Chars') {                                                                                 // 270
-      pushOrAppendString(items, token.v);                                                                      // 271
-    } else if (token.t === 'TemplateTag') {                                                                    // 272
-      items.push(token.v);                                                                                     // 273
-    } else {                                                                                                   // 274
-      // (can't happen)                                                                                        // 275
-      scanner.fatal("Unknown or unexpected token type: " + token.t);                                           // 276
-    }                                                                                                          // 277
-  }                                                                                                            // 278
-                                                                                                               // 279
-  if (items.length === 0)                                                                                      // 280
-    return null;                                                                                               // 281
-  else if (items.length === 1)                                                                                 // 282
-    return items[0];                                                                                           // 283
-  else                                                                                                         // 284
-    return items;                                                                                              // 285
-};                                                                                                             // 286
-                                                                                                               // 287
-// Input: A token like `{ t: 'CharRef', v: '&amp;', cp: [38] }`.                                               // 288
-//                                                                                                             // 289
-// Output: A tag like `HTML.CharRef({ html: '&amp;', str: '&' })`.                                             // 290
-var convertCharRef = function (token) {                                                                        // 291
-  var codePoints = token.cp;                                                                                   // 292
-  var str = '';                                                                                                // 293
-  for (var i = 0; i < codePoints.length; i++)                                                                  // 294
-    str += codePointToString(codePoints[i]);                                                                   // 295
-  return HTML.CharRef({ html: token.v, str: str });                                                            // 296
-};                                                                                                             // 297
-                                                                                                               // 298
-// Input is always a dictionary (even if zero attributes) and each                                             // 299
-// value in the dictionary is an array of `Chars`, `CharRef`,                                                  // 300
-// and maybe `TemplateTag` tokens.                                                                             // 301
-//                                                                                                             // 302
-// Output is null if there are zero attributes, and otherwise a                                                // 303
-// dictionary, or an array of dictionaries and template tags.                                                  // 304
-// Each value in the dictionary is HTMLjs (e.g. a                                                              // 305
-// string or an array of `Chars`, `CharRef`, and `TemplateTag`                                                 // 306
-// nodes).                                                                                                     // 307
-//                                                                                                             // 308
-// An attribute value with no input tokens is represented as "",                                               // 309
-// not an empty array, in order to prop open empty attributes                                                  // 310
-// with no template tags.                                                                                      // 311
-var parseAttrs = function (attrs) {                                                                            // 312
-  var result = null;                                                                                           // 313
-                                                                                                               // 314
-  if (HTML.isArray(attrs)) {                                                                                   // 315
-    // first element is nondynamic attrs, rest are template tags                                               // 316
-    var nondynamicAttrs = parseAttrs(attrs[0]);                                                                // 317
-    if (nondynamicAttrs) {                                                                                     // 318
-      result = (result || []);                                                                                 // 319
-      result.push(nondynamicAttrs);                                                                            // 320
-    }                                                                                                          // 321
-    for (var i = 1; i < attrs.length; i++) {                                                                   // 322
-      var token = attrs[i];                                                                                    // 323
-      if (token.t !== 'TemplateTag')                                                                           // 324
-        throw new Error("Expected TemplateTag token");                                                         // 325
-      result = (result || []);                                                                                 // 326
-      result.push(token.v);                                                                                    // 327
-    }                                                                                                          // 328
-    return result;                                                                                             // 329
-  }                                                                                                            // 330
-                                                                                                               // 331
-  for (var k in attrs) {                                                                                       // 332
-    if (! result)                                                                                              // 333
-      result = {};                                                                                             // 334
-                                                                                                               // 335
-    var inValue = attrs[k];                                                                                    // 336
-    var outParts = [];                                                                                         // 337
-    for (var i = 0; i < inValue.length; i++) {                                                                 // 338
-      var token = inValue[i];                                                                                  // 339
-      if (token.t === 'CharRef') {                                                                             // 340
-        outParts.push(convertCharRef(token));                                                                  // 341
-      } else if (token.t === 'TemplateTag') {                                                                  // 342
-        outParts.push(token.v);                                                                                // 343
-      } else if (token.t === 'Chars') {                                                                        // 344
-        pushOrAppendString(outParts, token.v);                                                                 // 345
-      }                                                                                                        // 346
-    }                                                                                                          // 347
-                                                                                                               // 348
-    var outValue = (inValue.length === 0 ? '' :                                                                // 349
-                    (outParts.length === 1 ? outParts[0] : outParts));                                         // 350
-    var properKey = HTMLTools.properCaseAttributeName(k);                                                      // 351
-    result[properKey] = outValue;                                                                              // 352
-  }                                                                                                            // 353
-                                                                                                               // 354
-  return result;                                                                                               // 355
-};                                                                                                             // 356
-                                                                                                               // 357
+        // XXX support implied end tags in cases allowed by the spec                                           // 184
+                                                                                                               // 185
+        // make `content` into an array suitable for applying tag constructor                                  // 186
+        // as in `FOO.apply(null, content)`.                                                                   // 187
+        if (content == null)                                                                                   // 188
+          content = [];                                                                                        // 189
+        else if (! (content instanceof Array))                                                                 // 190
+          content = [content];                                                                                 // 191
+                                                                                                               // 192
+        items.push(HTML.getTag(tagName).apply(                                                                 // 193
+          null, (attrs ? [attrs] : []).concat(content)));                                                      // 194
+      }                                                                                                        // 195
+    } else {                                                                                                   // 196
+      scanner.fatal("Unknown token type: " + token.t);                                                         // 197
+    }                                                                                                          // 198
+  }                                                                                                            // 199
+                                                                                                               // 200
+  if (items.length === 0)                                                                                      // 201
+    return null;                                                                                               // 202
+  else if (items.length === 1)                                                                                 // 203
+    return items[0];                                                                                           // 204
+  else                                                                                                         // 205
+    return items;                                                                                              // 206
+};                                                                                                             // 207
+                                                                                                               // 208
+var pushOrAppendString = function (items, string) {                                                            // 209
+  if (items.length &&                                                                                          // 210
+      typeof items[items.length - 1] === 'string')                                                             // 211
+    items[items.length - 1] += string;                                                                         // 212
+  else                                                                                                         // 213
+    items.push(string);                                                                                        // 214
+};                                                                                                             // 215
+                                                                                                               // 216
+// get RCDATA to go in the lowercase (or camel case) tagName (e.g. "textarea")                                 // 217
+getRCData = HTMLTools.Parse.getRCData = function (scanner, tagName, shouldStopFunc) {                          // 218
+  var items = [];                                                                                              // 219
+                                                                                                               // 220
+  while (! scanner.isEOF()) {                                                                                  // 221
+    // break at appropriate end tag                                                                            // 222
+    if (tagName && isLookingAtEndTag(scanner, tagName))                                                        // 223
+      break;                                                                                                   // 224
+                                                                                                               // 225
+    if (shouldStopFunc && shouldStopFunc(scanner))                                                             // 226
+      break;                                                                                                   // 227
+                                                                                                               // 228
+    var token = getHTMLToken(scanner, 'rcdata');                                                               // 229
+    if (! token)                                                                                               // 230
+      // tokenizer reached EOF on its own, e.g. while scanning                                                 // 231
+      // template comments like `{{! foo}}`.                                                                   // 232
+      continue;                                                                                                // 233
+                                                                                                               // 234
+    if (token.t === 'Chars') {                                                                                 // 235
+      pushOrAppendString(items, token.v);                                                                      // 236
+    } else if (token.t === 'CharRef') {                                                                        // 237
+      items.push(convertCharRef(token));                                                                       // 238
+    } else if (token.t === 'TemplateTag') {                                                                    // 239
+      items.push(token.v);                                                                                     // 240
+    } else {                                                                                                   // 241
+      // (can't happen)                                                                                        // 242
+      scanner.fatal("Unknown or unexpected token type: " + token.t);                                           // 243
+    }                                                                                                          // 244
+  }                                                                                                            // 245
+                                                                                                               // 246
+  if (items.length === 0)                                                                                      // 247
+    return null;                                                                                               // 248
+  else if (items.length === 1)                                                                                 // 249
+    return items[0];                                                                                           // 250
+  else                                                                                                         // 251
+    return items;                                                                                              // 252
+};                                                                                                             // 253
+                                                                                                               // 254
+var getRawText = function (scanner, tagName, shouldStopFunc) {                                                 // 255
+  var items = [];                                                                                              // 256
+                                                                                                               // 257
+  while (! scanner.isEOF()) {                                                                                  // 258
+    // break at appropriate end tag                                                                            // 259
+    if (tagName && isLookingAtEndTag(scanner, tagName))                                                        // 260
+      break;                                                                                                   // 261
+                                                                                                               // 262
+    if (shouldStopFunc && shouldStopFunc(scanner))                                                             // 263
+      break;                                                                                                   // 264
+                                                                                                               // 265
+    var token = getHTMLToken(scanner, 'rawtext');                                                              // 266
+    if (! token)                                                                                               // 267
+      // tokenizer reached EOF on its own, e.g. while scanning                                                 // 268
+      // template comments like `{{! foo}}`.                                                                   // 269
+      continue;                                                                                                // 270
+                                                                                                               // 271
+    if (token.t === 'Chars') {                                                                                 // 272
+      pushOrAppendString(items, token.v);                                                                      // 273
+    } else if (token.t === 'TemplateTag') {                                                                    // 274
+      items.push(token.v);                                                                                     // 275
+    } else {                                                                                                   // 276
+      // (can't happen)                                                                                        // 277
+      scanner.fatal("Unknown or unexpected token type: " + token.t);                                           // 278
+    }                                                                                                          // 279
+  }                                                                                                            // 280
+                                                                                                               // 281
+  if (items.length === 0)                                                                                      // 282
+    return null;                                                                                               // 283
+  else if (items.length === 1)                                                                                 // 284
+    return items[0];                                                                                           // 285
+  else                                                                                                         // 286
+    return items;                                                                                              // 287
+};                                                                                                             // 288
+                                                                                                               // 289
+// Input: A token like `{ t: 'CharRef', v: '&amp;', cp: [38] }`.                                               // 290
+//                                                                                                             // 291
+// Output: A tag like `HTML.CharRef({ html: '&amp;', str: '&' })`.                                             // 292
+var convertCharRef = function (token) {                                                                        // 293
+  var codePoints = token.cp;                                                                                   // 294
+  var str = '';                                                                                                // 295
+  for (var i = 0; i < codePoints.length; i++)                                                                  // 296
+    str += codePointToString(codePoints[i]);                                                                   // 297
+  return HTML.CharRef({ html: token.v, str: str });                                                            // 298
+};                                                                                                             // 299
+                                                                                                               // 300
+// Input is always a dictionary (even if zero attributes) and each                                             // 301
+// value in the dictionary is an array of `Chars`, `CharRef`,                                                  // 302
+// and maybe `TemplateTag` tokens.                                                                             // 303
+//                                                                                                             // 304
+// Output is null if there are zero attributes, and otherwise a                                                // 305
+// dictionary, or an array of dictionaries and template tags.                                                  // 306
+// Each value in the dictionary is HTMLjs (e.g. a                                                              // 307
+// string or an array of `Chars`, `CharRef`, and `TemplateTag`                                                 // 308
+// nodes).                                                                                                     // 309
+//                                                                                                             // 310
+// An attribute value with no input tokens is represented as "",                                               // 311
+// not an empty array, in order to prop open empty attributes                                                  // 312
+// with no template tags.                                                                                      // 313
+var parseAttrs = function (attrs) {                                                                            // 314
+  var result = null;                                                                                           // 315
+                                                                                                               // 316
+  if (HTML.isArray(attrs)) {                                                                                   // 317
+    // first element is nondynamic attrs, rest are template tags                                               // 318
+    var nondynamicAttrs = parseAttrs(attrs[0]);                                                                // 319
+    if (nondynamicAttrs) {                                                                                     // 320
+      result = (result || []);                                                                                 // 321
+      result.push(nondynamicAttrs);                                                                            // 322
+    }                                                                                                          // 323
+    for (var i = 1; i < attrs.length; i++) {                                                                   // 324
+      var token = attrs[i];                                                                                    // 325
+      if (token.t !== 'TemplateTag')                                                                           // 326
+        throw new Error("Expected TemplateTag token");                                                         // 327
+      result = (result || []);                                                                                 // 328
+      result.push(token.v);                                                                                    // 329
+    }                                                                                                          // 330
+    return result;                                                                                             // 331
+  }                                                                                                            // 332
+                                                                                                               // 333
+  for (var k in attrs) {                                                                                       // 334
+    if (! result)                                                                                              // 335
+      result = {};                                                                                             // 336
+                                                                                                               // 337
+    var inValue = attrs[k];                                                                                    // 338
+    var outParts = [];                                                                                         // 339
+    for (var i = 0; i < inValue.length; i++) {                                                                 // 340
+      var token = inValue[i];                                                                                  // 341
+      if (token.t === 'CharRef') {                                                                             // 342
+        outParts.push(convertCharRef(token));                                                                  // 343
+      } else if (token.t === 'TemplateTag') {                                                                  // 344
+        outParts.push(token.v);                                                                                // 345
+      } else if (token.t === 'Chars') {                                                                        // 346
+        pushOrAppendString(outParts, token.v);                                                                 // 347
+      }                                                                                                        // 348
+    }                                                                                                          // 349
+                                                                                                               // 350
+    var outValue = (inValue.length === 0 ? '' :                                                                // 351
+                    (outParts.length === 1 ? outParts[0] : outParts));                                         // 352
+    var properKey = HTMLTools.properCaseAttributeName(k);                                                      // 353
+    result[properKey] = outValue;                                                                              // 354
+  }                                                                                                            // 355
+                                                                                                               // 356
+  return result;                                                                                               // 357
+};                                                                                                             // 358
+                                                                                                               // 359
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }).call(this);

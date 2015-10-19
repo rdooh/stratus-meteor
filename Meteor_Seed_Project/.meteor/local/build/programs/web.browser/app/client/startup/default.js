@@ -2,5 +2,4 @@
 Meteor.startup(function () {
 
 });
-
-})();
+}).call(this);

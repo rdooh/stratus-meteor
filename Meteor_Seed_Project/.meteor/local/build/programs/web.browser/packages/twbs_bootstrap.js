@@ -2,15 +2,8 @@
 //                                                                      //
 // This is a generated file. You can view the original                  //
 // source in your browser if your browser supports source maps.         //
-//                                                                      //
-// If you are using Chrome, open the Developer Tools and click the gear //
-// icon in its lower right corner. In the General Settings panel, turn  //
-// on 'Enable source maps'.                                             //
-//                                                                      //
-// If you are using Firefox 23, go to `about:config` and set the        //
-// `devtools.debugger.source-maps-enabled` preference to true.          //
-// (The preference should be on by default in Firefox 24; versions      //
-// older than 23 do not support source maps.)                           //
+// Source maps are supported by all recent versions of Chrome, Safari,  //
+// and Firefox, and by Internet Explorer 11.                            //
 //                                                                      //
 //////////////////////////////////////////////////////////////////////////
 
@@ -22,8 +15,16 @@ var Meteor = Package.meteor.Meteor;
 var $ = Package.jquery.$;
 var jQuery = Package.jquery.jQuery;
 
-(function () {
+(function(){
 
+///////////////////////////////////////////////////////////////////////
+//                                                                   //
+// packages/twbs_bootstrap/packages/twbs_bootstrap.js                //
+//                                                                   //
+///////////////////////////////////////////////////////////////////////
+                                                                     //
+(function () {                                                       // 1
+                                                                     // 2
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                                     //
 // packages/twbs:bootstrap/dist/js/bootstrap.js                                                                        //
@@ -31,9 +32,9 @@ var jQuery = Package.jquery.jQuery;
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                                                                        //
 /*!                                                                                                                    // 1
- * Bootstrap v3.3.4 (http://getbootstrap.com)                                                                          // 2
+ * Bootstrap v3.3.5 (http://getbootstrap.com)                                                                          // 2
  * Copyright 2011-2015 Twitter, Inc.                                                                                   // 3
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)                                          // 4
+ * Licensed under the MIT license                                                                                      // 4
  */                                                                                                                    // 5
                                                                                                                        // 6
 if (typeof jQuery === 'undefined') {                                                                                   // 7
@@ -49,7 +50,7 @@ if (typeof jQuery === 'undefined') {                                            
 }(jQuery);                                                                                                             // 17
                                                                                                                        // 18
 /* ========================================================================                                            // 19
- * Bootstrap: transition.js v3.3.4                                                                                     // 20
+ * Bootstrap: transition.js v3.3.5                                                                                     // 20
  * http://getbootstrap.com/javascript/#transitions                                                                     // 21
  * ========================================================================                                            // 22
  * Copyright 2011-2015 Twitter, Inc.                                                                                   // 23
@@ -109,7 +110,7 @@ if (typeof jQuery === 'undefined') {                                            
 }(jQuery);                                                                                                             // 77
                                                                                                                        // 78
 /* ========================================================================                                            // 79
- * Bootstrap: alert.js v3.3.4                                                                                          // 80
+ * Bootstrap: alert.js v3.3.5                                                                                          // 80
  * http://getbootstrap.com/javascript/#alerts                                                                          // 81
  * ========================================================================                                            // 82
  * Copyright 2011-2015 Twitter, Inc.                                                                                   // 83
@@ -128,7 +129,7 @@ if (typeof jQuery === 'undefined') {                                            
     $(el).on('click', dismiss, this.close)                                                                             // 96
   }                                                                                                                    // 97
                                                                                                                        // 98
-  Alert.VERSION = '3.3.4'                                                                                              // 99
+  Alert.VERSION = '3.3.5'                                                                                              // 99
                                                                                                                        // 100
   Alert.TRANSITION_DURATION = 150                                                                                      // 101
                                                                                                                        // 102
@@ -204,7 +205,7 @@ if (typeof jQuery === 'undefined') {                                            
 }(jQuery);                                                                                                             // 172
                                                                                                                        // 173
 /* ========================================================================                                            // 174
- * Bootstrap: button.js v3.3.4                                                                                         // 175
+ * Bootstrap: button.js v3.3.5                                                                                         // 175
  * http://getbootstrap.com/javascript/#buttons                                                                         // 176
  * ========================================================================                                            // 177
  * Copyright 2011-2015 Twitter, Inc.                                                                                   // 178
@@ -224,7 +225,7 @@ if (typeof jQuery === 'undefined') {                                            
     this.isLoading = false                                                                                             // 192
   }                                                                                                                    // 193
                                                                                                                        // 194
-  Button.VERSION  = '3.3.4'                                                                                            // 195
+  Button.VERSION  = '3.3.5'                                                                                            // 195
                                                                                                                        // 196
   Button.DEFAULTS = {                                                                                                  // 197
     loadingText: 'loading...'                                                                                          // 198
@@ -236,7 +237,7 @@ if (typeof jQuery === 'undefined') {                                            
     var val  = $el.is('input') ? 'val' : 'html'                                                                        // 204
     var data = $el.data()                                                                                              // 205
                                                                                                                        // 206
-    state = state + 'Text'                                                                                             // 207
+    state += 'Text'                                                                                                    // 207
                                                                                                                        // 208
     if (data.resetText == null) $el.data('resetText', $el[val]())                                                      // 209
                                                                                                                        // 210
@@ -261,2094 +262,2144 @@ if (typeof jQuery === 'undefined') {                                            
     if ($parent.length) {                                                                                              // 229
       var $input = this.$element.find('input')                                                                         // 230
       if ($input.prop('type') == 'radio') {                                                                            // 231
-        if ($input.prop('checked') && this.$element.hasClass('active')) changed = false                                // 232
-        else $parent.find('.active').removeClass('active')                                                             // 233
-      }                                                                                                                // 234
-      if (changed) $input.prop('checked', !this.$element.hasClass('active')).trigger('change')                         // 235
-    } else {                                                                                                           // 236
-      this.$element.attr('aria-pressed', !this.$element.hasClass('active'))                                            // 237
-    }                                                                                                                  // 238
-                                                                                                                       // 239
-    if (changed) this.$element.toggleClass('active')                                                                   // 240
-  }                                                                                                                    // 241
-                                                                                                                       // 242
-                                                                                                                       // 243
-  // BUTTON PLUGIN DEFINITION                                                                                          // 244
-  // ========================                                                                                          // 245
+        if ($input.prop('checked')) changed = false                                                                    // 232
+        $parent.find('.active').removeClass('active')                                                                  // 233
+        this.$element.addClass('active')                                                                               // 234
+      } else if ($input.prop('type') == 'checkbox') {                                                                  // 235
+        if (($input.prop('checked')) !== this.$element.hasClass('active')) changed = false                             // 236
+        this.$element.toggleClass('active')                                                                            // 237
+      }                                                                                                                // 238
+      $input.prop('checked', this.$element.hasClass('active'))                                                         // 239
+      if (changed) $input.trigger('change')                                                                            // 240
+    } else {                                                                                                           // 241
+      this.$element.attr('aria-pressed', !this.$element.hasClass('active'))                                            // 242
+      this.$element.toggleClass('active')                                                                              // 243
+    }                                                                                                                  // 244
+  }                                                                                                                    // 245
                                                                                                                        // 246
-  function Plugin(option) {                                                                                            // 247
-    return this.each(function () {                                                                                     // 248
-      var $this   = $(this)                                                                                            // 249
-      var data    = $this.data('bs.button')                                                                            // 250
-      var options = typeof option == 'object' && option                                                                // 251
-                                                                                                                       // 252
-      if (!data) $this.data('bs.button', (data = new Button(this, options)))                                           // 253
-                                                                                                                       // 254
-      if (option == 'toggle') data.toggle()                                                                            // 255
-      else if (option) data.setState(option)                                                                           // 256
-    })                                                                                                                 // 257
-  }                                                                                                                    // 258
-                                                                                                                       // 259
-  var old = $.fn.button                                                                                                // 260
-                                                                                                                       // 261
-  $.fn.button             = Plugin                                                                                     // 262
-  $.fn.button.Constructor = Button                                                                                     // 263
-                                                                                                                       // 264
+                                                                                                                       // 247
+  // BUTTON PLUGIN DEFINITION                                                                                          // 248
+  // ========================                                                                                          // 249
+                                                                                                                       // 250
+  function Plugin(option) {                                                                                            // 251
+    return this.each(function () {                                                                                     // 252
+      var $this   = $(this)                                                                                            // 253
+      var data    = $this.data('bs.button')                                                                            // 254
+      var options = typeof option == 'object' && option                                                                // 255
+                                                                                                                       // 256
+      if (!data) $this.data('bs.button', (data = new Button(this, options)))                                           // 257
+                                                                                                                       // 258
+      if (option == 'toggle') data.toggle()                                                                            // 259
+      else if (option) data.setState(option)                                                                           // 260
+    })                                                                                                                 // 261
+  }                                                                                                                    // 262
+                                                                                                                       // 263
+  var old = $.fn.button                                                                                                // 264
                                                                                                                        // 265
-  // BUTTON NO CONFLICT                                                                                                // 266
-  // ==================                                                                                                // 267
+  $.fn.button             = Plugin                                                                                     // 266
+  $.fn.button.Constructor = Button                                                                                     // 267
                                                                                                                        // 268
-  $.fn.button.noConflict = function () {                                                                               // 269
-    $.fn.button = old                                                                                                  // 270
-    return this                                                                                                        // 271
-  }                                                                                                                    // 272
-                                                                                                                       // 273
-                                                                                                                       // 274
-  // BUTTON DATA-API                                                                                                   // 275
-  // ===============                                                                                                   // 276
+                                                                                                                       // 269
+  // BUTTON NO CONFLICT                                                                                                // 270
+  // ==================                                                                                                // 271
+                                                                                                                       // 272
+  $.fn.button.noConflict = function () {                                                                               // 273
+    $.fn.button = old                                                                                                  // 274
+    return this                                                                                                        // 275
+  }                                                                                                                    // 276
                                                                                                                        // 277
-  $(document)                                                                                                          // 278
-    .on('click.bs.button.data-api', '[data-toggle^="button"]', function (e) {                                          // 279
-      var $btn = $(e.target)                                                                                           // 280
-      if (!$btn.hasClass('btn')) $btn = $btn.closest('.btn')                                                           // 281
-      Plugin.call($btn, 'toggle')                                                                                      // 282
-      e.preventDefault()                                                                                               // 283
-    })                                                                                                                 // 284
-    .on('focus.bs.button.data-api blur.bs.button.data-api', '[data-toggle^="button"]', function (e) {                  // 285
-      $(e.target).closest('.btn').toggleClass('focus', /^focus(in)?$/.test(e.type))                                    // 286
-    })                                                                                                                 // 287
-                                                                                                                       // 288
-}(jQuery);                                                                                                             // 289
-                                                                                                                       // 290
-/* ========================================================================                                            // 291
- * Bootstrap: carousel.js v3.3.4                                                                                       // 292
- * http://getbootstrap.com/javascript/#carousel                                                                        // 293
- * ========================================================================                                            // 294
- * Copyright 2011-2015 Twitter, Inc.                                                                                   // 295
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)                                          // 296
- * ======================================================================== */                                         // 297
-                                                                                                                       // 298
-                                                                                                                       // 299
-+function ($) {                                                                                                        // 300
-  'use strict';                                                                                                        // 301
+                                                                                                                       // 278
+  // BUTTON DATA-API                                                                                                   // 279
+  // ===============                                                                                                   // 280
+                                                                                                                       // 281
+  $(document)                                                                                                          // 282
+    .on('click.bs.button.data-api', '[data-toggle^="button"]', function (e) {                                          // 283
+      var $btn = $(e.target)                                                                                           // 284
+      if (!$btn.hasClass('btn')) $btn = $btn.closest('.btn')                                                           // 285
+      Plugin.call($btn, 'toggle')                                                                                      // 286
+      if (!($(e.target).is('input[type="radio"]') || $(e.target).is('input[type="checkbox"]'))) e.preventDefault()     // 287
+    })                                                                                                                 // 288
+    .on('focus.bs.button.data-api blur.bs.button.data-api', '[data-toggle^="button"]', function (e) {                  // 289
+      $(e.target).closest('.btn').toggleClass('focus', /^focus(in)?$/.test(e.type))                                    // 290
+    })                                                                                                                 // 291
+                                                                                                                       // 292
+}(jQuery);                                                                                                             // 293
+                                                                                                                       // 294
+/* ========================================================================                                            // 295
+ * Bootstrap: carousel.js v3.3.5                                                                                       // 296
+ * http://getbootstrap.com/javascript/#carousel                                                                        // 297
+ * ========================================================================                                            // 298
+ * Copyright 2011-2015 Twitter, Inc.                                                                                   // 299
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)                                          // 300
+ * ======================================================================== */                                         // 301
                                                                                                                        // 302
-  // CAROUSEL CLASS DEFINITION                                                                                         // 303
-  // =========================                                                                                         // 304
-                                                                                                                       // 305
-  var Carousel = function (element, options) {                                                                         // 306
-    this.$element    = $(element)                                                                                      // 307
-    this.$indicators = this.$element.find('.carousel-indicators')                                                      // 308
-    this.options     = options                                                                                         // 309
-    this.paused      = null                                                                                            // 310
-    this.sliding     = null                                                                                            // 311
-    this.interval    = null                                                                                            // 312
-    this.$active     = null                                                                                            // 313
-    this.$items      = null                                                                                            // 314
-                                                                                                                       // 315
-    this.options.keyboard && this.$element.on('keydown.bs.carousel', $.proxy(this.keydown, this))                      // 316
-                                                                                                                       // 317
-    this.options.pause == 'hover' && !('ontouchstart' in document.documentElement) && this.$element                    // 318
-      .on('mouseenter.bs.carousel', $.proxy(this.pause, this))                                                         // 319
-      .on('mouseleave.bs.carousel', $.proxy(this.cycle, this))                                                         // 320
-  }                                                                                                                    // 321
-                                                                                                                       // 322
-  Carousel.VERSION  = '3.3.4'                                                                                          // 323
-                                                                                                                       // 324
-  Carousel.TRANSITION_DURATION = 600                                                                                   // 325
+                                                                                                                       // 303
++function ($) {                                                                                                        // 304
+  'use strict';                                                                                                        // 305
+                                                                                                                       // 306
+  // CAROUSEL CLASS DEFINITION                                                                                         // 307
+  // =========================                                                                                         // 308
+                                                                                                                       // 309
+  var Carousel = function (element, options) {                                                                         // 310
+    this.$element    = $(element)                                                                                      // 311
+    this.$indicators = this.$element.find('.carousel-indicators')                                                      // 312
+    this.options     = options                                                                                         // 313
+    this.paused      = null                                                                                            // 314
+    this.sliding     = null                                                                                            // 315
+    this.interval    = null                                                                                            // 316
+    this.$active     = null                                                                                            // 317
+    this.$items      = null                                                                                            // 318
+                                                                                                                       // 319
+    this.options.keyboard && this.$element.on('keydown.bs.carousel', $.proxy(this.keydown, this))                      // 320
+                                                                                                                       // 321
+    this.options.pause == 'hover' && !('ontouchstart' in document.documentElement) && this.$element                    // 322
+      .on('mouseenter.bs.carousel', $.proxy(this.pause, this))                                                         // 323
+      .on('mouseleave.bs.carousel', $.proxy(this.cycle, this))                                                         // 324
+  }                                                                                                                    // 325
                                                                                                                        // 326
-  Carousel.DEFAULTS = {                                                                                                // 327
-    interval: 5000,                                                                                                    // 328
-    pause: 'hover',                                                                                                    // 329
-    wrap: true,                                                                                                        // 330
-    keyboard: true                                                                                                     // 331
-  }                                                                                                                    // 332
-                                                                                                                       // 333
-  Carousel.prototype.keydown = function (e) {                                                                          // 334
-    if (/input|textarea/i.test(e.target.tagName)) return                                                               // 335
-    switch (e.which) {                                                                                                 // 336
-      case 37: this.prev(); break                                                                                      // 337
-      case 39: this.next(); break                                                                                      // 338
-      default: return                                                                                                  // 339
-    }                                                                                                                  // 340
-                                                                                                                       // 341
-    e.preventDefault()                                                                                                 // 342
-  }                                                                                                                    // 343
-                                                                                                                       // 344
-  Carousel.prototype.cycle = function (e) {                                                                            // 345
-    e || (this.paused = false)                                                                                         // 346
-                                                                                                                       // 347
-    this.interval && clearInterval(this.interval)                                                                      // 348
-                                                                                                                       // 349
-    this.options.interval                                                                                              // 350
-      && !this.paused                                                                                                  // 351
-      && (this.interval = setInterval($.proxy(this.next, this), this.options.interval))                                // 352
+  Carousel.VERSION  = '3.3.5'                                                                                          // 327
+                                                                                                                       // 328
+  Carousel.TRANSITION_DURATION = 600                                                                                   // 329
+                                                                                                                       // 330
+  Carousel.DEFAULTS = {                                                                                                // 331
+    interval: 5000,                                                                                                    // 332
+    pause: 'hover',                                                                                                    // 333
+    wrap: true,                                                                                                        // 334
+    keyboard: true                                                                                                     // 335
+  }                                                                                                                    // 336
+                                                                                                                       // 337
+  Carousel.prototype.keydown = function (e) {                                                                          // 338
+    if (/input|textarea/i.test(e.target.tagName)) return                                                               // 339
+    switch (e.which) {                                                                                                 // 340
+      case 37: this.prev(); break                                                                                      // 341
+      case 39: this.next(); break                                                                                      // 342
+      default: return                                                                                                  // 343
+    }                                                                                                                  // 344
+                                                                                                                       // 345
+    e.preventDefault()                                                                                                 // 346
+  }                                                                                                                    // 347
+                                                                                                                       // 348
+  Carousel.prototype.cycle = function (e) {                                                                            // 349
+    e || (this.paused = false)                                                                                         // 350
+                                                                                                                       // 351
+    this.interval && clearInterval(this.interval)                                                                      // 352
                                                                                                                        // 353
-    return this                                                                                                        // 354
-  }                                                                                                                    // 355
-                                                                                                                       // 356
-  Carousel.prototype.getItemIndex = function (item) {                                                                  // 357
-    this.$items = item.parent().children('.item')                                                                      // 358
-    return this.$items.index(item || this.$active)                                                                     // 359
-  }                                                                                                                    // 360
-                                                                                                                       // 361
-  Carousel.prototype.getItemForDirection = function (direction, active) {                                              // 362
-    var activeIndex = this.getItemIndex(active)                                                                        // 363
-    var willWrap = (direction == 'prev' && activeIndex === 0)                                                          // 364
-                || (direction == 'next' && activeIndex == (this.$items.length - 1))                                    // 365
-    if (willWrap && !this.options.wrap) return active                                                                  // 366
-    var delta = direction == 'prev' ? -1 : 1                                                                           // 367
-    var itemIndex = (activeIndex + delta) % this.$items.length                                                         // 368
-    return this.$items.eq(itemIndex)                                                                                   // 369
-  }                                                                                                                    // 370
-                                                                                                                       // 371
-  Carousel.prototype.to = function (pos) {                                                                             // 372
-    var that        = this                                                                                             // 373
-    var activeIndex = this.getItemIndex(this.$active = this.$element.find('.item.active'))                             // 374
+    this.options.interval                                                                                              // 354
+      && !this.paused                                                                                                  // 355
+      && (this.interval = setInterval($.proxy(this.next, this), this.options.interval))                                // 356
+                                                                                                                       // 357
+    return this                                                                                                        // 358
+  }                                                                                                                    // 359
+                                                                                                                       // 360
+  Carousel.prototype.getItemIndex = function (item) {                                                                  // 361
+    this.$items = item.parent().children('.item')                                                                      // 362
+    return this.$items.index(item || this.$active)                                                                     // 363
+  }                                                                                                                    // 364
+                                                                                                                       // 365
+  Carousel.prototype.getItemForDirection = function (direction, active) {                                              // 366
+    var activeIndex = this.getItemIndex(active)                                                                        // 367
+    var willWrap = (direction == 'prev' && activeIndex === 0)                                                          // 368
+                || (direction == 'next' && activeIndex == (this.$items.length - 1))                                    // 369
+    if (willWrap && !this.options.wrap) return active                                                                  // 370
+    var delta = direction == 'prev' ? -1 : 1                                                                           // 371
+    var itemIndex = (activeIndex + delta) % this.$items.length                                                         // 372
+    return this.$items.eq(itemIndex)                                                                                   // 373
+  }                                                                                                                    // 374
                                                                                                                        // 375
-    if (pos > (this.$items.length - 1) || pos < 0) return                                                              // 376
-                                                                                                                       // 377
-    if (this.sliding)       return this.$element.one('slid.bs.carousel', function () { that.to(pos) }) // yes, "slid"  // 378
-    if (activeIndex == pos) return this.pause().cycle()                                                                // 379
-                                                                                                                       // 380
-    return this.slide(pos > activeIndex ? 'next' : 'prev', this.$items.eq(pos))                                        // 381
-  }                                                                                                                    // 382
-                                                                                                                       // 383
-  Carousel.prototype.pause = function (e) {                                                                            // 384
-    e || (this.paused = true)                                                                                          // 385
-                                                                                                                       // 386
-    if (this.$element.find('.next, .prev').length && $.support.transition) {                                           // 387
-      this.$element.trigger($.support.transition.end)                                                                  // 388
-      this.cycle(true)                                                                                                 // 389
-    }                                                                                                                  // 390
-                                                                                                                       // 391
-    this.interval = clearInterval(this.interval)                                                                       // 392
-                                                                                                                       // 393
-    return this                                                                                                        // 394
-  }                                                                                                                    // 395
-                                                                                                                       // 396
-  Carousel.prototype.next = function () {                                                                              // 397
-    if (this.sliding) return                                                                                           // 398
-    return this.slide('next')                                                                                          // 399
-  }                                                                                                                    // 400
-                                                                                                                       // 401
-  Carousel.prototype.prev = function () {                                                                              // 402
-    if (this.sliding) return                                                                                           // 403
-    return this.slide('prev')                                                                                          // 404
-  }                                                                                                                    // 405
-                                                                                                                       // 406
-  Carousel.prototype.slide = function (type, next) {                                                                   // 407
-    var $active   = this.$element.find('.item.active')                                                                 // 408
-    var $next     = next || this.getItemForDirection(type, $active)                                                    // 409
-    var isCycling = this.interval                                                                                      // 410
-    var direction = type == 'next' ? 'left' : 'right'                                                                  // 411
-    var that      = this                                                                                               // 412
-                                                                                                                       // 413
-    if ($next.hasClass('active')) return (this.sliding = false)                                                        // 414
-                                                                                                                       // 415
-    var relatedTarget = $next[0]                                                                                       // 416
-    var slideEvent = $.Event('slide.bs.carousel', {                                                                    // 417
-      relatedTarget: relatedTarget,                                                                                    // 418
-      direction: direction                                                                                             // 419
-    })                                                                                                                 // 420
-    this.$element.trigger(slideEvent)                                                                                  // 421
-    if (slideEvent.isDefaultPrevented()) return                                                                        // 422
-                                                                                                                       // 423
-    this.sliding = true                                                                                                // 424
-                                                                                                                       // 425
-    isCycling && this.pause()                                                                                          // 426
+  Carousel.prototype.to = function (pos) {                                                                             // 376
+    var that        = this                                                                                             // 377
+    var activeIndex = this.getItemIndex(this.$active = this.$element.find('.item.active'))                             // 378
+                                                                                                                       // 379
+    if (pos > (this.$items.length - 1) || pos < 0) return                                                              // 380
+                                                                                                                       // 381
+    if (this.sliding)       return this.$element.one('slid.bs.carousel', function () { that.to(pos) }) // yes, "slid"  // 382
+    if (activeIndex == pos) return this.pause().cycle()                                                                // 383
+                                                                                                                       // 384
+    return this.slide(pos > activeIndex ? 'next' : 'prev', this.$items.eq(pos))                                        // 385
+  }                                                                                                                    // 386
+                                                                                                                       // 387
+  Carousel.prototype.pause = function (e) {                                                                            // 388
+    e || (this.paused = true)                                                                                          // 389
+                                                                                                                       // 390
+    if (this.$element.find('.next, .prev').length && $.support.transition) {                                           // 391
+      this.$element.trigger($.support.transition.end)                                                                  // 392
+      this.cycle(true)                                                                                                 // 393
+    }                                                                                                                  // 394
+                                                                                                                       // 395
+    this.interval = clearInterval(this.interval)                                                                       // 396
+                                                                                                                       // 397
+    return this                                                                                                        // 398
+  }                                                                                                                    // 399
+                                                                                                                       // 400
+  Carousel.prototype.next = function () {                                                                              // 401
+    if (this.sliding) return                                                                                           // 402
+    return this.slide('next')                                                                                          // 403
+  }                                                                                                                    // 404
+                                                                                                                       // 405
+  Carousel.prototype.prev = function () {                                                                              // 406
+    if (this.sliding) return                                                                                           // 407
+    return this.slide('prev')                                                                                          // 408
+  }                                                                                                                    // 409
+                                                                                                                       // 410
+  Carousel.prototype.slide = function (type, next) {                                                                   // 411
+    var $active   = this.$element.find('.item.active')                                                                 // 412
+    var $next     = next || this.getItemForDirection(type, $active)                                                    // 413
+    var isCycling = this.interval                                                                                      // 414
+    var direction = type == 'next' ? 'left' : 'right'                                                                  // 415
+    var that      = this                                                                                               // 416
+                                                                                                                       // 417
+    if ($next.hasClass('active')) return (this.sliding = false)                                                        // 418
+                                                                                                                       // 419
+    var relatedTarget = $next[0]                                                                                       // 420
+    var slideEvent = $.Event('slide.bs.carousel', {                                                                    // 421
+      relatedTarget: relatedTarget,                                                                                    // 422
+      direction: direction                                                                                             // 423
+    })                                                                                                                 // 424
+    this.$element.trigger(slideEvent)                                                                                  // 425
+    if (slideEvent.isDefaultPrevented()) return                                                                        // 426
                                                                                                                        // 427
-    if (this.$indicators.length) {                                                                                     // 428
-      this.$indicators.find('.active').removeClass('active')                                                           // 429
-      var $nextIndicator = $(this.$indicators.children()[this.getItemIndex($next)])                                    // 430
-      $nextIndicator && $nextIndicator.addClass('active')                                                              // 431
-    }                                                                                                                  // 432
-                                                                                                                       // 433
-    var slidEvent = $.Event('slid.bs.carousel', { relatedTarget: relatedTarget, direction: direction }) // yes, "slid" // 434
-    if ($.support.transition && this.$element.hasClass('slide')) {                                                     // 435
-      $next.addClass(type)                                                                                             // 436
-      $next[0].offsetWidth // force reflow                                                                             // 437
-      $active.addClass(direction)                                                                                      // 438
-      $next.addClass(direction)                                                                                        // 439
-      $active                                                                                                          // 440
-        .one('bsTransitionEnd', function () {                                                                          // 441
-          $next.removeClass([type, direction].join(' ')).addClass('active')                                            // 442
-          $active.removeClass(['active', direction].join(' '))                                                         // 443
-          that.sliding = false                                                                                         // 444
-          setTimeout(function () {                                                                                     // 445
-            that.$element.trigger(slidEvent)                                                                           // 446
-          }, 0)                                                                                                        // 447
-        })                                                                                                             // 448
-        .emulateTransitionEnd(Carousel.TRANSITION_DURATION)                                                            // 449
-    } else {                                                                                                           // 450
-      $active.removeClass('active')                                                                                    // 451
-      $next.addClass('active')                                                                                         // 452
-      this.sliding = false                                                                                             // 453
-      this.$element.trigger(slidEvent)                                                                                 // 454
-    }                                                                                                                  // 455
-                                                                                                                       // 456
-    isCycling && this.cycle()                                                                                          // 457
-                                                                                                                       // 458
-    return this                                                                                                        // 459
-  }                                                                                                                    // 460
-                                                                                                                       // 461
+    this.sliding = true                                                                                                // 428
+                                                                                                                       // 429
+    isCycling && this.pause()                                                                                          // 430
+                                                                                                                       // 431
+    if (this.$indicators.length) {                                                                                     // 432
+      this.$indicators.find('.active').removeClass('active')                                                           // 433
+      var $nextIndicator = $(this.$indicators.children()[this.getItemIndex($next)])                                    // 434
+      $nextIndicator && $nextIndicator.addClass('active')                                                              // 435
+    }                                                                                                                  // 436
+                                                                                                                       // 437
+    var slidEvent = $.Event('slid.bs.carousel', { relatedTarget: relatedTarget, direction: direction }) // yes, "slid" // 438
+    if ($.support.transition && this.$element.hasClass('slide')) {                                                     // 439
+      $next.addClass(type)                                                                                             // 440
+      $next[0].offsetWidth // force reflow                                                                             // 441
+      $active.addClass(direction)                                                                                      // 442
+      $next.addClass(direction)                                                                                        // 443
+      $active                                                                                                          // 444
+        .one('bsTransitionEnd', function () {                                                                          // 445
+          $next.removeClass([type, direction].join(' ')).addClass('active')                                            // 446
+          $active.removeClass(['active', direction].join(' '))                                                         // 447
+          that.sliding = false                                                                                         // 448
+          setTimeout(function () {                                                                                     // 449
+            that.$element.trigger(slidEvent)                                                                           // 450
+          }, 0)                                                                                                        // 451
+        })                                                                                                             // 452
+        .emulateTransitionEnd(Carousel.TRANSITION_DURATION)                                                            // 453
+    } else {                                                                                                           // 454
+      $active.removeClass('active')                                                                                    // 455
+      $next.addClass('active')                                                                                         // 456
+      this.sliding = false                                                                                             // 457
+      this.$element.trigger(slidEvent)                                                                                 // 458
+    }                                                                                                                  // 459
+                                                                                                                       // 460
+    isCycling && this.cycle()                                                                                          // 461
                                                                                                                        // 462
-  // CAROUSEL PLUGIN DEFINITION                                                                                        // 463
-  // ==========================                                                                                        // 464
+    return this                                                                                                        // 463
+  }                                                                                                                    // 464
                                                                                                                        // 465
-  function Plugin(option) {                                                                                            // 466
-    return this.each(function () {                                                                                     // 467
-      var $this   = $(this)                                                                                            // 468
-      var data    = $this.data('bs.carousel')                                                                          // 469
-      var options = $.extend({}, Carousel.DEFAULTS, $this.data(), typeof option == 'object' && option)                 // 470
-      var action  = typeof option == 'string' ? option : options.slide                                                 // 471
-                                                                                                                       // 472
-      if (!data) $this.data('bs.carousel', (data = new Carousel(this, options)))                                       // 473
-      if (typeof option == 'number') data.to(option)                                                                   // 474
-      else if (action) data[action]()                                                                                  // 475
-      else if (options.interval) data.pause().cycle()                                                                  // 476
-    })                                                                                                                 // 477
-  }                                                                                                                    // 478
-                                                                                                                       // 479
-  var old = $.fn.carousel                                                                                              // 480
-                                                                                                                       // 481
-  $.fn.carousel             = Plugin                                                                                   // 482
-  $.fn.carousel.Constructor = Carousel                                                                                 // 483
-                                                                                                                       // 484
+                                                                                                                       // 466
+  // CAROUSEL PLUGIN DEFINITION                                                                                        // 467
+  // ==========================                                                                                        // 468
+                                                                                                                       // 469
+  function Plugin(option) {                                                                                            // 470
+    return this.each(function () {                                                                                     // 471
+      var $this   = $(this)                                                                                            // 472
+      var data    = $this.data('bs.carousel')                                                                          // 473
+      var options = $.extend({}, Carousel.DEFAULTS, $this.data(), typeof option == 'object' && option)                 // 474
+      var action  = typeof option == 'string' ? option : options.slide                                                 // 475
+                                                                                                                       // 476
+      if (!data) $this.data('bs.carousel', (data = new Carousel(this, options)))                                       // 477
+      if (typeof option == 'number') data.to(option)                                                                   // 478
+      else if (action) data[action]()                                                                                  // 479
+      else if (options.interval) data.pause().cycle()                                                                  // 480
+    })                                                                                                                 // 481
+  }                                                                                                                    // 482
+                                                                                                                       // 483
+  var old = $.fn.carousel                                                                                              // 484
                                                                                                                        // 485
-  // CAROUSEL NO CONFLICT                                                                                              // 486
-  // ====================                                                                                              // 487
+  $.fn.carousel             = Plugin                                                                                   // 486
+  $.fn.carousel.Constructor = Carousel                                                                                 // 487
                                                                                                                        // 488
-  $.fn.carousel.noConflict = function () {                                                                             // 489
-    $.fn.carousel = old                                                                                                // 490
-    return this                                                                                                        // 491
-  }                                                                                                                    // 492
-                                                                                                                       // 493
-                                                                                                                       // 494
-  // CAROUSEL DATA-API                                                                                                 // 495
-  // =================                                                                                                 // 496
+                                                                                                                       // 489
+  // CAROUSEL NO CONFLICT                                                                                              // 490
+  // ====================                                                                                              // 491
+                                                                                                                       // 492
+  $.fn.carousel.noConflict = function () {                                                                             // 493
+    $.fn.carousel = old                                                                                                // 494
+    return this                                                                                                        // 495
+  }                                                                                                                    // 496
                                                                                                                        // 497
-  var clickHandler = function (e) {                                                                                    // 498
-    var href                                                                                                           // 499
-    var $this   = $(this)                                                                                              // 500
+                                                                                                                       // 498
+  // CAROUSEL DATA-API                                                                                                 // 499
+  // =================                                                                                                 // 500
+                                                                                                                       // 501
+  var clickHandler = function (e) {                                                                                    // 502
+    var href                                                                                                           // 503
+    var $this   = $(this)                                                                                              // 504
     var $target = $($this.attr('data-target') || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')) // strip for ie7
-    if (!$target.hasClass('carousel')) return                                                                          // 502
-    var options = $.extend({}, $target.data(), $this.data())                                                           // 503
-    var slideIndex = $this.attr('data-slide-to')                                                                       // 504
-    if (slideIndex) options.interval = false                                                                           // 505
-                                                                                                                       // 506
-    Plugin.call($target, options)                                                                                      // 507
-                                                                                                                       // 508
-    if (slideIndex) {                                                                                                  // 509
-      $target.data('bs.carousel').to(slideIndex)                                                                       // 510
-    }                                                                                                                  // 511
+    if (!$target.hasClass('carousel')) return                                                                          // 506
+    var options = $.extend({}, $target.data(), $this.data())                                                           // 507
+    var slideIndex = $this.attr('data-slide-to')                                                                       // 508
+    if (slideIndex) options.interval = false                                                                           // 509
+                                                                                                                       // 510
+    Plugin.call($target, options)                                                                                      // 511
                                                                                                                        // 512
-    e.preventDefault()                                                                                                 // 513
-  }                                                                                                                    // 514
-                                                                                                                       // 515
-  $(document)                                                                                                          // 516
-    .on('click.bs.carousel.data-api', '[data-slide]', clickHandler)                                                    // 517
-    .on('click.bs.carousel.data-api', '[data-slide-to]', clickHandler)                                                 // 518
+    if (slideIndex) {                                                                                                  // 513
+      $target.data('bs.carousel').to(slideIndex)                                                                       // 514
+    }                                                                                                                  // 515
+                                                                                                                       // 516
+    e.preventDefault()                                                                                                 // 517
+  }                                                                                                                    // 518
                                                                                                                        // 519
-  $(window).on('load', function () {                                                                                   // 520
-    $('[data-ride="carousel"]').each(function () {                                                                     // 521
-      var $carousel = $(this)                                                                                          // 522
-      Plugin.call($carousel, $carousel.data())                                                                         // 523
-    })                                                                                                                 // 524
-  })                                                                                                                   // 525
-                                                                                                                       // 526
-}(jQuery);                                                                                                             // 527
-                                                                                                                       // 528
-/* ========================================================================                                            // 529
- * Bootstrap: collapse.js v3.3.4                                                                                       // 530
- * http://getbootstrap.com/javascript/#collapse                                                                        // 531
- * ========================================================================                                            // 532
- * Copyright 2011-2015 Twitter, Inc.                                                                                   // 533
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)                                          // 534
- * ======================================================================== */                                         // 535
-                                                                                                                       // 536
-                                                                                                                       // 537
-+function ($) {                                                                                                        // 538
-  'use strict';                                                                                                        // 539
+  $(document)                                                                                                          // 520
+    .on('click.bs.carousel.data-api', '[data-slide]', clickHandler)                                                    // 521
+    .on('click.bs.carousel.data-api', '[data-slide-to]', clickHandler)                                                 // 522
+                                                                                                                       // 523
+  $(window).on('load', function () {                                                                                   // 524
+    $('[data-ride="carousel"]').each(function () {                                                                     // 525
+      var $carousel = $(this)                                                                                          // 526
+      Plugin.call($carousel, $carousel.data())                                                                         // 527
+    })                                                                                                                 // 528
+  })                                                                                                                   // 529
+                                                                                                                       // 530
+}(jQuery);                                                                                                             // 531
+                                                                                                                       // 532
+/* ========================================================================                                            // 533
+ * Bootstrap: collapse.js v3.3.5                                                                                       // 534
+ * http://getbootstrap.com/javascript/#collapse                                                                        // 535
+ * ========================================================================                                            // 536
+ * Copyright 2011-2015 Twitter, Inc.                                                                                   // 537
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)                                          // 538
+ * ======================================================================== */                                         // 539
                                                                                                                        // 540
-  // COLLAPSE PUBLIC CLASS DEFINITION                                                                                  // 541
-  // ================================                                                                                  // 542
-                                                                                                                       // 543
-  var Collapse = function (element, options) {                                                                         // 544
-    this.$element      = $(element)                                                                                    // 545
-    this.options       = $.extend({}, Collapse.DEFAULTS, options)                                                      // 546
-    this.$trigger      = $('[data-toggle="collapse"][href="#' + element.id + '"],' +                                   // 547
-                           '[data-toggle="collapse"][data-target="#' + element.id + '"]')                              // 548
-    this.transitioning = null                                                                                          // 549
-                                                                                                                       // 550
-    if (this.options.parent) {                                                                                         // 551
-      this.$parent = this.getParent()                                                                                  // 552
-    } else {                                                                                                           // 553
-      this.addAriaAndCollapsedClass(this.$element, this.$trigger)                                                      // 554
-    }                                                                                                                  // 555
-                                                                                                                       // 556
-    if (this.options.toggle) this.toggle()                                                                             // 557
-  }                                                                                                                    // 558
-                                                                                                                       // 559
-  Collapse.VERSION  = '3.3.4'                                                                                          // 560
-                                                                                                                       // 561
-  Collapse.TRANSITION_DURATION = 350                                                                                   // 562
+                                                                                                                       // 541
++function ($) {                                                                                                        // 542
+  'use strict';                                                                                                        // 543
+                                                                                                                       // 544
+  // COLLAPSE PUBLIC CLASS DEFINITION                                                                                  // 545
+  // ================================                                                                                  // 546
+                                                                                                                       // 547
+  var Collapse = function (element, options) {                                                                         // 548
+    this.$element      = $(element)                                                                                    // 549
+    this.options       = $.extend({}, Collapse.DEFAULTS, options)                                                      // 550
+    this.$trigger      = $('[data-toggle="collapse"][href="#' + element.id + '"],' +                                   // 551
+                           '[data-toggle="collapse"][data-target="#' + element.id + '"]')                              // 552
+    this.transitioning = null                                                                                          // 553
+                                                                                                                       // 554
+    if (this.options.parent) {                                                                                         // 555
+      this.$parent = this.getParent()                                                                                  // 556
+    } else {                                                                                                           // 557
+      this.addAriaAndCollapsedClass(this.$element, this.$trigger)                                                      // 558
+    }                                                                                                                  // 559
+                                                                                                                       // 560
+    if (this.options.toggle) this.toggle()                                                                             // 561
+  }                                                                                                                    // 562
                                                                                                                        // 563
-  Collapse.DEFAULTS = {                                                                                                // 564
-    toggle: true                                                                                                       // 565
-  }                                                                                                                    // 566
+  Collapse.VERSION  = '3.3.5'                                                                                          // 564
+                                                                                                                       // 565
+  Collapse.TRANSITION_DURATION = 350                                                                                   // 566
                                                                                                                        // 567
-  Collapse.prototype.dimension = function () {                                                                         // 568
-    var hasWidth = this.$element.hasClass('width')                                                                     // 569
-    return hasWidth ? 'width' : 'height'                                                                               // 570
-  }                                                                                                                    // 571
-                                                                                                                       // 572
-  Collapse.prototype.show = function () {                                                                              // 573
-    if (this.transitioning || this.$element.hasClass('in')) return                                                     // 574
-                                                                                                                       // 575
-    var activesData                                                                                                    // 576
-    var actives = this.$parent && this.$parent.children('.panel').children('.in, .collapsing')                         // 577
-                                                                                                                       // 578
-    if (actives && actives.length) {                                                                                   // 579
-      activesData = actives.data('bs.collapse')                                                                        // 580
-      if (activesData && activesData.transitioning) return                                                             // 581
-    }                                                                                                                  // 582
-                                                                                                                       // 583
-    var startEvent = $.Event('show.bs.collapse')                                                                       // 584
-    this.$element.trigger(startEvent)                                                                                  // 585
-    if (startEvent.isDefaultPrevented()) return                                                                        // 586
+  Collapse.DEFAULTS = {                                                                                                // 568
+    toggle: true                                                                                                       // 569
+  }                                                                                                                    // 570
+                                                                                                                       // 571
+  Collapse.prototype.dimension = function () {                                                                         // 572
+    var hasWidth = this.$element.hasClass('width')                                                                     // 573
+    return hasWidth ? 'width' : 'height'                                                                               // 574
+  }                                                                                                                    // 575
+                                                                                                                       // 576
+  Collapse.prototype.show = function () {                                                                              // 577
+    if (this.transitioning || this.$element.hasClass('in')) return                                                     // 578
+                                                                                                                       // 579
+    var activesData                                                                                                    // 580
+    var actives = this.$parent && this.$parent.children('.panel').children('.in, .collapsing')                         // 581
+                                                                                                                       // 582
+    if (actives && actives.length) {                                                                                   // 583
+      activesData = actives.data('bs.collapse')                                                                        // 584
+      if (activesData && activesData.transitioning) return                                                             // 585
+    }                                                                                                                  // 586
                                                                                                                        // 587
-    if (actives && actives.length) {                                                                                   // 588
-      Plugin.call(actives, 'hide')                                                                                     // 589
-      activesData || actives.data('bs.collapse', null)                                                                 // 590
-    }                                                                                                                  // 591
-                                                                                                                       // 592
-    var dimension = this.dimension()                                                                                   // 593
-                                                                                                                       // 594
-    this.$element                                                                                                      // 595
-      .removeClass('collapse')                                                                                         // 596
-      .addClass('collapsing')[dimension](0)                                                                            // 597
-      .attr('aria-expanded', true)                                                                                     // 598
-                                                                                                                       // 599
-    this.$trigger                                                                                                      // 600
-      .removeClass('collapsed')                                                                                        // 601
+    var startEvent = $.Event('show.bs.collapse')                                                                       // 588
+    this.$element.trigger(startEvent)                                                                                  // 589
+    if (startEvent.isDefaultPrevented()) return                                                                        // 590
+                                                                                                                       // 591
+    if (actives && actives.length) {                                                                                   // 592
+      Plugin.call(actives, 'hide')                                                                                     // 593
+      activesData || actives.data('bs.collapse', null)                                                                 // 594
+    }                                                                                                                  // 595
+                                                                                                                       // 596
+    var dimension = this.dimension()                                                                                   // 597
+                                                                                                                       // 598
+    this.$element                                                                                                      // 599
+      .removeClass('collapse')                                                                                         // 600
+      .addClass('collapsing')[dimension](0)                                                                            // 601
       .attr('aria-expanded', true)                                                                                     // 602
                                                                                                                        // 603
-    this.transitioning = 1                                                                                             // 604
-                                                                                                                       // 605
-    var complete = function () {                                                                                       // 606
-      this.$element                                                                                                    // 607
-        .removeClass('collapsing')                                                                                     // 608
-        .addClass('collapse in')[dimension]('')                                                                        // 609
-      this.transitioning = 0                                                                                           // 610
+    this.$trigger                                                                                                      // 604
+      .removeClass('collapsed')                                                                                        // 605
+      .attr('aria-expanded', true)                                                                                     // 606
+                                                                                                                       // 607
+    this.transitioning = 1                                                                                             // 608
+                                                                                                                       // 609
+    var complete = function () {                                                                                       // 610
       this.$element                                                                                                    // 611
-        .trigger('shown.bs.collapse')                                                                                  // 612
-    }                                                                                                                  // 613
-                                                                                                                       // 614
-    if (!$.support.transition) return complete.call(this)                                                              // 615
-                                                                                                                       // 616
-    var scrollSize = $.camelCase(['scroll', dimension].join('-'))                                                      // 617
+        .removeClass('collapsing')                                                                                     // 612
+        .addClass('collapse in')[dimension]('')                                                                        // 613
+      this.transitioning = 0                                                                                           // 614
+      this.$element                                                                                                    // 615
+        .trigger('shown.bs.collapse')                                                                                  // 616
+    }                                                                                                                  // 617
                                                                                                                        // 618
-    this.$element                                                                                                      // 619
-      .one('bsTransitionEnd', $.proxy(complete, this))                                                                 // 620
-      .emulateTransitionEnd(Collapse.TRANSITION_DURATION)[dimension](this.$element[0][scrollSize])                     // 621
-  }                                                                                                                    // 622
-                                                                                                                       // 623
-  Collapse.prototype.hide = function () {                                                                              // 624
-    if (this.transitioning || !this.$element.hasClass('in')) return                                                    // 625
-                                                                                                                       // 626
-    var startEvent = $.Event('hide.bs.collapse')                                                                       // 627
-    this.$element.trigger(startEvent)                                                                                  // 628
-    if (startEvent.isDefaultPrevented()) return                                                                        // 629
+    if (!$.support.transition) return complete.call(this)                                                              // 619
+                                                                                                                       // 620
+    var scrollSize = $.camelCase(['scroll', dimension].join('-'))                                                      // 621
+                                                                                                                       // 622
+    this.$element                                                                                                      // 623
+      .one('bsTransitionEnd', $.proxy(complete, this))                                                                 // 624
+      .emulateTransitionEnd(Collapse.TRANSITION_DURATION)[dimension](this.$element[0][scrollSize])                     // 625
+  }                                                                                                                    // 626
+                                                                                                                       // 627
+  Collapse.prototype.hide = function () {                                                                              // 628
+    if (this.transitioning || !this.$element.hasClass('in')) return                                                    // 629
                                                                                                                        // 630
-    var dimension = this.dimension()                                                                                   // 631
-                                                                                                                       // 632
-    this.$element[dimension](this.$element[dimension]())[0].offsetHeight                                               // 633
+    var startEvent = $.Event('hide.bs.collapse')                                                                       // 631
+    this.$element.trigger(startEvent)                                                                                  // 632
+    if (startEvent.isDefaultPrevented()) return                                                                        // 633
                                                                                                                        // 634
-    this.$element                                                                                                      // 635
-      .addClass('collapsing')                                                                                          // 636
-      .removeClass('collapse in')                                                                                      // 637
-      .attr('aria-expanded', false)                                                                                    // 638
-                                                                                                                       // 639
-    this.$trigger                                                                                                      // 640
-      .addClass('collapsed')                                                                                           // 641
+    var dimension = this.dimension()                                                                                   // 635
+                                                                                                                       // 636
+    this.$element[dimension](this.$element[dimension]())[0].offsetHeight                                               // 637
+                                                                                                                       // 638
+    this.$element                                                                                                      // 639
+      .addClass('collapsing')                                                                                          // 640
+      .removeClass('collapse in')                                                                                      // 641
       .attr('aria-expanded', false)                                                                                    // 642
                                                                                                                        // 643
-    this.transitioning = 1                                                                                             // 644
-                                                                                                                       // 645
-    var complete = function () {                                                                                       // 646
-      this.transitioning = 0                                                                                           // 647
-      this.$element                                                                                                    // 648
-        .removeClass('collapsing')                                                                                     // 649
-        .addClass('collapse')                                                                                          // 650
-        .trigger('hidden.bs.collapse')                                                                                 // 651
-    }                                                                                                                  // 652
-                                                                                                                       // 653
-    if (!$.support.transition) return complete.call(this)                                                              // 654
-                                                                                                                       // 655
-    this.$element                                                                                                      // 656
-      [dimension](0)                                                                                                   // 657
-      .one('bsTransitionEnd', $.proxy(complete, this))                                                                 // 658
-      .emulateTransitionEnd(Collapse.TRANSITION_DURATION)                                                              // 659
-  }                                                                                                                    // 660
-                                                                                                                       // 661
-  Collapse.prototype.toggle = function () {                                                                            // 662
-    this[this.$element.hasClass('in') ? 'hide' : 'show']()                                                             // 663
+    this.$trigger                                                                                                      // 644
+      .addClass('collapsed')                                                                                           // 645
+      .attr('aria-expanded', false)                                                                                    // 646
+                                                                                                                       // 647
+    this.transitioning = 1                                                                                             // 648
+                                                                                                                       // 649
+    var complete = function () {                                                                                       // 650
+      this.transitioning = 0                                                                                           // 651
+      this.$element                                                                                                    // 652
+        .removeClass('collapsing')                                                                                     // 653
+        .addClass('collapse')                                                                                          // 654
+        .trigger('hidden.bs.collapse')                                                                                 // 655
+    }                                                                                                                  // 656
+                                                                                                                       // 657
+    if (!$.support.transition) return complete.call(this)                                                              // 658
+                                                                                                                       // 659
+    this.$element                                                                                                      // 660
+      [dimension](0)                                                                                                   // 661
+      .one('bsTransitionEnd', $.proxy(complete, this))                                                                 // 662
+      .emulateTransitionEnd(Collapse.TRANSITION_DURATION)                                                              // 663
   }                                                                                                                    // 664
                                                                                                                        // 665
-  Collapse.prototype.getParent = function () {                                                                         // 666
-    return $(this.options.parent)                                                                                      // 667
-      .find('[data-toggle="collapse"][data-parent="' + this.options.parent + '"]')                                     // 668
-      .each($.proxy(function (i, element) {                                                                            // 669
-        var $element = $(element)                                                                                      // 670
-        this.addAriaAndCollapsedClass(getTargetFromTrigger($element), $element)                                        // 671
-      }, this))                                                                                                        // 672
-      .end()                                                                                                           // 673
-  }                                                                                                                    // 674
-                                                                                                                       // 675
-  Collapse.prototype.addAriaAndCollapsedClass = function ($element, $trigger) {                                        // 676
-    var isOpen = $element.hasClass('in')                                                                               // 677
-                                                                                                                       // 678
-    $element.attr('aria-expanded', isOpen)                                                                             // 679
-    $trigger                                                                                                           // 680
-      .toggleClass('collapsed', !isOpen)                                                                               // 681
-      .attr('aria-expanded', isOpen)                                                                                   // 682
-  }                                                                                                                    // 683
-                                                                                                                       // 684
-  function getTargetFromTrigger($trigger) {                                                                            // 685
-    var href                                                                                                           // 686
-    var target = $trigger.attr('data-target')                                                                          // 687
-      || (href = $trigger.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '') // strip for ie7                         // 688
-                                                                                                                       // 689
-    return $(target)                                                                                                   // 690
-  }                                                                                                                    // 691
-                                                                                                                       // 692
+  Collapse.prototype.toggle = function () {                                                                            // 666
+    this[this.$element.hasClass('in') ? 'hide' : 'show']()                                                             // 667
+  }                                                                                                                    // 668
+                                                                                                                       // 669
+  Collapse.prototype.getParent = function () {                                                                         // 670
+    return $(this.options.parent)                                                                                      // 671
+      .find('[data-toggle="collapse"][data-parent="' + this.options.parent + '"]')                                     // 672
+      .each($.proxy(function (i, element) {                                                                            // 673
+        var $element = $(element)                                                                                      // 674
+        this.addAriaAndCollapsedClass(getTargetFromTrigger($element), $element)                                        // 675
+      }, this))                                                                                                        // 676
+      .end()                                                                                                           // 677
+  }                                                                                                                    // 678
+                                                                                                                       // 679
+  Collapse.prototype.addAriaAndCollapsedClass = function ($element, $trigger) {                                        // 680
+    var isOpen = $element.hasClass('in')                                                                               // 681
+                                                                                                                       // 682
+    $element.attr('aria-expanded', isOpen)                                                                             // 683
+    $trigger                                                                                                           // 684
+      .toggleClass('collapsed', !isOpen)                                                                               // 685
+      .attr('aria-expanded', isOpen)                                                                                   // 686
+  }                                                                                                                    // 687
+                                                                                                                       // 688
+  function getTargetFromTrigger($trigger) {                                                                            // 689
+    var href                                                                                                           // 690
+    var target = $trigger.attr('data-target')                                                                          // 691
+      || (href = $trigger.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '') // strip for ie7                         // 692
                                                                                                                        // 693
-  // COLLAPSE PLUGIN DEFINITION                                                                                        // 694
-  // ==========================                                                                                        // 695
+    return $(target)                                                                                                   // 694
+  }                                                                                                                    // 695
                                                                                                                        // 696
-  function Plugin(option) {                                                                                            // 697
-    return this.each(function () {                                                                                     // 698
-      var $this   = $(this)                                                                                            // 699
-      var data    = $this.data('bs.collapse')                                                                          // 700
-      var options = $.extend({}, Collapse.DEFAULTS, $this.data(), typeof option == 'object' && option)                 // 701
-                                                                                                                       // 702
-      if (!data && options.toggle && /show|hide/.test(option)) options.toggle = false                                  // 703
-      if (!data) $this.data('bs.collapse', (data = new Collapse(this, options)))                                       // 704
-      if (typeof option == 'string') data[option]()                                                                    // 705
-    })                                                                                                                 // 706
-  }                                                                                                                    // 707
-                                                                                                                       // 708
-  var old = $.fn.collapse                                                                                              // 709
-                                                                                                                       // 710
-  $.fn.collapse             = Plugin                                                                                   // 711
-  $.fn.collapse.Constructor = Collapse                                                                                 // 712
-                                                                                                                       // 713
+                                                                                                                       // 697
+  // COLLAPSE PLUGIN DEFINITION                                                                                        // 698
+  // ==========================                                                                                        // 699
+                                                                                                                       // 700
+  function Plugin(option) {                                                                                            // 701
+    return this.each(function () {                                                                                     // 702
+      var $this   = $(this)                                                                                            // 703
+      var data    = $this.data('bs.collapse')                                                                          // 704
+      var options = $.extend({}, Collapse.DEFAULTS, $this.data(), typeof option == 'object' && option)                 // 705
+                                                                                                                       // 706
+      if (!data && options.toggle && /show|hide/.test(option)) options.toggle = false                                  // 707
+      if (!data) $this.data('bs.collapse', (data = new Collapse(this, options)))                                       // 708
+      if (typeof option == 'string') data[option]()                                                                    // 709
+    })                                                                                                                 // 710
+  }                                                                                                                    // 711
+                                                                                                                       // 712
+  var old = $.fn.collapse                                                                                              // 713
                                                                                                                        // 714
-  // COLLAPSE NO CONFLICT                                                                                              // 715
-  // ====================                                                                                              // 716
+  $.fn.collapse             = Plugin                                                                                   // 715
+  $.fn.collapse.Constructor = Collapse                                                                                 // 716
                                                                                                                        // 717
-  $.fn.collapse.noConflict = function () {                                                                             // 718
-    $.fn.collapse = old                                                                                                // 719
-    return this                                                                                                        // 720
-  }                                                                                                                    // 721
-                                                                                                                       // 722
-                                                                                                                       // 723
-  // COLLAPSE DATA-API                                                                                                 // 724
-  // =================                                                                                                 // 725
+                                                                                                                       // 718
+  // COLLAPSE NO CONFLICT                                                                                              // 719
+  // ====================                                                                                              // 720
+                                                                                                                       // 721
+  $.fn.collapse.noConflict = function () {                                                                             // 722
+    $.fn.collapse = old                                                                                                // 723
+    return this                                                                                                        // 724
+  }                                                                                                                    // 725
                                                                                                                        // 726
-  $(document).on('click.bs.collapse.data-api', '[data-toggle="collapse"]', function (e) {                              // 727
-    var $this   = $(this)                                                                                              // 728
-                                                                                                                       // 729
-    if (!$this.attr('data-target')) e.preventDefault()                                                                 // 730
-                                                                                                                       // 731
-    var $target = getTargetFromTrigger($this)                                                                          // 732
-    var data    = $target.data('bs.collapse')                                                                          // 733
-    var option  = data ? 'toggle' : $this.data()                                                                       // 734
+                                                                                                                       // 727
+  // COLLAPSE DATA-API                                                                                                 // 728
+  // =================                                                                                                 // 729
+                                                                                                                       // 730
+  $(document).on('click.bs.collapse.data-api', '[data-toggle="collapse"]', function (e) {                              // 731
+    var $this   = $(this)                                                                                              // 732
+                                                                                                                       // 733
+    if (!$this.attr('data-target')) e.preventDefault()                                                                 // 734
                                                                                                                        // 735
-    Plugin.call($target, option)                                                                                       // 736
-  })                                                                                                                   // 737
-                                                                                                                       // 738
-}(jQuery);                                                                                                             // 739
-                                                                                                                       // 740
-/* ========================================================================                                            // 741
- * Bootstrap: dropdown.js v3.3.4                                                                                       // 742
- * http://getbootstrap.com/javascript/#dropdowns                                                                       // 743
- * ========================================================================                                            // 744
- * Copyright 2011-2015 Twitter, Inc.                                                                                   // 745
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)                                          // 746
- * ======================================================================== */                                         // 747
-                                                                                                                       // 748
-                                                                                                                       // 749
-+function ($) {                                                                                                        // 750
-  'use strict';                                                                                                        // 751
+    var $target = getTargetFromTrigger($this)                                                                          // 736
+    var data    = $target.data('bs.collapse')                                                                          // 737
+    var option  = data ? 'toggle' : $this.data()                                                                       // 738
+                                                                                                                       // 739
+    Plugin.call($target, option)                                                                                       // 740
+  })                                                                                                                   // 741
+                                                                                                                       // 742
+}(jQuery);                                                                                                             // 743
+                                                                                                                       // 744
+/* ========================================================================                                            // 745
+ * Bootstrap: dropdown.js v3.3.5                                                                                       // 746
+ * http://getbootstrap.com/javascript/#dropdowns                                                                       // 747
+ * ========================================================================                                            // 748
+ * Copyright 2011-2015 Twitter, Inc.                                                                                   // 749
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)                                          // 750
+ * ======================================================================== */                                         // 751
                                                                                                                        // 752
-  // DROPDOWN CLASS DEFINITION                                                                                         // 753
-  // =========================                                                                                         // 754
-                                                                                                                       // 755
-  var backdrop = '.dropdown-backdrop'                                                                                  // 756
-  var toggle   = '[data-toggle="dropdown"]'                                                                            // 757
-  var Dropdown = function (element) {                                                                                  // 758
-    $(element).on('click.bs.dropdown', this.toggle)                                                                    // 759
-  }                                                                                                                    // 760
-                                                                                                                       // 761
-  Dropdown.VERSION = '3.3.4'                                                                                           // 762
-                                                                                                                       // 763
-  Dropdown.prototype.toggle = function (e) {                                                                           // 764
-    var $this = $(this)                                                                                                // 765
-                                                                                                                       // 766
-    if ($this.is('.disabled, :disabled')) return                                                                       // 767
-                                                                                                                       // 768
-    var $parent  = getParent($this)                                                                                    // 769
-    var isActive = $parent.hasClass('open')                                                                            // 770
-                                                                                                                       // 771
-    clearMenus()                                                                                                       // 772
-                                                                                                                       // 773
-    if (!isActive) {                                                                                                   // 774
-      if ('ontouchstart' in document.documentElement && !$parent.closest('.navbar-nav').length) {                      // 775
-        // if mobile we use a backdrop because click events don't delegate                                             // 776
-        $('<div class="dropdown-backdrop"/>').insertAfter($(this)).on('click', clearMenus)                             // 777
-      }                                                                                                                // 778
-                                                                                                                       // 779
-      var relatedTarget = { relatedTarget: this }                                                                      // 780
-      $parent.trigger(e = $.Event('show.bs.dropdown', relatedTarget))                                                  // 781
-                                                                                                                       // 782
-      if (e.isDefaultPrevented()) return                                                                               // 783
-                                                                                                                       // 784
-      $this                                                                                                            // 785
-        .trigger('focus')                                                                                              // 786
-        .attr('aria-expanded', 'true')                                                                                 // 787
+                                                                                                                       // 753
++function ($) {                                                                                                        // 754
+  'use strict';                                                                                                        // 755
+                                                                                                                       // 756
+  // DROPDOWN CLASS DEFINITION                                                                                         // 757
+  // =========================                                                                                         // 758
+                                                                                                                       // 759
+  var backdrop = '.dropdown-backdrop'                                                                                  // 760
+  var toggle   = '[data-toggle="dropdown"]'                                                                            // 761
+  var Dropdown = function (element) {                                                                                  // 762
+    $(element).on('click.bs.dropdown', this.toggle)                                                                    // 763
+  }                                                                                                                    // 764
+                                                                                                                       // 765
+  Dropdown.VERSION = '3.3.5'                                                                                           // 766
+                                                                                                                       // 767
+  function getParent($this) {                                                                                          // 768
+    var selector = $this.attr('data-target')                                                                           // 769
+                                                                                                                       // 770
+    if (!selector) {                                                                                                   // 771
+      selector = $this.attr('href')                                                                                    // 772
+      selector = selector && /#[A-Za-z]/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7     // 773
+    }                                                                                                                  // 774
+                                                                                                                       // 775
+    var $parent = selector && $(selector)                                                                              // 776
+                                                                                                                       // 777
+    return $parent && $parent.length ? $parent : $this.parent()                                                        // 778
+  }                                                                                                                    // 779
+                                                                                                                       // 780
+  function clearMenus(e) {                                                                                             // 781
+    if (e && e.which === 3) return                                                                                     // 782
+    $(backdrop).remove()                                                                                               // 783
+    $(toggle).each(function () {                                                                                       // 784
+      var $this         = $(this)                                                                                      // 785
+      var $parent       = getParent($this)                                                                             // 786
+      var relatedTarget = { relatedTarget: this }                                                                      // 787
                                                                                                                        // 788
-      $parent                                                                                                          // 789
-        .toggleClass('open')                                                                                           // 790
-        .trigger('shown.bs.dropdown', relatedTarget)                                                                   // 791
-    }                                                                                                                  // 792
-                                                                                                                       // 793
-    return false                                                                                                       // 794
-  }                                                                                                                    // 795
+      if (!$parent.hasClass('open')) return                                                                            // 789
+                                                                                                                       // 790
+      if (e && e.type == 'click' && /input|textarea/i.test(e.target.tagName) && $.contains($parent[0], e.target)) return
+                                                                                                                       // 792
+      $parent.trigger(e = $.Event('hide.bs.dropdown', relatedTarget))                                                  // 793
+                                                                                                                       // 794
+      if (e.isDefaultPrevented()) return                                                                               // 795
                                                                                                                        // 796
-  Dropdown.prototype.keydown = function (e) {                                                                          // 797
-    if (!/(38|40|27|32)/.test(e.which) || /input|textarea/i.test(e.target.tagName)) return                             // 798
-                                                                                                                       // 799
-    var $this = $(this)                                                                                                // 800
+      $this.attr('aria-expanded', 'false')                                                                             // 797
+      $parent.removeClass('open').trigger('hidden.bs.dropdown', relatedTarget)                                         // 798
+    })                                                                                                                 // 799
+  }                                                                                                                    // 800
                                                                                                                        // 801
-    e.preventDefault()                                                                                                 // 802
-    e.stopPropagation()                                                                                                // 803
+  Dropdown.prototype.toggle = function (e) {                                                                           // 802
+    var $this = $(this)                                                                                                // 803
                                                                                                                        // 804
     if ($this.is('.disabled, :disabled')) return                                                                       // 805
                                                                                                                        // 806
     var $parent  = getParent($this)                                                                                    // 807
     var isActive = $parent.hasClass('open')                                                                            // 808
                                                                                                                        // 809
-    if ((!isActive && e.which != 27) || (isActive && e.which == 27)) {                                                 // 810
-      if (e.which == 27) $parent.find(toggle).trigger('focus')                                                         // 811
-      return $this.trigger('click')                                                                                    // 812
-    }                                                                                                                  // 813
-                                                                                                                       // 814
-    var desc = ' li:not(.disabled):visible a'                                                                          // 815
-    var $items = $parent.find('[role="menu"]' + desc + ', [role="listbox"]' + desc)                                    // 816
-                                                                                                                       // 817
-    if (!$items.length) return                                                                                         // 818
-                                                                                                                       // 819
-    var index = $items.index(e.target)                                                                                 // 820
-                                                                                                                       // 821
-    if (e.which == 38 && index > 0)                 index--                        // up                               // 822
-    if (e.which == 40 && index < $items.length - 1) index++                        // down                             // 823
-    if (!~index)                                      index = 0                                                        // 824
+    clearMenus()                                                                                                       // 810
+                                                                                                                       // 811
+    if (!isActive) {                                                                                                   // 812
+      if ('ontouchstart' in document.documentElement && !$parent.closest('.navbar-nav').length) {                      // 813
+        // if mobile we use a backdrop because click events don't delegate                                             // 814
+        $(document.createElement('div'))                                                                               // 815
+          .addClass('dropdown-backdrop')                                                                               // 816
+          .insertAfter($(this))                                                                                        // 817
+          .on('click', clearMenus)                                                                                     // 818
+      }                                                                                                                // 819
+                                                                                                                       // 820
+      var relatedTarget = { relatedTarget: this }                                                                      // 821
+      $parent.trigger(e = $.Event('show.bs.dropdown', relatedTarget))                                                  // 822
+                                                                                                                       // 823
+      if (e.isDefaultPrevented()) return                                                                               // 824
                                                                                                                        // 825
-    $items.eq(index).trigger('focus')                                                                                  // 826
-  }                                                                                                                    // 827
-                                                                                                                       // 828
-  function clearMenus(e) {                                                                                             // 829
-    if (e && e.which === 3) return                                                                                     // 830
-    $(backdrop).remove()                                                                                               // 831
-    $(toggle).each(function () {                                                                                       // 832
-      var $this         = $(this)                                                                                      // 833
-      var $parent       = getParent($this)                                                                             // 834
-      var relatedTarget = { relatedTarget: this }                                                                      // 835
-                                                                                                                       // 836
-      if (!$parent.hasClass('open')) return                                                                            // 837
-                                                                                                                       // 838
-      $parent.trigger(e = $.Event('hide.bs.dropdown', relatedTarget))                                                  // 839
+      $this                                                                                                            // 826
+        .trigger('focus')                                                                                              // 827
+        .attr('aria-expanded', 'true')                                                                                 // 828
+                                                                                                                       // 829
+      $parent                                                                                                          // 830
+        .toggleClass('open')                                                                                           // 831
+        .trigger('shown.bs.dropdown', relatedTarget)                                                                   // 832
+    }                                                                                                                  // 833
+                                                                                                                       // 834
+    return false                                                                                                       // 835
+  }                                                                                                                    // 836
+                                                                                                                       // 837
+  Dropdown.prototype.keydown = function (e) {                                                                          // 838
+    if (!/(38|40|27|32)/.test(e.which) || /input|textarea/i.test(e.target.tagName)) return                             // 839
                                                                                                                        // 840
-      if (e.isDefaultPrevented()) return                                                                               // 841
+    var $this = $(this)                                                                                                // 841
                                                                                                                        // 842
-      $this.attr('aria-expanded', 'false')                                                                             // 843
-      $parent.removeClass('open').trigger('hidden.bs.dropdown', relatedTarget)                                         // 844
-    })                                                                                                                 // 845
-  }                                                                                                                    // 846
+    e.preventDefault()                                                                                                 // 843
+    e.stopPropagation()                                                                                                // 844
+                                                                                                                       // 845
+    if ($this.is('.disabled, :disabled')) return                                                                       // 846
                                                                                                                        // 847
-  function getParent($this) {                                                                                          // 848
-    var selector = $this.attr('data-target')                                                                           // 849
+    var $parent  = getParent($this)                                                                                    // 848
+    var isActive = $parent.hasClass('open')                                                                            // 849
                                                                                                                        // 850
-    if (!selector) {                                                                                                   // 851
-      selector = $this.attr('href')                                                                                    // 852
-      selector = selector && /#[A-Za-z]/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7     // 853
+    if (!isActive && e.which != 27 || isActive && e.which == 27) {                                                     // 851
+      if (e.which == 27) $parent.find(toggle).trigger('focus')                                                         // 852
+      return $this.trigger('click')                                                                                    // 853
     }                                                                                                                  // 854
                                                                                                                        // 855
-    var $parent = selector && $(selector)                                                                              // 856
-                                                                                                                       // 857
-    return $parent && $parent.length ? $parent : $this.parent()                                                        // 858
-  }                                                                                                                    // 859
+    var desc = ' li:not(.disabled):visible a'                                                                          // 856
+    var $items = $parent.find('.dropdown-menu' + desc)                                                                 // 857
+                                                                                                                       // 858
+    if (!$items.length) return                                                                                         // 859
                                                                                                                        // 860
-                                                                                                                       // 861
-  // DROPDOWN PLUGIN DEFINITION                                                                                        // 862
-  // ==========================                                                                                        // 863
-                                                                                                                       // 864
-  function Plugin(option) {                                                                                            // 865
-    return this.each(function () {                                                                                     // 866
-      var $this = $(this)                                                                                              // 867
-      var data  = $this.data('bs.dropdown')                                                                            // 868
+    var index = $items.index(e.target)                                                                                 // 861
+                                                                                                                       // 862
+    if (e.which == 38 && index > 0)                 index--         // up                                              // 863
+    if (e.which == 40 && index < $items.length - 1) index++         // down                                            // 864
+    if (!~index)                                    index = 0                                                          // 865
+                                                                                                                       // 866
+    $items.eq(index).trigger('focus')                                                                                  // 867
+  }                                                                                                                    // 868
                                                                                                                        // 869
-      if (!data) $this.data('bs.dropdown', (data = new Dropdown(this)))                                                // 870
-      if (typeof option == 'string') data[option].call($this)                                                          // 871
-    })                                                                                                                 // 872
-  }                                                                                                                    // 873
-                                                                                                                       // 874
-  var old = $.fn.dropdown                                                                                              // 875
-                                                                                                                       // 876
-  $.fn.dropdown             = Plugin                                                                                   // 877
-  $.fn.dropdown.Constructor = Dropdown                                                                                 // 878
-                                                                                                                       // 879
-                                                                                                                       // 880
-  // DROPDOWN NO CONFLICT                                                                                              // 881
-  // ====================                                                                                              // 882
+                                                                                                                       // 870
+  // DROPDOWN PLUGIN DEFINITION                                                                                        // 871
+  // ==========================                                                                                        // 872
+                                                                                                                       // 873
+  function Plugin(option) {                                                                                            // 874
+    return this.each(function () {                                                                                     // 875
+      var $this = $(this)                                                                                              // 876
+      var data  = $this.data('bs.dropdown')                                                                            // 877
+                                                                                                                       // 878
+      if (!data) $this.data('bs.dropdown', (data = new Dropdown(this)))                                                // 879
+      if (typeof option == 'string') data[option].call($this)                                                          // 880
+    })                                                                                                                 // 881
+  }                                                                                                                    // 882
                                                                                                                        // 883
-  $.fn.dropdown.noConflict = function () {                                                                             // 884
-    $.fn.dropdown = old                                                                                                // 885
-    return this                                                                                                        // 886
-  }                                                                                                                    // 887
+  var old = $.fn.dropdown                                                                                              // 884
+                                                                                                                       // 885
+  $.fn.dropdown             = Plugin                                                                                   // 886
+  $.fn.dropdown.Constructor = Dropdown                                                                                 // 887
                                                                                                                        // 888
                                                                                                                        // 889
-  // APPLY TO STANDARD DROPDOWN ELEMENTS                                                                               // 890
-  // ===================================                                                                               // 891
+  // DROPDOWN NO CONFLICT                                                                                              // 890
+  // ====================                                                                                              // 891
                                                                                                                        // 892
-  $(document)                                                                                                          // 893
-    .on('click.bs.dropdown.data-api', clearMenus)                                                                      // 894
-    .on('click.bs.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() })                          // 895
-    .on('click.bs.dropdown.data-api', toggle, Dropdown.prototype.toggle)                                               // 896
-    .on('keydown.bs.dropdown.data-api', toggle, Dropdown.prototype.keydown)                                            // 897
-    .on('keydown.bs.dropdown.data-api', '[role="menu"]', Dropdown.prototype.keydown)                                   // 898
-    .on('keydown.bs.dropdown.data-api', '[role="listbox"]', Dropdown.prototype.keydown)                                // 899
-                                                                                                                       // 900
-}(jQuery);                                                                                                             // 901
-                                                                                                                       // 902
-/* ========================================================================                                            // 903
- * Bootstrap: modal.js v3.3.4                                                                                          // 904
- * http://getbootstrap.com/javascript/#modals                                                                          // 905
- * ========================================================================                                            // 906
- * Copyright 2011-2015 Twitter, Inc.                                                                                   // 907
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)                                          // 908
- * ======================================================================== */                                         // 909
+  $.fn.dropdown.noConflict = function () {                                                                             // 893
+    $.fn.dropdown = old                                                                                                // 894
+    return this                                                                                                        // 895
+  }                                                                                                                    // 896
+                                                                                                                       // 897
+                                                                                                                       // 898
+  // APPLY TO STANDARD DROPDOWN ELEMENTS                                                                               // 899
+  // ===================================                                                                               // 900
+                                                                                                                       // 901
+  $(document)                                                                                                          // 902
+    .on('click.bs.dropdown.data-api', clearMenus)                                                                      // 903
+    .on('click.bs.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() })                          // 904
+    .on('click.bs.dropdown.data-api', toggle, Dropdown.prototype.toggle)                                               // 905
+    .on('keydown.bs.dropdown.data-api', toggle, Dropdown.prototype.keydown)                                            // 906
+    .on('keydown.bs.dropdown.data-api', '.dropdown-menu', Dropdown.prototype.keydown)                                  // 907
+                                                                                                                       // 908
+}(jQuery);                                                                                                             // 909
                                                                                                                        // 910
-                                                                                                                       // 911
-+function ($) {                                                                                                        // 912
-  'use strict';                                                                                                        // 913
-                                                                                                                       // 914
-  // MODAL CLASS DEFINITION                                                                                            // 915
-  // ======================                                                                                            // 916
-                                                                                                                       // 917
-  var Modal = function (element, options) {                                                                            // 918
-    this.options             = options                                                                                 // 919
-    this.$body               = $(document.body)                                                                        // 920
-    this.$element            = $(element)                                                                              // 921
-    this.$dialog             = this.$element.find('.modal-dialog')                                                     // 922
-    this.$backdrop           = null                                                                                    // 923
-    this.isShown             = null                                                                                    // 924
-    this.originalBodyPad     = null                                                                                    // 925
-    this.scrollbarWidth      = 0                                                                                       // 926
-    this.ignoreBackdropClick = false                                                                                   // 927
-                                                                                                                       // 928
-    if (this.options.remote) {                                                                                         // 929
-      this.$element                                                                                                    // 930
-        .find('.modal-content')                                                                                        // 931
-        .load(this.options.remote, $.proxy(function () {                                                               // 932
-          this.$element.trigger('loaded.bs.modal')                                                                     // 933
-        }, this))                                                                                                      // 934
-    }                                                                                                                  // 935
-  }                                                                                                                    // 936
-                                                                                                                       // 937
-  Modal.VERSION  = '3.3.4'                                                                                             // 938
-                                                                                                                       // 939
-  Modal.TRANSITION_DURATION = 300                                                                                      // 940
-  Modal.BACKDROP_TRANSITION_DURATION = 150                                                                             // 941
-                                                                                                                       // 942
-  Modal.DEFAULTS = {                                                                                                   // 943
-    backdrop: true,                                                                                                    // 944
-    keyboard: true,                                                                                                    // 945
-    show: true                                                                                                         // 946
-  }                                                                                                                    // 947
-                                                                                                                       // 948
-  Modal.prototype.toggle = function (_relatedTarget) {                                                                 // 949
-    return this.isShown ? this.hide() : this.show(_relatedTarget)                                                      // 950
-  }                                                                                                                    // 951
-                                                                                                                       // 952
-  Modal.prototype.show = function (_relatedTarget) {                                                                   // 953
-    var that = this                                                                                                    // 954
-    var e    = $.Event('show.bs.modal', { relatedTarget: _relatedTarget })                                             // 955
+/* ========================================================================                                            // 911
+ * Bootstrap: modal.js v3.3.5                                                                                          // 912
+ * http://getbootstrap.com/javascript/#modals                                                                          // 913
+ * ========================================================================                                            // 914
+ * Copyright 2011-2015 Twitter, Inc.                                                                                   // 915
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)                                          // 916
+ * ======================================================================== */                                         // 917
+                                                                                                                       // 918
+                                                                                                                       // 919
++function ($) {                                                                                                        // 920
+  'use strict';                                                                                                        // 921
+                                                                                                                       // 922
+  // MODAL CLASS DEFINITION                                                                                            // 923
+  // ======================                                                                                            // 924
+                                                                                                                       // 925
+  var Modal = function (element, options) {                                                                            // 926
+    this.options             = options                                                                                 // 927
+    this.$body               = $(document.body)                                                                        // 928
+    this.$element            = $(element)                                                                              // 929
+    this.$dialog             = this.$element.find('.modal-dialog')                                                     // 930
+    this.$backdrop           = null                                                                                    // 931
+    this.isShown             = null                                                                                    // 932
+    this.originalBodyPad     = null                                                                                    // 933
+    this.scrollbarWidth      = 0                                                                                       // 934
+    this.ignoreBackdropClick = false                                                                                   // 935
+                                                                                                                       // 936
+    if (this.options.remote) {                                                                                         // 937
+      this.$element                                                                                                    // 938
+        .find('.modal-content')                                                                                        // 939
+        .load(this.options.remote, $.proxy(function () {                                                               // 940
+          this.$element.trigger('loaded.bs.modal')                                                                     // 941
+        }, this))                                                                                                      // 942
+    }                                                                                                                  // 943
+  }                                                                                                                    // 944
+                                                                                                                       // 945
+  Modal.VERSION  = '3.3.5'                                                                                             // 946
+                                                                                                                       // 947
+  Modal.TRANSITION_DURATION = 300                                                                                      // 948
+  Modal.BACKDROP_TRANSITION_DURATION = 150                                                                             // 949
+                                                                                                                       // 950
+  Modal.DEFAULTS = {                                                                                                   // 951
+    backdrop: true,                                                                                                    // 952
+    keyboard: true,                                                                                                    // 953
+    show: true                                                                                                         // 954
+  }                                                                                                                    // 955
                                                                                                                        // 956
-    this.$element.trigger(e)                                                                                           // 957
-                                                                                                                       // 958
-    if (this.isShown || e.isDefaultPrevented()) return                                                                 // 959
+  Modal.prototype.toggle = function (_relatedTarget) {                                                                 // 957
+    return this.isShown ? this.hide() : this.show(_relatedTarget)                                                      // 958
+  }                                                                                                                    // 959
                                                                                                                        // 960
-    this.isShown = true                                                                                                // 961
-                                                                                                                       // 962
-    this.checkScrollbar()                                                                                              // 963
-    this.setScrollbar()                                                                                                // 964
-    this.$body.addClass('modal-open')                                                                                  // 965
+  Modal.prototype.show = function (_relatedTarget) {                                                                   // 961
+    var that = this                                                                                                    // 962
+    var e    = $.Event('show.bs.modal', { relatedTarget: _relatedTarget })                                             // 963
+                                                                                                                       // 964
+    this.$element.trigger(e)                                                                                           // 965
                                                                                                                        // 966
-    this.escape()                                                                                                      // 967
-    this.resize()                                                                                                      // 968
-                                                                                                                       // 969
-    this.$element.on('click.dismiss.bs.modal', '[data-dismiss="modal"]', $.proxy(this.hide, this))                     // 970
-                                                                                                                       // 971
-    this.$dialog.on('mousedown.dismiss.bs.modal', function () {                                                        // 972
-      that.$element.one('mouseup.dismiss.bs.modal', function (e) {                                                     // 973
-        if ($(e.target).is(that.$element)) that.ignoreBackdropClick = true                                             // 974
-      })                                                                                                               // 975
-    })                                                                                                                 // 976
+    if (this.isShown || e.isDefaultPrevented()) return                                                                 // 967
+                                                                                                                       // 968
+    this.isShown = true                                                                                                // 969
+                                                                                                                       // 970
+    this.checkScrollbar()                                                                                              // 971
+    this.setScrollbar()                                                                                                // 972
+    this.$body.addClass('modal-open')                                                                                  // 973
+                                                                                                                       // 974
+    this.escape()                                                                                                      // 975
+    this.resize()                                                                                                      // 976
                                                                                                                        // 977
-    this.backdrop(function () {                                                                                        // 978
-      var transition = $.support.transition && that.$element.hasClass('fade')                                          // 979
-                                                                                                                       // 980
-      if (!that.$element.parent().length) {                                                                            // 981
-        that.$element.appendTo(that.$body) // don't move modals dom position                                           // 982
-      }                                                                                                                // 983
-                                                                                                                       // 984
-      that.$element                                                                                                    // 985
-        .show()                                                                                                        // 986
-        .scrollTop(0)                                                                                                  // 987
+    this.$element.on('click.dismiss.bs.modal', '[data-dismiss="modal"]', $.proxy(this.hide, this))                     // 978
+                                                                                                                       // 979
+    this.$dialog.on('mousedown.dismiss.bs.modal', function () {                                                        // 980
+      that.$element.one('mouseup.dismiss.bs.modal', function (e) {                                                     // 981
+        if ($(e.target).is(that.$element)) that.ignoreBackdropClick = true                                             // 982
+      })                                                                                                               // 983
+    })                                                                                                                 // 984
+                                                                                                                       // 985
+    this.backdrop(function () {                                                                                        // 986
+      var transition = $.support.transition && that.$element.hasClass('fade')                                          // 987
                                                                                                                        // 988
-      that.adjustDialog()                                                                                              // 989
-                                                                                                                       // 990
-      if (transition) {                                                                                                // 991
-        that.$element[0].offsetWidth // force reflow                                                                   // 992
-      }                                                                                                                // 993
-                                                                                                                       // 994
-      that.$element                                                                                                    // 995
-        .addClass('in')                                                                                                // 996
-        .attr('aria-hidden', false)                                                                                    // 997
+      if (!that.$element.parent().length) {                                                                            // 989
+        that.$element.appendTo(that.$body) // don't move modals dom position                                           // 990
+      }                                                                                                                // 991
+                                                                                                                       // 992
+      that.$element                                                                                                    // 993
+        .show()                                                                                                        // 994
+        .scrollTop(0)                                                                                                  // 995
+                                                                                                                       // 996
+      that.adjustDialog()                                                                                              // 997
                                                                                                                        // 998
-      that.enforceFocus()                                                                                              // 999
-                                                                                                                       // 1000
-      var e = $.Event('shown.bs.modal', { relatedTarget: _relatedTarget })                                             // 1001
+      if (transition) {                                                                                                // 999
+        that.$element[0].offsetWidth // force reflow                                                                   // 1000
+      }                                                                                                                // 1001
                                                                                                                        // 1002
-      transition ?                                                                                                     // 1003
-        that.$dialog // wait for modal to slide in                                                                     // 1004
-          .one('bsTransitionEnd', function () {                                                                        // 1005
-            that.$element.trigger('focus').trigger(e)                                                                  // 1006
-          })                                                                                                           // 1007
-          .emulateTransitionEnd(Modal.TRANSITION_DURATION) :                                                           // 1008
-        that.$element.trigger('focus').trigger(e)                                                                      // 1009
-    })                                                                                                                 // 1010
-  }                                                                                                                    // 1011
-                                                                                                                       // 1012
-  Modal.prototype.hide = function (e) {                                                                                // 1013
-    if (e) e.preventDefault()                                                                                          // 1014
-                                                                                                                       // 1015
-    e = $.Event('hide.bs.modal')                                                                                       // 1016
-                                                                                                                       // 1017
-    this.$element.trigger(e)                                                                                           // 1018
-                                                                                                                       // 1019
-    if (!this.isShown || e.isDefaultPrevented()) return                                                                // 1020
+      that.$element.addClass('in')                                                                                     // 1003
+                                                                                                                       // 1004
+      that.enforceFocus()                                                                                              // 1005
+                                                                                                                       // 1006
+      var e = $.Event('shown.bs.modal', { relatedTarget: _relatedTarget })                                             // 1007
+                                                                                                                       // 1008
+      transition ?                                                                                                     // 1009
+        that.$dialog // wait for modal to slide in                                                                     // 1010
+          .one('bsTransitionEnd', function () {                                                                        // 1011
+            that.$element.trigger('focus').trigger(e)                                                                  // 1012
+          })                                                                                                           // 1013
+          .emulateTransitionEnd(Modal.TRANSITION_DURATION) :                                                           // 1014
+        that.$element.trigger('focus').trigger(e)                                                                      // 1015
+    })                                                                                                                 // 1016
+  }                                                                                                                    // 1017
+                                                                                                                       // 1018
+  Modal.prototype.hide = function (e) {                                                                                // 1019
+    if (e) e.preventDefault()                                                                                          // 1020
                                                                                                                        // 1021
-    this.isShown = false                                                                                               // 1022
+    e = $.Event('hide.bs.modal')                                                                                       // 1022
                                                                                                                        // 1023
-    this.escape()                                                                                                      // 1024
-    this.resize()                                                                                                      // 1025
-                                                                                                                       // 1026
-    $(document).off('focusin.bs.modal')                                                                                // 1027
-                                                                                                                       // 1028
-    this.$element                                                                                                      // 1029
-      .removeClass('in')                                                                                               // 1030
-      .attr('aria-hidden', true)                                                                                       // 1031
-      .off('click.dismiss.bs.modal')                                                                                   // 1032
-      .off('mouseup.dismiss.bs.modal')                                                                                 // 1033
+    this.$element.trigger(e)                                                                                           // 1024
+                                                                                                                       // 1025
+    if (!this.isShown || e.isDefaultPrevented()) return                                                                // 1026
+                                                                                                                       // 1027
+    this.isShown = false                                                                                               // 1028
+                                                                                                                       // 1029
+    this.escape()                                                                                                      // 1030
+    this.resize()                                                                                                      // 1031
+                                                                                                                       // 1032
+    $(document).off('focusin.bs.modal')                                                                                // 1033
                                                                                                                        // 1034
-    this.$dialog.off('mousedown.dismiss.bs.modal')                                                                     // 1035
-                                                                                                                       // 1036
-    $.support.transition && this.$element.hasClass('fade') ?                                                           // 1037
-      this.$element                                                                                                    // 1038
-        .one('bsTransitionEnd', $.proxy(this.hideModal, this))                                                         // 1039
-        .emulateTransitionEnd(Modal.TRANSITION_DURATION) :                                                             // 1040
-      this.hideModal()                                                                                                 // 1041
-  }                                                                                                                    // 1042
-                                                                                                                       // 1043
-  Modal.prototype.enforceFocus = function () {                                                                         // 1044
-    $(document)                                                                                                        // 1045
-      .off('focusin.bs.modal') // guard against infinite focus loop                                                    // 1046
-      .on('focusin.bs.modal', $.proxy(function (e) {                                                                   // 1047
-        if (this.$element[0] !== e.target && !this.$element.has(e.target).length) {                                    // 1048
-          this.$element.trigger('focus')                                                                               // 1049
-        }                                                                                                              // 1050
-      }, this))                                                                                                        // 1051
-  }                                                                                                                    // 1052
-                                                                                                                       // 1053
-  Modal.prototype.escape = function () {                                                                               // 1054
-    if (this.isShown && this.options.keyboard) {                                                                       // 1055
-      this.$element.on('keydown.dismiss.bs.modal', $.proxy(function (e) {                                              // 1056
-        e.which == 27 && this.hide()                                                                                   // 1057
-      }, this))                                                                                                        // 1058
-    } else if (!this.isShown) {                                                                                        // 1059
-      this.$element.off('keydown.dismiss.bs.modal')                                                                    // 1060
-    }                                                                                                                  // 1061
-  }                                                                                                                    // 1062
-                                                                                                                       // 1063
-  Modal.prototype.resize = function () {                                                                               // 1064
-    if (this.isShown) {                                                                                                // 1065
-      $(window).on('resize.bs.modal', $.proxy(this.handleUpdate, this))                                                // 1066
-    } else {                                                                                                           // 1067
-      $(window).off('resize.bs.modal')                                                                                 // 1068
-    }                                                                                                                  // 1069
-  }                                                                                                                    // 1070
-                                                                                                                       // 1071
-  Modal.prototype.hideModal = function () {                                                                            // 1072
-    var that = this                                                                                                    // 1073
-    this.$element.hide()                                                                                               // 1074
-    this.backdrop(function () {                                                                                        // 1075
-      that.$body.removeClass('modal-open')                                                                             // 1076
-      that.resetAdjustments()                                                                                          // 1077
-      that.resetScrollbar()                                                                                            // 1078
-      that.$element.trigger('hidden.bs.modal')                                                                         // 1079
-    })                                                                                                                 // 1080
-  }                                                                                                                    // 1081
-                                                                                                                       // 1082
-  Modal.prototype.removeBackdrop = function () {                                                                       // 1083
-    this.$backdrop && this.$backdrop.remove()                                                                          // 1084
-    this.$backdrop = null                                                                                              // 1085
+    this.$element                                                                                                      // 1035
+      .removeClass('in')                                                                                               // 1036
+      .off('click.dismiss.bs.modal')                                                                                   // 1037
+      .off('mouseup.dismiss.bs.modal')                                                                                 // 1038
+                                                                                                                       // 1039
+    this.$dialog.off('mousedown.dismiss.bs.modal')                                                                     // 1040
+                                                                                                                       // 1041
+    $.support.transition && this.$element.hasClass('fade') ?                                                           // 1042
+      this.$element                                                                                                    // 1043
+        .one('bsTransitionEnd', $.proxy(this.hideModal, this))                                                         // 1044
+        .emulateTransitionEnd(Modal.TRANSITION_DURATION) :                                                             // 1045
+      this.hideModal()                                                                                                 // 1046
+  }                                                                                                                    // 1047
+                                                                                                                       // 1048
+  Modal.prototype.enforceFocus = function () {                                                                         // 1049
+    $(document)                                                                                                        // 1050
+      .off('focusin.bs.modal') // guard against infinite focus loop                                                    // 1051
+      .on('focusin.bs.modal', $.proxy(function (e) {                                                                   // 1052
+        if (this.$element[0] !== e.target && !this.$element.has(e.target).length) {                                    // 1053
+          this.$element.trigger('focus')                                                                               // 1054
+        }                                                                                                              // 1055
+      }, this))                                                                                                        // 1056
+  }                                                                                                                    // 1057
+                                                                                                                       // 1058
+  Modal.prototype.escape = function () {                                                                               // 1059
+    if (this.isShown && this.options.keyboard) {                                                                       // 1060
+      this.$element.on('keydown.dismiss.bs.modal', $.proxy(function (e) {                                              // 1061
+        e.which == 27 && this.hide()                                                                                   // 1062
+      }, this))                                                                                                        // 1063
+    } else if (!this.isShown) {                                                                                        // 1064
+      this.$element.off('keydown.dismiss.bs.modal')                                                                    // 1065
+    }                                                                                                                  // 1066
+  }                                                                                                                    // 1067
+                                                                                                                       // 1068
+  Modal.prototype.resize = function () {                                                                               // 1069
+    if (this.isShown) {                                                                                                // 1070
+      $(window).on('resize.bs.modal', $.proxy(this.handleUpdate, this))                                                // 1071
+    } else {                                                                                                           // 1072
+      $(window).off('resize.bs.modal')                                                                                 // 1073
+    }                                                                                                                  // 1074
+  }                                                                                                                    // 1075
+                                                                                                                       // 1076
+  Modal.prototype.hideModal = function () {                                                                            // 1077
+    var that = this                                                                                                    // 1078
+    this.$element.hide()                                                                                               // 1079
+    this.backdrop(function () {                                                                                        // 1080
+      that.$body.removeClass('modal-open')                                                                             // 1081
+      that.resetAdjustments()                                                                                          // 1082
+      that.resetScrollbar()                                                                                            // 1083
+      that.$element.trigger('hidden.bs.modal')                                                                         // 1084
+    })                                                                                                                 // 1085
   }                                                                                                                    // 1086
                                                                                                                        // 1087
-  Modal.prototype.backdrop = function (callback) {                                                                     // 1088
-    var that = this                                                                                                    // 1089
-    var animate = this.$element.hasClass('fade') ? 'fade' : ''                                                         // 1090
-                                                                                                                       // 1091
-    if (this.isShown && this.options.backdrop) {                                                                       // 1092
-      var doAnimate = $.support.transition && animate                                                                  // 1093
-                                                                                                                       // 1094
-      this.$backdrop = $('<div class="modal-backdrop ' + animate + '" />')                                             // 1095
-        .appendTo(this.$body)                                                                                          // 1096
-                                                                                                                       // 1097
-      this.$element.on('click.dismiss.bs.modal', $.proxy(function (e) {                                                // 1098
-        if (this.ignoreBackdropClick) {                                                                                // 1099
-          this.ignoreBackdropClick = false                                                                             // 1100
-          return                                                                                                       // 1101
-        }                                                                                                              // 1102
-        if (e.target !== e.currentTarget) return                                                                       // 1103
-        this.options.backdrop == 'static'                                                                              // 1104
-          ? this.$element[0].focus()                                                                                   // 1105
-          : this.hide()                                                                                                // 1106
-      }, this))                                                                                                        // 1107
-                                                                                                                       // 1108
-      if (doAnimate) this.$backdrop[0].offsetWidth // force reflow                                                     // 1109
-                                                                                                                       // 1110
-      this.$backdrop.addClass('in')                                                                                    // 1111
-                                                                                                                       // 1112
-      if (!callback) return                                                                                            // 1113
+  Modal.prototype.removeBackdrop = function () {                                                                       // 1088
+    this.$backdrop && this.$backdrop.remove()                                                                          // 1089
+    this.$backdrop = null                                                                                              // 1090
+  }                                                                                                                    // 1091
+                                                                                                                       // 1092
+  Modal.prototype.backdrop = function (callback) {                                                                     // 1093
+    var that = this                                                                                                    // 1094
+    var animate = this.$element.hasClass('fade') ? 'fade' : ''                                                         // 1095
+                                                                                                                       // 1096
+    if (this.isShown && this.options.backdrop) {                                                                       // 1097
+      var doAnimate = $.support.transition && animate                                                                  // 1098
+                                                                                                                       // 1099
+      this.$backdrop = $(document.createElement('div'))                                                                // 1100
+        .addClass('modal-backdrop ' + animate)                                                                         // 1101
+        .appendTo(this.$body)                                                                                          // 1102
+                                                                                                                       // 1103
+      this.$element.on('click.dismiss.bs.modal', $.proxy(function (e) {                                                // 1104
+        if (this.ignoreBackdropClick) {                                                                                // 1105
+          this.ignoreBackdropClick = false                                                                             // 1106
+          return                                                                                                       // 1107
+        }                                                                                                              // 1108
+        if (e.target !== e.currentTarget) return                                                                       // 1109
+        this.options.backdrop == 'static'                                                                              // 1110
+          ? this.$element[0].focus()                                                                                   // 1111
+          : this.hide()                                                                                                // 1112
+      }, this))                                                                                                        // 1113
                                                                                                                        // 1114
-      doAnimate ?                                                                                                      // 1115
-        this.$backdrop                                                                                                 // 1116
-          .one('bsTransitionEnd', callback)                                                                            // 1117
-          .emulateTransitionEnd(Modal.BACKDROP_TRANSITION_DURATION) :                                                  // 1118
-        callback()                                                                                                     // 1119
+      if (doAnimate) this.$backdrop[0].offsetWidth // force reflow                                                     // 1115
+                                                                                                                       // 1116
+      this.$backdrop.addClass('in')                                                                                    // 1117
+                                                                                                                       // 1118
+      if (!callback) return                                                                                            // 1119
                                                                                                                        // 1120
-    } else if (!this.isShown && this.$backdrop) {                                                                      // 1121
-      this.$backdrop.removeClass('in')                                                                                 // 1122
-                                                                                                                       // 1123
-      var callbackRemove = function () {                                                                               // 1124
-        that.removeBackdrop()                                                                                          // 1125
-        callback && callback()                                                                                         // 1126
-      }                                                                                                                // 1127
-      $.support.transition && this.$element.hasClass('fade') ?                                                         // 1128
-        this.$backdrop                                                                                                 // 1129
-          .one('bsTransitionEnd', callbackRemove)                                                                      // 1130
-          .emulateTransitionEnd(Modal.BACKDROP_TRANSITION_DURATION) :                                                  // 1131
-        callbackRemove()                                                                                               // 1132
-                                                                                                                       // 1133
-    } else if (callback) {                                                                                             // 1134
-      callback()                                                                                                       // 1135
-    }                                                                                                                  // 1136
-  }                                                                                                                    // 1137
-                                                                                                                       // 1138
-  // these following methods are used to handle overflowing modals                                                     // 1139
-                                                                                                                       // 1140
-  Modal.prototype.handleUpdate = function () {                                                                         // 1141
-    this.adjustDialog()                                                                                                // 1142
+      doAnimate ?                                                                                                      // 1121
+        this.$backdrop                                                                                                 // 1122
+          .one('bsTransitionEnd', callback)                                                                            // 1123
+          .emulateTransitionEnd(Modal.BACKDROP_TRANSITION_DURATION) :                                                  // 1124
+        callback()                                                                                                     // 1125
+                                                                                                                       // 1126
+    } else if (!this.isShown && this.$backdrop) {                                                                      // 1127
+      this.$backdrop.removeClass('in')                                                                                 // 1128
+                                                                                                                       // 1129
+      var callbackRemove = function () {                                                                               // 1130
+        that.removeBackdrop()                                                                                          // 1131
+        callback && callback()                                                                                         // 1132
+      }                                                                                                                // 1133
+      $.support.transition && this.$element.hasClass('fade') ?                                                         // 1134
+        this.$backdrop                                                                                                 // 1135
+          .one('bsTransitionEnd', callbackRemove)                                                                      // 1136
+          .emulateTransitionEnd(Modal.BACKDROP_TRANSITION_DURATION) :                                                  // 1137
+        callbackRemove()                                                                                               // 1138
+                                                                                                                       // 1139
+    } else if (callback) {                                                                                             // 1140
+      callback()                                                                                                       // 1141
+    }                                                                                                                  // 1142
   }                                                                                                                    // 1143
                                                                                                                        // 1144
-  Modal.prototype.adjustDialog = function () {                                                                         // 1145
-    var modalIsOverflowing = this.$element[0].scrollHeight > document.documentElement.clientHeight                     // 1146
-                                                                                                                       // 1147
-    this.$element.css({                                                                                                // 1148
-      paddingLeft:  !this.bodyIsOverflowing && modalIsOverflowing ? this.scrollbarWidth : '',                          // 1149
-      paddingRight: this.bodyIsOverflowing && !modalIsOverflowing ? this.scrollbarWidth : ''                           // 1150
-    })                                                                                                                 // 1151
-  }                                                                                                                    // 1152
+  // these following methods are used to handle overflowing modals                                                     // 1145
+                                                                                                                       // 1146
+  Modal.prototype.handleUpdate = function () {                                                                         // 1147
+    this.adjustDialog()                                                                                                // 1148
+  }                                                                                                                    // 1149
+                                                                                                                       // 1150
+  Modal.prototype.adjustDialog = function () {                                                                         // 1151
+    var modalIsOverflowing = this.$element[0].scrollHeight > document.documentElement.clientHeight                     // 1152
                                                                                                                        // 1153
-  Modal.prototype.resetAdjustments = function () {                                                                     // 1154
-    this.$element.css({                                                                                                // 1155
-      paddingLeft: '',                                                                                                 // 1156
-      paddingRight: ''                                                                                                 // 1157
-    })                                                                                                                 // 1158
-  }                                                                                                                    // 1159
-                                                                                                                       // 1160
-  Modal.prototype.checkScrollbar = function () {                                                                       // 1161
-    var fullWindowWidth = window.innerWidth                                                                            // 1162
-    if (!fullWindowWidth) { // workaround for missing window.innerWidth in IE8                                         // 1163
-      var documentElementRect = document.documentElement.getBoundingClientRect()                                       // 1164
-      fullWindowWidth = documentElementRect.right - Math.abs(documentElementRect.left)                                 // 1165
-    }                                                                                                                  // 1166
-    this.bodyIsOverflowing = document.body.clientWidth < fullWindowWidth                                               // 1167
-    this.scrollbarWidth = this.measureScrollbar()                                                                      // 1168
-  }                                                                                                                    // 1169
-                                                                                                                       // 1170
-  Modal.prototype.setScrollbar = function () {                                                                         // 1171
-    var bodyPad = parseInt((this.$body.css('padding-right') || 0), 10)                                                 // 1172
-    this.originalBodyPad = document.body.style.paddingRight || ''                                                      // 1173
-    if (this.bodyIsOverflowing) this.$body.css('padding-right', bodyPad + this.scrollbarWidth)                         // 1174
+    this.$element.css({                                                                                                // 1154
+      paddingLeft:  !this.bodyIsOverflowing && modalIsOverflowing ? this.scrollbarWidth : '',                          // 1155
+      paddingRight: this.bodyIsOverflowing && !modalIsOverflowing ? this.scrollbarWidth : ''                           // 1156
+    })                                                                                                                 // 1157
+  }                                                                                                                    // 1158
+                                                                                                                       // 1159
+  Modal.prototype.resetAdjustments = function () {                                                                     // 1160
+    this.$element.css({                                                                                                // 1161
+      paddingLeft: '',                                                                                                 // 1162
+      paddingRight: ''                                                                                                 // 1163
+    })                                                                                                                 // 1164
+  }                                                                                                                    // 1165
+                                                                                                                       // 1166
+  Modal.prototype.checkScrollbar = function () {                                                                       // 1167
+    var fullWindowWidth = window.innerWidth                                                                            // 1168
+    if (!fullWindowWidth) { // workaround for missing window.innerWidth in IE8                                         // 1169
+      var documentElementRect = document.documentElement.getBoundingClientRect()                                       // 1170
+      fullWindowWidth = documentElementRect.right - Math.abs(documentElementRect.left)                                 // 1171
+    }                                                                                                                  // 1172
+    this.bodyIsOverflowing = document.body.clientWidth < fullWindowWidth                                               // 1173
+    this.scrollbarWidth = this.measureScrollbar()                                                                      // 1174
   }                                                                                                                    // 1175
                                                                                                                        // 1176
-  Modal.prototype.resetScrollbar = function () {                                                                       // 1177
-    this.$body.css('padding-right', this.originalBodyPad)                                                              // 1178
-  }                                                                                                                    // 1179
-                                                                                                                       // 1180
-  Modal.prototype.measureScrollbar = function () { // thx walsh                                                        // 1181
-    var scrollDiv = document.createElement('div')                                                                      // 1182
-    scrollDiv.className = 'modal-scrollbar-measure'                                                                    // 1183
-    this.$body.append(scrollDiv)                                                                                       // 1184
-    var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth                                                 // 1185
-    this.$body[0].removeChild(scrollDiv)                                                                               // 1186
-    return scrollbarWidth                                                                                              // 1187
-  }                                                                                                                    // 1188
-                                                                                                                       // 1189
-                                                                                                                       // 1190
-  // MODAL PLUGIN DEFINITION                                                                                           // 1191
-  // =======================                                                                                           // 1192
-                                                                                                                       // 1193
-  function Plugin(option, _relatedTarget) {                                                                            // 1194
-    return this.each(function () {                                                                                     // 1195
-      var $this   = $(this)                                                                                            // 1196
-      var data    = $this.data('bs.modal')                                                                             // 1197
-      var options = $.extend({}, Modal.DEFAULTS, $this.data(), typeof option == 'object' && option)                    // 1198
+  Modal.prototype.setScrollbar = function () {                                                                         // 1177
+    var bodyPad = parseInt((this.$body.css('padding-right') || 0), 10)                                                 // 1178
+    this.originalBodyPad = document.body.style.paddingRight || ''                                                      // 1179
+    if (this.bodyIsOverflowing) this.$body.css('padding-right', bodyPad + this.scrollbarWidth)                         // 1180
+  }                                                                                                                    // 1181
+                                                                                                                       // 1182
+  Modal.prototype.resetScrollbar = function () {                                                                       // 1183
+    this.$body.css('padding-right', this.originalBodyPad)                                                              // 1184
+  }                                                                                                                    // 1185
+                                                                                                                       // 1186
+  Modal.prototype.measureScrollbar = function () { // thx walsh                                                        // 1187
+    var scrollDiv = document.createElement('div')                                                                      // 1188
+    scrollDiv.className = 'modal-scrollbar-measure'                                                                    // 1189
+    this.$body.append(scrollDiv)                                                                                       // 1190
+    var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth                                                 // 1191
+    this.$body[0].removeChild(scrollDiv)                                                                               // 1192
+    return scrollbarWidth                                                                                              // 1193
+  }                                                                                                                    // 1194
+                                                                                                                       // 1195
+                                                                                                                       // 1196
+  // MODAL PLUGIN DEFINITION                                                                                           // 1197
+  // =======================                                                                                           // 1198
                                                                                                                        // 1199
-      if (!data) $this.data('bs.modal', (data = new Modal(this, options)))                                             // 1200
-      if (typeof option == 'string') data[option](_relatedTarget)                                                      // 1201
-      else if (options.show) data.show(_relatedTarget)                                                                 // 1202
-    })                                                                                                                 // 1203
-  }                                                                                                                    // 1204
+  function Plugin(option, _relatedTarget) {                                                                            // 1200
+    return this.each(function () {                                                                                     // 1201
+      var $this   = $(this)                                                                                            // 1202
+      var data    = $this.data('bs.modal')                                                                             // 1203
+      var options = $.extend({}, Modal.DEFAULTS, $this.data(), typeof option == 'object' && option)                    // 1204
                                                                                                                        // 1205
-  var old = $.fn.modal                                                                                                 // 1206
-                                                                                                                       // 1207
-  $.fn.modal             = Plugin                                                                                      // 1208
-  $.fn.modal.Constructor = Modal                                                                                       // 1209
-                                                                                                                       // 1210
+      if (!data) $this.data('bs.modal', (data = new Modal(this, options)))                                             // 1206
+      if (typeof option == 'string') data[option](_relatedTarget)                                                      // 1207
+      else if (options.show) data.show(_relatedTarget)                                                                 // 1208
+    })                                                                                                                 // 1209
+  }                                                                                                                    // 1210
                                                                                                                        // 1211
-  // MODAL NO CONFLICT                                                                                                 // 1212
-  // =================                                                                                                 // 1213
-                                                                                                                       // 1214
-  $.fn.modal.noConflict = function () {                                                                                // 1215
-    $.fn.modal = old                                                                                                   // 1216
-    return this                                                                                                        // 1217
-  }                                                                                                                    // 1218
-                                                                                                                       // 1219
+  var old = $.fn.modal                                                                                                 // 1212
+                                                                                                                       // 1213
+  $.fn.modal             = Plugin                                                                                      // 1214
+  $.fn.modal.Constructor = Modal                                                                                       // 1215
+                                                                                                                       // 1216
+                                                                                                                       // 1217
+  // MODAL NO CONFLICT                                                                                                 // 1218
+  // =================                                                                                                 // 1219
                                                                                                                        // 1220
-  // MODAL DATA-API                                                                                                    // 1221
-  // ==============                                                                                                    // 1222
-                                                                                                                       // 1223
-  $(document).on('click.bs.modal.data-api', '[data-toggle="modal"]', function (e) {                                    // 1224
-    var $this   = $(this)                                                                                              // 1225
-    var href    = $this.attr('href')                                                                                   // 1226
-    var $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))) // strip for ie7        // 1227
-    var option  = $target.data('bs.modal') ? 'toggle' : $.extend({ remote: !/#/.test(href) && href }, $target.data(), $this.data())
+  $.fn.modal.noConflict = function () {                                                                                // 1221
+    $.fn.modal = old                                                                                                   // 1222
+    return this                                                                                                        // 1223
+  }                                                                                                                    // 1224
+                                                                                                                       // 1225
+                                                                                                                       // 1226
+  // MODAL DATA-API                                                                                                    // 1227
+  // ==============                                                                                                    // 1228
                                                                                                                        // 1229
-    if ($this.is('a')) e.preventDefault()                                                                              // 1230
-                                                                                                                       // 1231
-    $target.one('show.bs.modal', function (showEvent) {                                                                // 1232
-      if (showEvent.isDefaultPrevented()) return // only register focus restorer if modal will actually get shown      // 1233
-      $target.one('hidden.bs.modal', function () {                                                                     // 1234
-        $this.is(':visible') && $this.trigger('focus')                                                                 // 1235
-      })                                                                                                               // 1236
-    })                                                                                                                 // 1237
-    Plugin.call($target, option, this)                                                                                 // 1238
-  })                                                                                                                   // 1239
-                                                                                                                       // 1240
-}(jQuery);                                                                                                             // 1241
-                                                                                                                       // 1242
-/* ========================================================================                                            // 1243
- * Bootstrap: tooltip.js v3.3.4                                                                                        // 1244
- * http://getbootstrap.com/javascript/#tooltip                                                                         // 1245
- * Inspired by the original jQuery.tipsy by Jason Frame                                                                // 1246
- * ========================================================================                                            // 1247
- * Copyright 2011-2015 Twitter, Inc.                                                                                   // 1248
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)                                          // 1249
- * ======================================================================== */                                         // 1250
-                                                                                                                       // 1251
-                                                                                                                       // 1252
-+function ($) {                                                                                                        // 1253
-  'use strict';                                                                                                        // 1254
-                                                                                                                       // 1255
-  // TOOLTIP PUBLIC CLASS DEFINITION                                                                                   // 1256
-  // ===============================                                                                                   // 1257
+  $(document).on('click.bs.modal.data-api', '[data-toggle="modal"]', function (e) {                                    // 1230
+    var $this   = $(this)                                                                                              // 1231
+    var href    = $this.attr('href')                                                                                   // 1232
+    var $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))) // strip for ie7        // 1233
+    var option  = $target.data('bs.modal') ? 'toggle' : $.extend({ remote: !/#/.test(href) && href }, $target.data(), $this.data())
+                                                                                                                       // 1235
+    if ($this.is('a')) e.preventDefault()                                                                              // 1236
+                                                                                                                       // 1237
+    $target.one('show.bs.modal', function (showEvent) {                                                                // 1238
+      if (showEvent.isDefaultPrevented()) return // only register focus restorer if modal will actually get shown      // 1239
+      $target.one('hidden.bs.modal', function () {                                                                     // 1240
+        $this.is(':visible') && $this.trigger('focus')                                                                 // 1241
+      })                                                                                                               // 1242
+    })                                                                                                                 // 1243
+    Plugin.call($target, option, this)                                                                                 // 1244
+  })                                                                                                                   // 1245
+                                                                                                                       // 1246
+}(jQuery);                                                                                                             // 1247
+                                                                                                                       // 1248
+/* ========================================================================                                            // 1249
+ * Bootstrap: tooltip.js v3.3.5                                                                                        // 1250
+ * http://getbootstrap.com/javascript/#tooltip                                                                         // 1251
+ * Inspired by the original jQuery.tipsy by Jason Frame                                                                // 1252
+ * ========================================================================                                            // 1253
+ * Copyright 2011-2015 Twitter, Inc.                                                                                   // 1254
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)                                          // 1255
+ * ======================================================================== */                                         // 1256
+                                                                                                                       // 1257
                                                                                                                        // 1258
-  var Tooltip = function (element, options) {                                                                          // 1259
-    this.type       = null                                                                                             // 1260
-    this.options    = null                                                                                             // 1261
-    this.enabled    = null                                                                                             // 1262
-    this.timeout    = null                                                                                             // 1263
-    this.hoverState = null                                                                                             // 1264
-    this.$element   = null                                                                                             // 1265
-                                                                                                                       // 1266
-    this.init('tooltip', element, options)                                                                             // 1267
-  }                                                                                                                    // 1268
-                                                                                                                       // 1269
-  Tooltip.VERSION  = '3.3.4'                                                                                           // 1270
-                                                                                                                       // 1271
-  Tooltip.TRANSITION_DURATION = 150                                                                                    // 1272
++function ($) {                                                                                                        // 1259
+  'use strict';                                                                                                        // 1260
+                                                                                                                       // 1261
+  // TOOLTIP PUBLIC CLASS DEFINITION                                                                                   // 1262
+  // ===============================                                                                                   // 1263
+                                                                                                                       // 1264
+  var Tooltip = function (element, options) {                                                                          // 1265
+    this.type       = null                                                                                             // 1266
+    this.options    = null                                                                                             // 1267
+    this.enabled    = null                                                                                             // 1268
+    this.timeout    = null                                                                                             // 1269
+    this.hoverState = null                                                                                             // 1270
+    this.$element   = null                                                                                             // 1271
+    this.inState    = null                                                                                             // 1272
                                                                                                                        // 1273
-  Tooltip.DEFAULTS = {                                                                                                 // 1274
-    animation: true,                                                                                                   // 1275
-    placement: 'top',                                                                                                  // 1276
-    selector: false,                                                                                                   // 1277
+    this.init('tooltip', element, options)                                                                             // 1274
+  }                                                                                                                    // 1275
+                                                                                                                       // 1276
+  Tooltip.VERSION  = '3.3.5'                                                                                           // 1277
+                                                                                                                       // 1278
+  Tooltip.TRANSITION_DURATION = 150                                                                                    // 1279
+                                                                                                                       // 1280
+  Tooltip.DEFAULTS = {                                                                                                 // 1281
+    animation: true,                                                                                                   // 1282
+    placement: 'top',                                                                                                  // 1283
+    selector: false,                                                                                                   // 1284
     template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',
-    trigger: 'hover focus',                                                                                            // 1279
-    title: '',                                                                                                         // 1280
-    delay: 0,                                                                                                          // 1281
-    html: false,                                                                                                       // 1282
-    container: false,                                                                                                  // 1283
-    viewport: {                                                                                                        // 1284
-      selector: 'body',                                                                                                // 1285
-      padding: 0                                                                                                       // 1286
-    }                                                                                                                  // 1287
-  }                                                                                                                    // 1288
-                                                                                                                       // 1289
-  Tooltip.prototype.init = function (type, element, options) {                                                         // 1290
-    this.enabled   = true                                                                                              // 1291
-    this.type      = type                                                                                              // 1292
-    this.$element  = $(element)                                                                                        // 1293
-    this.options   = this.getOptions(options)                                                                          // 1294
-    this.$viewport = this.options.viewport && $(this.options.viewport.selector || this.options.viewport)               // 1295
+    trigger: 'hover focus',                                                                                            // 1286
+    title: '',                                                                                                         // 1287
+    delay: 0,                                                                                                          // 1288
+    html: false,                                                                                                       // 1289
+    container: false,                                                                                                  // 1290
+    viewport: {                                                                                                        // 1291
+      selector: 'body',                                                                                                // 1292
+      padding: 0                                                                                                       // 1293
+    }                                                                                                                  // 1294
+  }                                                                                                                    // 1295
                                                                                                                        // 1296
-    if (this.$element[0] instanceof document.constructor && !this.options.selector) {                                  // 1297
+  Tooltip.prototype.init = function (type, element, options) {                                                         // 1297
+    this.enabled   = true                                                                                              // 1298
+    this.type      = type                                                                                              // 1299
+    this.$element  = $(element)                                                                                        // 1300
+    this.options   = this.getOptions(options)                                                                          // 1301
+    this.$viewport = this.options.viewport && $($.isFunction(this.options.viewport) ? this.options.viewport.call(this, this.$element) : (this.options.viewport.selector || this.options.viewport))
+    this.inState   = { click: false, hover: false, focus: false }                                                      // 1303
+                                                                                                                       // 1304
+    if (this.$element[0] instanceof document.constructor && !this.options.selector) {                                  // 1305
       throw new Error('`selector` option must be specified when initializing ' + this.type + ' on the window.document object!')
-    }                                                                                                                  // 1299
-                                                                                                                       // 1300
-    var triggers = this.options.trigger.split(' ')                                                                     // 1301
-                                                                                                                       // 1302
-    for (var i = triggers.length; i--;) {                                                                              // 1303
-      var trigger = triggers[i]                                                                                        // 1304
-                                                                                                                       // 1305
-      if (trigger == 'click') {                                                                                        // 1306
-        this.$element.on('click.' + this.type, this.options.selector, $.proxy(this.toggle, this))                      // 1307
-      } else if (trigger != 'manual') {                                                                                // 1308
-        var eventIn  = trigger == 'hover' ? 'mouseenter' : 'focusin'                                                   // 1309
-        var eventOut = trigger == 'hover' ? 'mouseleave' : 'focusout'                                                  // 1310
-                                                                                                                       // 1311
-        this.$element.on(eventIn  + '.' + this.type, this.options.selector, $.proxy(this.enter, this))                 // 1312
-        this.$element.on(eventOut + '.' + this.type, this.options.selector, $.proxy(this.leave, this))                 // 1313
-      }                                                                                                                // 1314
-    }                                                                                                                  // 1315
-                                                                                                                       // 1316
-    this.options.selector ?                                                                                            // 1317
-      (this._options = $.extend({}, this.options, { trigger: 'manual', selector: '' })) :                              // 1318
-      this.fixTitle()                                                                                                  // 1319
-  }                                                                                                                    // 1320
-                                                                                                                       // 1321
-  Tooltip.prototype.getDefaults = function () {                                                                        // 1322
-    return Tooltip.DEFAULTS                                                                                            // 1323
-  }                                                                                                                    // 1324
-                                                                                                                       // 1325
-  Tooltip.prototype.getOptions = function (options) {                                                                  // 1326
-    options = $.extend({}, this.getDefaults(), this.$element.data(), options)                                          // 1327
-                                                                                                                       // 1328
-    if (options.delay && typeof options.delay == 'number') {                                                           // 1329
-      options.delay = {                                                                                                // 1330
-        show: options.delay,                                                                                           // 1331
-        hide: options.delay                                                                                            // 1332
-      }                                                                                                                // 1333
-    }                                                                                                                  // 1334
-                                                                                                                       // 1335
-    return options                                                                                                     // 1336
-  }                                                                                                                    // 1337
-                                                                                                                       // 1338
-  Tooltip.prototype.getDelegateOptions = function () {                                                                 // 1339
-    var options  = {}                                                                                                  // 1340
-    var defaults = this.getDefaults()                                                                                  // 1341
-                                                                                                                       // 1342
-    this._options && $.each(this._options, function (key, value) {                                                     // 1343
-      if (defaults[key] != value) options[key] = value                                                                 // 1344
-    })                                                                                                                 // 1345
+    }                                                                                                                  // 1307
+                                                                                                                       // 1308
+    var triggers = this.options.trigger.split(' ')                                                                     // 1309
+                                                                                                                       // 1310
+    for (var i = triggers.length; i--;) {                                                                              // 1311
+      var trigger = triggers[i]                                                                                        // 1312
+                                                                                                                       // 1313
+      if (trigger == 'click') {                                                                                        // 1314
+        this.$element.on('click.' + this.type, this.options.selector, $.proxy(this.toggle, this))                      // 1315
+      } else if (trigger != 'manual') {                                                                                // 1316
+        var eventIn  = trigger == 'hover' ? 'mouseenter' : 'focusin'                                                   // 1317
+        var eventOut = trigger == 'hover' ? 'mouseleave' : 'focusout'                                                  // 1318
+                                                                                                                       // 1319
+        this.$element.on(eventIn  + '.' + this.type, this.options.selector, $.proxy(this.enter, this))                 // 1320
+        this.$element.on(eventOut + '.' + this.type, this.options.selector, $.proxy(this.leave, this))                 // 1321
+      }                                                                                                                // 1322
+    }                                                                                                                  // 1323
+                                                                                                                       // 1324
+    this.options.selector ?                                                                                            // 1325
+      (this._options = $.extend({}, this.options, { trigger: 'manual', selector: '' })) :                              // 1326
+      this.fixTitle()                                                                                                  // 1327
+  }                                                                                                                    // 1328
+                                                                                                                       // 1329
+  Tooltip.prototype.getDefaults = function () {                                                                        // 1330
+    return Tooltip.DEFAULTS                                                                                            // 1331
+  }                                                                                                                    // 1332
+                                                                                                                       // 1333
+  Tooltip.prototype.getOptions = function (options) {                                                                  // 1334
+    options = $.extend({}, this.getDefaults(), this.$element.data(), options)                                          // 1335
+                                                                                                                       // 1336
+    if (options.delay && typeof options.delay == 'number') {                                                           // 1337
+      options.delay = {                                                                                                // 1338
+        show: options.delay,                                                                                           // 1339
+        hide: options.delay                                                                                            // 1340
+      }                                                                                                                // 1341
+    }                                                                                                                  // 1342
+                                                                                                                       // 1343
+    return options                                                                                                     // 1344
+  }                                                                                                                    // 1345
                                                                                                                        // 1346
-    return options                                                                                                     // 1347
-  }                                                                                                                    // 1348
-                                                                                                                       // 1349
-  Tooltip.prototype.enter = function (obj) {                                                                           // 1350
-    var self = obj instanceof this.constructor ?                                                                       // 1351
-      obj : $(obj.currentTarget).data('bs.' + this.type)                                                               // 1352
-                                                                                                                       // 1353
-    if (self && self.$tip && self.$tip.is(':visible')) {                                                               // 1354
-      self.hoverState = 'in'                                                                                           // 1355
-      return                                                                                                           // 1356
-    }                                                                                                                  // 1357
-                                                                                                                       // 1358
-    if (!self) {                                                                                                       // 1359
-      self = new this.constructor(obj.currentTarget, this.getDelegateOptions())                                        // 1360
-      $(obj.currentTarget).data('bs.' + this.type, self)                                                               // 1361
-    }                                                                                                                  // 1362
-                                                                                                                       // 1363
-    clearTimeout(self.timeout)                                                                                         // 1364
-                                                                                                                       // 1365
-    self.hoverState = 'in'                                                                                             // 1366
-                                                                                                                       // 1367
-    if (!self.options.delay || !self.options.delay.show) return self.show()                                            // 1368
-                                                                                                                       // 1369
-    self.timeout = setTimeout(function () {                                                                            // 1370
-      if (self.hoverState == 'in') self.show()                                                                         // 1371
-    }, self.options.delay.show)                                                                                        // 1372
-  }                                                                                                                    // 1373
-                                                                                                                       // 1374
-  Tooltip.prototype.leave = function (obj) {                                                                           // 1375
-    var self = obj instanceof this.constructor ?                                                                       // 1376
-      obj : $(obj.currentTarget).data('bs.' + this.type)                                                               // 1377
-                                                                                                                       // 1378
-    if (!self) {                                                                                                       // 1379
-      self = new this.constructor(obj.currentTarget, this.getDelegateOptions())                                        // 1380
-      $(obj.currentTarget).data('bs.' + this.type, self)                                                               // 1381
-    }                                                                                                                  // 1382
-                                                                                                                       // 1383
-    clearTimeout(self.timeout)                                                                                         // 1384
-                                                                                                                       // 1385
-    self.hoverState = 'out'                                                                                            // 1386
-                                                                                                                       // 1387
-    if (!self.options.delay || !self.options.delay.hide) return self.hide()                                            // 1388
-                                                                                                                       // 1389
-    self.timeout = setTimeout(function () {                                                                            // 1390
-      if (self.hoverState == 'out') self.hide()                                                                        // 1391
-    }, self.options.delay.hide)                                                                                        // 1392
+  Tooltip.prototype.getDelegateOptions = function () {                                                                 // 1347
+    var options  = {}                                                                                                  // 1348
+    var defaults = this.getDefaults()                                                                                  // 1349
+                                                                                                                       // 1350
+    this._options && $.each(this._options, function (key, value) {                                                     // 1351
+      if (defaults[key] != value) options[key] = value                                                                 // 1352
+    })                                                                                                                 // 1353
+                                                                                                                       // 1354
+    return options                                                                                                     // 1355
+  }                                                                                                                    // 1356
+                                                                                                                       // 1357
+  Tooltip.prototype.enter = function (obj) {                                                                           // 1358
+    var self = obj instanceof this.constructor ?                                                                       // 1359
+      obj : $(obj.currentTarget).data('bs.' + this.type)                                                               // 1360
+                                                                                                                       // 1361
+    if (!self) {                                                                                                       // 1362
+      self = new this.constructor(obj.currentTarget, this.getDelegateOptions())                                        // 1363
+      $(obj.currentTarget).data('bs.' + this.type, self)                                                               // 1364
+    }                                                                                                                  // 1365
+                                                                                                                       // 1366
+    if (obj instanceof $.Event) {                                                                                      // 1367
+      self.inState[obj.type == 'focusin' ? 'focus' : 'hover'] = true                                                   // 1368
+    }                                                                                                                  // 1369
+                                                                                                                       // 1370
+    if (self.tip().hasClass('in') || self.hoverState == 'in') {                                                        // 1371
+      self.hoverState = 'in'                                                                                           // 1372
+      return                                                                                                           // 1373
+    }                                                                                                                  // 1374
+                                                                                                                       // 1375
+    clearTimeout(self.timeout)                                                                                         // 1376
+                                                                                                                       // 1377
+    self.hoverState = 'in'                                                                                             // 1378
+                                                                                                                       // 1379
+    if (!self.options.delay || !self.options.delay.show) return self.show()                                            // 1380
+                                                                                                                       // 1381
+    self.timeout = setTimeout(function () {                                                                            // 1382
+      if (self.hoverState == 'in') self.show()                                                                         // 1383
+    }, self.options.delay.show)                                                                                        // 1384
+  }                                                                                                                    // 1385
+                                                                                                                       // 1386
+  Tooltip.prototype.isInStateTrue = function () {                                                                      // 1387
+    for (var key in this.inState) {                                                                                    // 1388
+      if (this.inState[key]) return true                                                                               // 1389
+    }                                                                                                                  // 1390
+                                                                                                                       // 1391
+    return false                                                                                                       // 1392
   }                                                                                                                    // 1393
                                                                                                                        // 1394
-  Tooltip.prototype.show = function () {                                                                               // 1395
-    var e = $.Event('show.bs.' + this.type)                                                                            // 1396
-                                                                                                                       // 1397
-    if (this.hasContent() && this.enabled) {                                                                           // 1398
-      this.$element.trigger(e)                                                                                         // 1399
-                                                                                                                       // 1400
-      var inDom = $.contains(this.$element[0].ownerDocument.documentElement, this.$element[0])                         // 1401
-      if (e.isDefaultPrevented() || !inDom) return                                                                     // 1402
-      var that = this                                                                                                  // 1403
-                                                                                                                       // 1404
-      var $tip = this.tip()                                                                                            // 1405
-                                                                                                                       // 1406
-      var tipId = this.getUID(this.type)                                                                               // 1407
-                                                                                                                       // 1408
-      this.setContent()                                                                                                // 1409
-      $tip.attr('id', tipId)                                                                                           // 1410
-      this.$element.attr('aria-describedby', tipId)                                                                    // 1411
-                                                                                                                       // 1412
-      if (this.options.animation) $tip.addClass('fade')                                                                // 1413
-                                                                                                                       // 1414
-      var placement = typeof this.options.placement == 'function' ?                                                    // 1415
-        this.options.placement.call(this, $tip[0], this.$element[0]) :                                                 // 1416
-        this.options.placement                                                                                         // 1417
-                                                                                                                       // 1418
-      var autoToken = /\s?auto?\s?/i                                                                                   // 1419
-      var autoPlace = autoToken.test(placement)                                                                        // 1420
-      if (autoPlace) placement = placement.replace(autoToken, '') || 'top'                                             // 1421
-                                                                                                                       // 1422
-      $tip                                                                                                             // 1423
-        .detach()                                                                                                      // 1424
-        .css({ top: 0, left: 0, display: 'block' })                                                                    // 1425
-        .addClass(placement)                                                                                           // 1426
-        .data('bs.' + this.type, this)                                                                                 // 1427
-                                                                                                                       // 1428
-      this.options.container ? $tip.appendTo(this.options.container) : $tip.insertAfter(this.$element)                 // 1429
+  Tooltip.prototype.leave = function (obj) {                                                                           // 1395
+    var self = obj instanceof this.constructor ?                                                                       // 1396
+      obj : $(obj.currentTarget).data('bs.' + this.type)                                                               // 1397
+                                                                                                                       // 1398
+    if (!self) {                                                                                                       // 1399
+      self = new this.constructor(obj.currentTarget, this.getDelegateOptions())                                        // 1400
+      $(obj.currentTarget).data('bs.' + this.type, self)                                                               // 1401
+    }                                                                                                                  // 1402
+                                                                                                                       // 1403
+    if (obj instanceof $.Event) {                                                                                      // 1404
+      self.inState[obj.type == 'focusout' ? 'focus' : 'hover'] = false                                                 // 1405
+    }                                                                                                                  // 1406
+                                                                                                                       // 1407
+    if (self.isInStateTrue()) return                                                                                   // 1408
+                                                                                                                       // 1409
+    clearTimeout(self.timeout)                                                                                         // 1410
+                                                                                                                       // 1411
+    self.hoverState = 'out'                                                                                            // 1412
+                                                                                                                       // 1413
+    if (!self.options.delay || !self.options.delay.hide) return self.hide()                                            // 1414
+                                                                                                                       // 1415
+    self.timeout = setTimeout(function () {                                                                            // 1416
+      if (self.hoverState == 'out') self.hide()                                                                        // 1417
+    }, self.options.delay.hide)                                                                                        // 1418
+  }                                                                                                                    // 1419
+                                                                                                                       // 1420
+  Tooltip.prototype.show = function () {                                                                               // 1421
+    var e = $.Event('show.bs.' + this.type)                                                                            // 1422
+                                                                                                                       // 1423
+    if (this.hasContent() && this.enabled) {                                                                           // 1424
+      this.$element.trigger(e)                                                                                         // 1425
+                                                                                                                       // 1426
+      var inDom = $.contains(this.$element[0].ownerDocument.documentElement, this.$element[0])                         // 1427
+      if (e.isDefaultPrevented() || !inDom) return                                                                     // 1428
+      var that = this                                                                                                  // 1429
                                                                                                                        // 1430
-      var pos          = this.getPosition()                                                                            // 1431
-      var actualWidth  = $tip[0].offsetWidth                                                                           // 1432
-      var actualHeight = $tip[0].offsetHeight                                                                          // 1433
+      var $tip = this.tip()                                                                                            // 1431
+                                                                                                                       // 1432
+      var tipId = this.getUID(this.type)                                                                               // 1433
                                                                                                                        // 1434
-      if (autoPlace) {                                                                                                 // 1435
-        var orgPlacement = placement                                                                                   // 1436
-        var $container   = this.options.container ? $(this.options.container) : this.$element.parent()                 // 1437
-        var containerDim = this.getPosition($container)                                                                // 1438
-                                                                                                                       // 1439
-        placement = placement == 'bottom' && pos.bottom + actualHeight > containerDim.bottom ? 'top'    :              // 1440
-                    placement == 'top'    && pos.top    - actualHeight < containerDim.top    ? 'bottom' :              // 1441
-                    placement == 'right'  && pos.right  + actualWidth  > containerDim.width  ? 'left'   :              // 1442
-                    placement == 'left'   && pos.left   - actualWidth  < containerDim.left   ? 'right'  :              // 1443
-                    placement                                                                                          // 1444
-                                                                                                                       // 1445
-        $tip                                                                                                           // 1446
-          .removeClass(orgPlacement)                                                                                   // 1447
-          .addClass(placement)                                                                                         // 1448
-      }                                                                                                                // 1449
-                                                                                                                       // 1450
-      var calculatedOffset = this.getCalculatedOffset(placement, pos, actualWidth, actualHeight)                       // 1451
-                                                                                                                       // 1452
-      this.applyPlacement(calculatedOffset, placement)                                                                 // 1453
+      this.setContent()                                                                                                // 1435
+      $tip.attr('id', tipId)                                                                                           // 1436
+      this.$element.attr('aria-describedby', tipId)                                                                    // 1437
+                                                                                                                       // 1438
+      if (this.options.animation) $tip.addClass('fade')                                                                // 1439
+                                                                                                                       // 1440
+      var placement = typeof this.options.placement == 'function' ?                                                    // 1441
+        this.options.placement.call(this, $tip[0], this.$element[0]) :                                                 // 1442
+        this.options.placement                                                                                         // 1443
+                                                                                                                       // 1444
+      var autoToken = /\s?auto?\s?/i                                                                                   // 1445
+      var autoPlace = autoToken.test(placement)                                                                        // 1446
+      if (autoPlace) placement = placement.replace(autoToken, '') || 'top'                                             // 1447
+                                                                                                                       // 1448
+      $tip                                                                                                             // 1449
+        .detach()                                                                                                      // 1450
+        .css({ top: 0, left: 0, display: 'block' })                                                                    // 1451
+        .addClass(placement)                                                                                           // 1452
+        .data('bs.' + this.type, this)                                                                                 // 1453
                                                                                                                        // 1454
-      var complete = function () {                                                                                     // 1455
-        var prevHoverState = that.hoverState                                                                           // 1456
-        that.$element.trigger('shown.bs.' + that.type)                                                                 // 1457
-        that.hoverState = null                                                                                         // 1458
-                                                                                                                       // 1459
-        if (prevHoverState == 'out') that.leave(that)                                                                  // 1460
-      }                                                                                                                // 1461
-                                                                                                                       // 1462
-      $.support.transition && this.$tip.hasClass('fade') ?                                                             // 1463
-        $tip                                                                                                           // 1464
-          .one('bsTransitionEnd', complete)                                                                            // 1465
-          .emulateTransitionEnd(Tooltip.TRANSITION_DURATION) :                                                         // 1466
-        complete()                                                                                                     // 1467
-    }                                                                                                                  // 1468
-  }                                                                                                                    // 1469
-                                                                                                                       // 1470
-  Tooltip.prototype.applyPlacement = function (offset, placement) {                                                    // 1471
-    var $tip   = this.tip()                                                                                            // 1472
-    var width  = $tip[0].offsetWidth                                                                                   // 1473
-    var height = $tip[0].offsetHeight                                                                                  // 1474
-                                                                                                                       // 1475
-    // manually read margins because getBoundingClientRect includes difference                                         // 1476
-    var marginTop = parseInt($tip.css('margin-top'), 10)                                                               // 1477
-    var marginLeft = parseInt($tip.css('margin-left'), 10)                                                             // 1478
-                                                                                                                       // 1479
-    // we must check for NaN for ie 8/9                                                                                // 1480
-    if (isNaN(marginTop))  marginTop  = 0                                                                              // 1481
-    if (isNaN(marginLeft)) marginLeft = 0                                                                              // 1482
-                                                                                                                       // 1483
-    offset.top  = offset.top  + marginTop                                                                              // 1484
-    offset.left = offset.left + marginLeft                                                                             // 1485
-                                                                                                                       // 1486
-    // $.fn.offset doesn't round pixel values                                                                          // 1487
-    // so we use setOffset directly with our own function B-0                                                          // 1488
-    $.offset.setOffset($tip[0], $.extend({                                                                             // 1489
-      using: function (props) {                                                                                        // 1490
-        $tip.css({                                                                                                     // 1491
-          top: Math.round(props.top),                                                                                  // 1492
-          left: Math.round(props.left)                                                                                 // 1493
-        })                                                                                                             // 1494
-      }                                                                                                                // 1495
-    }, offset), 0)                                                                                                     // 1496
-                                                                                                                       // 1497
-    $tip.addClass('in')                                                                                                // 1498
-                                                                                                                       // 1499
-    // check to see if placing tip in new offset caused the tip to resize itself                                       // 1500
-    var actualWidth  = $tip[0].offsetWidth                                                                             // 1501
-    var actualHeight = $tip[0].offsetHeight                                                                            // 1502
-                                                                                                                       // 1503
-    if (placement == 'top' && actualHeight != height) {                                                                // 1504
-      offset.top = offset.top + height - actualHeight                                                                  // 1505
-    }                                                                                                                  // 1506
-                                                                                                                       // 1507
-    var delta = this.getViewportAdjustedDelta(placement, offset, actualWidth, actualHeight)                            // 1508
+      this.options.container ? $tip.appendTo(this.options.container) : $tip.insertAfter(this.$element)                 // 1455
+      this.$element.trigger('inserted.bs.' + this.type)                                                                // 1456
+                                                                                                                       // 1457
+      var pos          = this.getPosition()                                                                            // 1458
+      var actualWidth  = $tip[0].offsetWidth                                                                           // 1459
+      var actualHeight = $tip[0].offsetHeight                                                                          // 1460
+                                                                                                                       // 1461
+      if (autoPlace) {                                                                                                 // 1462
+        var orgPlacement = placement                                                                                   // 1463
+        var viewportDim = this.getPosition(this.$viewport)                                                             // 1464
+                                                                                                                       // 1465
+        placement = placement == 'bottom' && pos.bottom + actualHeight > viewportDim.bottom ? 'top'    :               // 1466
+                    placement == 'top'    && pos.top    - actualHeight < viewportDim.top    ? 'bottom' :               // 1467
+                    placement == 'right'  && pos.right  + actualWidth  > viewportDim.width  ? 'left'   :               // 1468
+                    placement == 'left'   && pos.left   - actualWidth  < viewportDim.left   ? 'right'  :               // 1469
+                    placement                                                                                          // 1470
+                                                                                                                       // 1471
+        $tip                                                                                                           // 1472
+          .removeClass(orgPlacement)                                                                                   // 1473
+          .addClass(placement)                                                                                         // 1474
+      }                                                                                                                // 1475
+                                                                                                                       // 1476
+      var calculatedOffset = this.getCalculatedOffset(placement, pos, actualWidth, actualHeight)                       // 1477
+                                                                                                                       // 1478
+      this.applyPlacement(calculatedOffset, placement)                                                                 // 1479
+                                                                                                                       // 1480
+      var complete = function () {                                                                                     // 1481
+        var prevHoverState = that.hoverState                                                                           // 1482
+        that.$element.trigger('shown.bs.' + that.type)                                                                 // 1483
+        that.hoverState = null                                                                                         // 1484
+                                                                                                                       // 1485
+        if (prevHoverState == 'out') that.leave(that)                                                                  // 1486
+      }                                                                                                                // 1487
+                                                                                                                       // 1488
+      $.support.transition && this.$tip.hasClass('fade') ?                                                             // 1489
+        $tip                                                                                                           // 1490
+          .one('bsTransitionEnd', complete)                                                                            // 1491
+          .emulateTransitionEnd(Tooltip.TRANSITION_DURATION) :                                                         // 1492
+        complete()                                                                                                     // 1493
+    }                                                                                                                  // 1494
+  }                                                                                                                    // 1495
+                                                                                                                       // 1496
+  Tooltip.prototype.applyPlacement = function (offset, placement) {                                                    // 1497
+    var $tip   = this.tip()                                                                                            // 1498
+    var width  = $tip[0].offsetWidth                                                                                   // 1499
+    var height = $tip[0].offsetHeight                                                                                  // 1500
+                                                                                                                       // 1501
+    // manually read margins because getBoundingClientRect includes difference                                         // 1502
+    var marginTop = parseInt($tip.css('margin-top'), 10)                                                               // 1503
+    var marginLeft = parseInt($tip.css('margin-left'), 10)                                                             // 1504
+                                                                                                                       // 1505
+    // we must check for NaN for ie 8/9                                                                                // 1506
+    if (isNaN(marginTop))  marginTop  = 0                                                                              // 1507
+    if (isNaN(marginLeft)) marginLeft = 0                                                                              // 1508
                                                                                                                        // 1509
-    if (delta.left) offset.left += delta.left                                                                          // 1510
-    else offset.top += delta.top                                                                                       // 1511
+    offset.top  += marginTop                                                                                           // 1510
+    offset.left += marginLeft                                                                                          // 1511
                                                                                                                        // 1512
-    var isVertical          = /top|bottom/.test(placement)                                                             // 1513
+    // $.fn.offset doesn't round pixel values                                                                          // 1513
+    // so we use setOffset directly with our own function B-0                                                          // 1514
+    $.offset.setOffset($tip[0], $.extend({                                                                             // 1515
+      using: function (props) {                                                                                        // 1516
+        $tip.css({                                                                                                     // 1517
+          top: Math.round(props.top),                                                                                  // 1518
+          left: Math.round(props.left)                                                                                 // 1519
+        })                                                                                                             // 1520
+      }                                                                                                                // 1521
+    }, offset), 0)                                                                                                     // 1522
+                                                                                                                       // 1523
+    $tip.addClass('in')                                                                                                // 1524
+                                                                                                                       // 1525
+    // check to see if placing tip in new offset caused the tip to resize itself                                       // 1526
+    var actualWidth  = $tip[0].offsetWidth                                                                             // 1527
+    var actualHeight = $tip[0].offsetHeight                                                                            // 1528
+                                                                                                                       // 1529
+    if (placement == 'top' && actualHeight != height) {                                                                // 1530
+      offset.top = offset.top + height - actualHeight                                                                  // 1531
+    }                                                                                                                  // 1532
+                                                                                                                       // 1533
+    var delta = this.getViewportAdjustedDelta(placement, offset, actualWidth, actualHeight)                            // 1534
+                                                                                                                       // 1535
+    if (delta.left) offset.left += delta.left                                                                          // 1536
+    else offset.top += delta.top                                                                                       // 1537
+                                                                                                                       // 1538
+    var isVertical          = /top|bottom/.test(placement)                                                             // 1539
     var arrowDelta          = isVertical ? delta.left * 2 - width + actualWidth : delta.top * 2 - height + actualHeight
-    var arrowOffsetPosition = isVertical ? 'offsetWidth' : 'offsetHeight'                                              // 1515
-                                                                                                                       // 1516
-    $tip.offset(offset)                                                                                                // 1517
-    this.replaceArrow(arrowDelta, $tip[0][arrowOffsetPosition], isVertical)                                            // 1518
-  }                                                                                                                    // 1519
-                                                                                                                       // 1520
-  Tooltip.prototype.replaceArrow = function (delta, dimension, isVertical) {                                           // 1521
-    this.arrow()                                                                                                       // 1522
-      .css(isVertical ? 'left' : 'top', 50 * (1 - delta / dimension) + '%')                                            // 1523
-      .css(isVertical ? 'top' : 'left', '')                                                                            // 1524
-  }                                                                                                                    // 1525
-                                                                                                                       // 1526
-  Tooltip.prototype.setContent = function () {                                                                         // 1527
-    var $tip  = this.tip()                                                                                             // 1528
-    var title = this.getTitle()                                                                                        // 1529
-                                                                                                                       // 1530
-    $tip.find('.tooltip-inner')[this.options.html ? 'html' : 'text'](title)                                            // 1531
-    $tip.removeClass('fade in top bottom left right')                                                                  // 1532
-  }                                                                                                                    // 1533
-                                                                                                                       // 1534
-  Tooltip.prototype.hide = function (callback) {                                                                       // 1535
-    var that = this                                                                                                    // 1536
-    var $tip = $(this.$tip)                                                                                            // 1537
-    var e    = $.Event('hide.bs.' + this.type)                                                                         // 1538
-                                                                                                                       // 1539
-    function complete() {                                                                                              // 1540
-      if (that.hoverState != 'in') $tip.detach()                                                                       // 1541
-      that.$element                                                                                                    // 1542
-        .removeAttr('aria-describedby')                                                                                // 1543
-        .trigger('hidden.bs.' + that.type)                                                                             // 1544
-      callback && callback()                                                                                           // 1545
-    }                                                                                                                  // 1546
-                                                                                                                       // 1547
-    this.$element.trigger(e)                                                                                           // 1548
-                                                                                                                       // 1549
-    if (e.isDefaultPrevented()) return                                                                                 // 1550
-                                                                                                                       // 1551
-    $tip.removeClass('in')                                                                                             // 1552
-                                                                                                                       // 1553
-    $.support.transition && $tip.hasClass('fade') ?                                                                    // 1554
-      $tip                                                                                                             // 1555
-        .one('bsTransitionEnd', complete)                                                                              // 1556
-        .emulateTransitionEnd(Tooltip.TRANSITION_DURATION) :                                                           // 1557
-      complete()                                                                                                       // 1558
-                                                                                                                       // 1559
-    this.hoverState = null                                                                                             // 1560
-                                                                                                                       // 1561
-    return this                                                                                                        // 1562
-  }                                                                                                                    // 1563
-                                                                                                                       // 1564
-  Tooltip.prototype.fixTitle = function () {                                                                           // 1565
-    var $e = this.$element                                                                                             // 1566
-    if ($e.attr('title') || typeof ($e.attr('data-original-title')) != 'string') {                                     // 1567
-      $e.attr('data-original-title', $e.attr('title') || '').attr('title', '')                                         // 1568
-    }                                                                                                                  // 1569
-  }                                                                                                                    // 1570
-                                                                                                                       // 1571
-  Tooltip.prototype.hasContent = function () {                                                                         // 1572
-    return this.getTitle()                                                                                             // 1573
-  }                                                                                                                    // 1574
+    var arrowOffsetPosition = isVertical ? 'offsetWidth' : 'offsetHeight'                                              // 1541
+                                                                                                                       // 1542
+    $tip.offset(offset)                                                                                                // 1543
+    this.replaceArrow(arrowDelta, $tip[0][arrowOffsetPosition], isVertical)                                            // 1544
+  }                                                                                                                    // 1545
+                                                                                                                       // 1546
+  Tooltip.prototype.replaceArrow = function (delta, dimension, isVertical) {                                           // 1547
+    this.arrow()                                                                                                       // 1548
+      .css(isVertical ? 'left' : 'top', 50 * (1 - delta / dimension) + '%')                                            // 1549
+      .css(isVertical ? 'top' : 'left', '')                                                                            // 1550
+  }                                                                                                                    // 1551
+                                                                                                                       // 1552
+  Tooltip.prototype.setContent = function () {                                                                         // 1553
+    var $tip  = this.tip()                                                                                             // 1554
+    var title = this.getTitle()                                                                                        // 1555
+                                                                                                                       // 1556
+    $tip.find('.tooltip-inner')[this.options.html ? 'html' : 'text'](title)                                            // 1557
+    $tip.removeClass('fade in top bottom left right')                                                                  // 1558
+  }                                                                                                                    // 1559
+                                                                                                                       // 1560
+  Tooltip.prototype.hide = function (callback) {                                                                       // 1561
+    var that = this                                                                                                    // 1562
+    var $tip = $(this.$tip)                                                                                            // 1563
+    var e    = $.Event('hide.bs.' + this.type)                                                                         // 1564
+                                                                                                                       // 1565
+    function complete() {                                                                                              // 1566
+      if (that.hoverState != 'in') $tip.detach()                                                                       // 1567
+      that.$element                                                                                                    // 1568
+        .removeAttr('aria-describedby')                                                                                // 1569
+        .trigger('hidden.bs.' + that.type)                                                                             // 1570
+      callback && callback()                                                                                           // 1571
+    }                                                                                                                  // 1572
+                                                                                                                       // 1573
+    this.$element.trigger(e)                                                                                           // 1574
                                                                                                                        // 1575
-  Tooltip.prototype.getPosition = function ($element) {                                                                // 1576
-    $element   = $element || this.$element                                                                             // 1577
-                                                                                                                       // 1578
-    var el     = $element[0]                                                                                           // 1579
-    var isBody = el.tagName == 'BODY'                                                                                  // 1580
-                                                                                                                       // 1581
-    var elRect    = el.getBoundingClientRect()                                                                         // 1582
-    if (elRect.width == null) {                                                                                        // 1583
-      // width and height are missing in IE8, so compute them manually; see https://github.com/twbs/bootstrap/issues/14093
-      elRect = $.extend({}, elRect, { width: elRect.right - elRect.left, height: elRect.bottom - elRect.top })         // 1585
-    }                                                                                                                  // 1586
-    var elOffset  = isBody ? { top: 0, left: 0 } : $element.offset()                                                   // 1587
-    var scroll    = { scroll: isBody ? document.documentElement.scrollTop || document.body.scrollTop : $element.scrollTop() }
-    var outerDims = isBody ? { width: $(window).width(), height: $(window).height() } : null                           // 1589
+    if (e.isDefaultPrevented()) return                                                                                 // 1576
+                                                                                                                       // 1577
+    $tip.removeClass('in')                                                                                             // 1578
+                                                                                                                       // 1579
+    $.support.transition && $tip.hasClass('fade') ?                                                                    // 1580
+      $tip                                                                                                             // 1581
+        .one('bsTransitionEnd', complete)                                                                              // 1582
+        .emulateTransitionEnd(Tooltip.TRANSITION_DURATION) :                                                           // 1583
+      complete()                                                                                                       // 1584
+                                                                                                                       // 1585
+    this.hoverState = null                                                                                             // 1586
+                                                                                                                       // 1587
+    return this                                                                                                        // 1588
+  }                                                                                                                    // 1589
                                                                                                                        // 1590
-    return $.extend({}, elRect, scroll, outerDims, elOffset)                                                           // 1591
-  }                                                                                                                    // 1592
-                                                                                                                       // 1593
-  Tooltip.prototype.getCalculatedOffset = function (placement, pos, actualWidth, actualHeight) {                       // 1594
-    return placement == 'bottom' ? { top: pos.top + pos.height,   left: pos.left + pos.width / 2 - actualWidth / 2 } : // 1595
-           placement == 'top'    ? { top: pos.top - actualHeight, left: pos.left + pos.width / 2 - actualWidth / 2 } : // 1596
-           placement == 'left'   ? { top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left - actualWidth } :
-        /* placement == 'right' */ { top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left + pos.width }    // 1598
-                                                                                                                       // 1599
+  Tooltip.prototype.fixTitle = function () {                                                                           // 1591
+    var $e = this.$element                                                                                             // 1592
+    if ($e.attr('title') || typeof $e.attr('data-original-title') != 'string') {                                       // 1593
+      $e.attr('data-original-title', $e.attr('title') || '').attr('title', '')                                         // 1594
+    }                                                                                                                  // 1595
+  }                                                                                                                    // 1596
+                                                                                                                       // 1597
+  Tooltip.prototype.hasContent = function () {                                                                         // 1598
+    return this.getTitle()                                                                                             // 1599
   }                                                                                                                    // 1600
                                                                                                                        // 1601
-  Tooltip.prototype.getViewportAdjustedDelta = function (placement, pos, actualWidth, actualHeight) {                  // 1602
-    var delta = { top: 0, left: 0 }                                                                                    // 1603
-    if (!this.$viewport) return delta                                                                                  // 1604
-                                                                                                                       // 1605
-    var viewportPadding = this.options.viewport && this.options.viewport.padding || 0                                  // 1606
-    var viewportDimensions = this.getPosition(this.$viewport)                                                          // 1607
-                                                                                                                       // 1608
-    if (/right|left/.test(placement)) {                                                                                // 1609
-      var topEdgeOffset    = pos.top - viewportPadding - viewportDimensions.scroll                                     // 1610
-      var bottomEdgeOffset = pos.top + viewportPadding - viewportDimensions.scroll + actualHeight                      // 1611
-      if (topEdgeOffset < viewportDimensions.top) { // top overflow                                                    // 1612
-        delta.top = viewportDimensions.top - topEdgeOffset                                                             // 1613
-      } else if (bottomEdgeOffset > viewportDimensions.top + viewportDimensions.height) { // bottom overflow           // 1614
-        delta.top = viewportDimensions.top + viewportDimensions.height - bottomEdgeOffset                              // 1615
-      }                                                                                                                // 1616
-    } else {                                                                                                           // 1617
-      var leftEdgeOffset  = pos.left - viewportPadding                                                                 // 1618
-      var rightEdgeOffset = pos.left + viewportPadding + actualWidth                                                   // 1619
-      if (leftEdgeOffset < viewportDimensions.left) { // left overflow                                                 // 1620
-        delta.left = viewportDimensions.left - leftEdgeOffset                                                          // 1621
-      } else if (rightEdgeOffset > viewportDimensions.width) { // right overflow                                       // 1622
-        delta.left = viewportDimensions.left + viewportDimensions.width - rightEdgeOffset                              // 1623
-      }                                                                                                                // 1624
-    }                                                                                                                  // 1625
-                                                                                                                       // 1626
-    return delta                                                                                                       // 1627
-  }                                                                                                                    // 1628
-                                                                                                                       // 1629
-  Tooltip.prototype.getTitle = function () {                                                                           // 1630
-    var title                                                                                                          // 1631
-    var $e = this.$element                                                                                             // 1632
-    var o  = this.options                                                                                              // 1633
+  Tooltip.prototype.getPosition = function ($element) {                                                                // 1602
+    $element   = $element || this.$element                                                                             // 1603
+                                                                                                                       // 1604
+    var el     = $element[0]                                                                                           // 1605
+    var isBody = el.tagName == 'BODY'                                                                                  // 1606
+                                                                                                                       // 1607
+    var elRect    = el.getBoundingClientRect()                                                                         // 1608
+    if (elRect.width == null) {                                                                                        // 1609
+      // width and height are missing in IE8, so compute them manually; see https://github.com/twbs/bootstrap/issues/14093
+      elRect = $.extend({}, elRect, { width: elRect.right - elRect.left, height: elRect.bottom - elRect.top })         // 1611
+    }                                                                                                                  // 1612
+    var elOffset  = isBody ? { top: 0, left: 0 } : $element.offset()                                                   // 1613
+    var scroll    = { scroll: isBody ? document.documentElement.scrollTop || document.body.scrollTop : $element.scrollTop() }
+    var outerDims = isBody ? { width: $(window).width(), height: $(window).height() } : null                           // 1615
+                                                                                                                       // 1616
+    return $.extend({}, elRect, scroll, outerDims, elOffset)                                                           // 1617
+  }                                                                                                                    // 1618
+                                                                                                                       // 1619
+  Tooltip.prototype.getCalculatedOffset = function (placement, pos, actualWidth, actualHeight) {                       // 1620
+    return placement == 'bottom' ? { top: pos.top + pos.height,   left: pos.left + pos.width / 2 - actualWidth / 2 } : // 1621
+           placement == 'top'    ? { top: pos.top - actualHeight, left: pos.left + pos.width / 2 - actualWidth / 2 } : // 1622
+           placement == 'left'   ? { top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left - actualWidth } :
+        /* placement == 'right' */ { top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left + pos.width }    // 1624
+                                                                                                                       // 1625
+  }                                                                                                                    // 1626
+                                                                                                                       // 1627
+  Tooltip.prototype.getViewportAdjustedDelta = function (placement, pos, actualWidth, actualHeight) {                  // 1628
+    var delta = { top: 0, left: 0 }                                                                                    // 1629
+    if (!this.$viewport) return delta                                                                                  // 1630
+                                                                                                                       // 1631
+    var viewportPadding = this.options.viewport && this.options.viewport.padding || 0                                  // 1632
+    var viewportDimensions = this.getPosition(this.$viewport)                                                          // 1633
                                                                                                                        // 1634
-    title = $e.attr('data-original-title')                                                                             // 1635
-      || (typeof o.title == 'function' ? o.title.call($e[0]) :  o.title)                                               // 1636
-                                                                                                                       // 1637
-    return title                                                                                                       // 1638
-  }                                                                                                                    // 1639
-                                                                                                                       // 1640
-  Tooltip.prototype.getUID = function (prefix) {                                                                       // 1641
-    do prefix += ~~(Math.random() * 1000000)                                                                           // 1642
-    while (document.getElementById(prefix))                                                                            // 1643
-    return prefix                                                                                                      // 1644
-  }                                                                                                                    // 1645
-                                                                                                                       // 1646
-  Tooltip.prototype.tip = function () {                                                                                // 1647
-    return (this.$tip = this.$tip || $(this.options.template))                                                         // 1648
-  }                                                                                                                    // 1649
-                                                                                                                       // 1650
-  Tooltip.prototype.arrow = function () {                                                                              // 1651
-    return (this.$arrow = this.$arrow || this.tip().find('.tooltip-arrow'))                                            // 1652
-  }                                                                                                                    // 1653
-                                                                                                                       // 1654
-  Tooltip.prototype.enable = function () {                                                                             // 1655
-    this.enabled = true                                                                                                // 1656
-  }                                                                                                                    // 1657
-                                                                                                                       // 1658
-  Tooltip.prototype.disable = function () {                                                                            // 1659
-    this.enabled = false                                                                                               // 1660
-  }                                                                                                                    // 1661
-                                                                                                                       // 1662
-  Tooltip.prototype.toggleEnabled = function () {                                                                      // 1663
-    this.enabled = !this.enabled                                                                                       // 1664
+    if (/right|left/.test(placement)) {                                                                                // 1635
+      var topEdgeOffset    = pos.top - viewportPadding - viewportDimensions.scroll                                     // 1636
+      var bottomEdgeOffset = pos.top + viewportPadding - viewportDimensions.scroll + actualHeight                      // 1637
+      if (topEdgeOffset < viewportDimensions.top) { // top overflow                                                    // 1638
+        delta.top = viewportDimensions.top - topEdgeOffset                                                             // 1639
+      } else if (bottomEdgeOffset > viewportDimensions.top + viewportDimensions.height) { // bottom overflow           // 1640
+        delta.top = viewportDimensions.top + viewportDimensions.height - bottomEdgeOffset                              // 1641
+      }                                                                                                                // 1642
+    } else {                                                                                                           // 1643
+      var leftEdgeOffset  = pos.left - viewportPadding                                                                 // 1644
+      var rightEdgeOffset = pos.left + viewportPadding + actualWidth                                                   // 1645
+      if (leftEdgeOffset < viewportDimensions.left) { // left overflow                                                 // 1646
+        delta.left = viewportDimensions.left - leftEdgeOffset                                                          // 1647
+      } else if (rightEdgeOffset > viewportDimensions.right) { // right overflow                                       // 1648
+        delta.left = viewportDimensions.left + viewportDimensions.width - rightEdgeOffset                              // 1649
+      }                                                                                                                // 1650
+    }                                                                                                                  // 1651
+                                                                                                                       // 1652
+    return delta                                                                                                       // 1653
+  }                                                                                                                    // 1654
+                                                                                                                       // 1655
+  Tooltip.prototype.getTitle = function () {                                                                           // 1656
+    var title                                                                                                          // 1657
+    var $e = this.$element                                                                                             // 1658
+    var o  = this.options                                                                                              // 1659
+                                                                                                                       // 1660
+    title = $e.attr('data-original-title')                                                                             // 1661
+      || (typeof o.title == 'function' ? o.title.call($e[0]) :  o.title)                                               // 1662
+                                                                                                                       // 1663
+    return title                                                                                                       // 1664
   }                                                                                                                    // 1665
                                                                                                                        // 1666
-  Tooltip.prototype.toggle = function (e) {                                                                            // 1667
-    var self = this                                                                                                    // 1668
-    if (e) {                                                                                                           // 1669
-      self = $(e.currentTarget).data('bs.' + this.type)                                                                // 1670
-      if (!self) {                                                                                                     // 1671
-        self = new this.constructor(e.currentTarget, this.getDelegateOptions())                                        // 1672
-        $(e.currentTarget).data('bs.' + this.type, self)                                                               // 1673
-      }                                                                                                                // 1674
-    }                                                                                                                  // 1675
-                                                                                                                       // 1676
-    self.tip().hasClass('in') ? self.leave(self) : self.enter(self)                                                    // 1677
-  }                                                                                                                    // 1678
-                                                                                                                       // 1679
-  Tooltip.prototype.destroy = function () {                                                                            // 1680
-    var that = this                                                                                                    // 1681
-    clearTimeout(this.timeout)                                                                                         // 1682
-    this.hide(function () {                                                                                            // 1683
-      that.$element.off('.' + that.type).removeData('bs.' + that.type)                                                 // 1684
-    })                                                                                                                 // 1685
-  }                                                                                                                    // 1686
-                                                                                                                       // 1687
-                                                                                                                       // 1688
-  // TOOLTIP PLUGIN DEFINITION                                                                                         // 1689
-  // =========================                                                                                         // 1690
-                                                                                                                       // 1691
-  function Plugin(option) {                                                                                            // 1692
-    return this.each(function () {                                                                                     // 1693
-      var $this   = $(this)                                                                                            // 1694
-      var data    = $this.data('bs.tooltip')                                                                           // 1695
-      var options = typeof option == 'object' && option                                                                // 1696
-                                                                                                                       // 1697
-      if (!data && /destroy|hide/.test(option)) return                                                                 // 1698
-      if (!data) $this.data('bs.tooltip', (data = new Tooltip(this, options)))                                         // 1699
-      if (typeof option == 'string') data[option]()                                                                    // 1700
-    })                                                                                                                 // 1701
-  }                                                                                                                    // 1702
-                                                                                                                       // 1703
-  var old = $.fn.tooltip                                                                                               // 1704
-                                                                                                                       // 1705
-  $.fn.tooltip             = Plugin                                                                                    // 1706
-  $.fn.tooltip.Constructor = Tooltip                                                                                   // 1707
+  Tooltip.prototype.getUID = function (prefix) {                                                                       // 1667
+    do prefix += ~~(Math.random() * 1000000)                                                                           // 1668
+    while (document.getElementById(prefix))                                                                            // 1669
+    return prefix                                                                                                      // 1670
+  }                                                                                                                    // 1671
+                                                                                                                       // 1672
+  Tooltip.prototype.tip = function () {                                                                                // 1673
+    if (!this.$tip) {                                                                                                  // 1674
+      this.$tip = $(this.options.template)                                                                             // 1675
+      if (this.$tip.length != 1) {                                                                                     // 1676
+        throw new Error(this.type + ' `template` option must consist of exactly 1 top-level element!')                 // 1677
+      }                                                                                                                // 1678
+    }                                                                                                                  // 1679
+    return this.$tip                                                                                                   // 1680
+  }                                                                                                                    // 1681
+                                                                                                                       // 1682
+  Tooltip.prototype.arrow = function () {                                                                              // 1683
+    return (this.$arrow = this.$arrow || this.tip().find('.tooltip-arrow'))                                            // 1684
+  }                                                                                                                    // 1685
+                                                                                                                       // 1686
+  Tooltip.prototype.enable = function () {                                                                             // 1687
+    this.enabled = true                                                                                                // 1688
+  }                                                                                                                    // 1689
+                                                                                                                       // 1690
+  Tooltip.prototype.disable = function () {                                                                            // 1691
+    this.enabled = false                                                                                               // 1692
+  }                                                                                                                    // 1693
+                                                                                                                       // 1694
+  Tooltip.prototype.toggleEnabled = function () {                                                                      // 1695
+    this.enabled = !this.enabled                                                                                       // 1696
+  }                                                                                                                    // 1697
+                                                                                                                       // 1698
+  Tooltip.prototype.toggle = function (e) {                                                                            // 1699
+    var self = this                                                                                                    // 1700
+    if (e) {                                                                                                           // 1701
+      self = $(e.currentTarget).data('bs.' + this.type)                                                                // 1702
+      if (!self) {                                                                                                     // 1703
+        self = new this.constructor(e.currentTarget, this.getDelegateOptions())                                        // 1704
+        $(e.currentTarget).data('bs.' + this.type, self)                                                               // 1705
+      }                                                                                                                // 1706
+    }                                                                                                                  // 1707
                                                                                                                        // 1708
-                                                                                                                       // 1709
-  // TOOLTIP NO CONFLICT                                                                                               // 1710
-  // ===================                                                                                               // 1711
-                                                                                                                       // 1712
-  $.fn.tooltip.noConflict = function () {                                                                              // 1713
-    $.fn.tooltip = old                                                                                                 // 1714
-    return this                                                                                                        // 1715
+    if (e) {                                                                                                           // 1709
+      self.inState.click = !self.inState.click                                                                         // 1710
+      if (self.isInStateTrue()) self.enter(self)                                                                       // 1711
+      else self.leave(self)                                                                                            // 1712
+    } else {                                                                                                           // 1713
+      self.tip().hasClass('in') ? self.leave(self) : self.enter(self)                                                  // 1714
+    }                                                                                                                  // 1715
   }                                                                                                                    // 1716
                                                                                                                        // 1717
-}(jQuery);                                                                                                             // 1718
-                                                                                                                       // 1719
-/* ========================================================================                                            // 1720
- * Bootstrap: popover.js v3.3.4                                                                                        // 1721
- * http://getbootstrap.com/javascript/#popovers                                                                        // 1722
- * ========================================================================                                            // 1723
- * Copyright 2011-2015 Twitter, Inc.                                                                                   // 1724
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)                                          // 1725
- * ======================================================================== */                                         // 1726
-                                                                                                                       // 1727
-                                                                                                                       // 1728
-+function ($) {                                                                                                        // 1729
-  'use strict';                                                                                                        // 1730
+  Tooltip.prototype.destroy = function () {                                                                            // 1718
+    var that = this                                                                                                    // 1719
+    clearTimeout(this.timeout)                                                                                         // 1720
+    this.hide(function () {                                                                                            // 1721
+      that.$element.off('.' + that.type).removeData('bs.' + that.type)                                                 // 1722
+      if (that.$tip) {                                                                                                 // 1723
+        that.$tip.detach()                                                                                             // 1724
+      }                                                                                                                // 1725
+      that.$tip = null                                                                                                 // 1726
+      that.$arrow = null                                                                                               // 1727
+      that.$viewport = null                                                                                            // 1728
+    })                                                                                                                 // 1729
+  }                                                                                                                    // 1730
                                                                                                                        // 1731
-  // POPOVER PUBLIC CLASS DEFINITION                                                                                   // 1732
-  // ===============================                                                                                   // 1733
-                                                                                                                       // 1734
-  var Popover = function (element, options) {                                                                          // 1735
-    this.init('popover', element, options)                                                                             // 1736
-  }                                                                                                                    // 1737
-                                                                                                                       // 1738
-  if (!$.fn.tooltip) throw new Error('Popover requires tooltip.js')                                                    // 1739
-                                                                                                                       // 1740
-  Popover.VERSION  = '3.3.4'                                                                                           // 1741
-                                                                                                                       // 1742
-  Popover.DEFAULTS = $.extend({}, $.fn.tooltip.Constructor.DEFAULTS, {                                                 // 1743
-    placement: 'right',                                                                                                // 1744
-    trigger: 'click',                                                                                                  // 1745
-    content: '',                                                                                                       // 1746
-    template: '<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
-  })                                                                                                                   // 1748
+                                                                                                                       // 1732
+  // TOOLTIP PLUGIN DEFINITION                                                                                         // 1733
+  // =========================                                                                                         // 1734
+                                                                                                                       // 1735
+  function Plugin(option) {                                                                                            // 1736
+    return this.each(function () {                                                                                     // 1737
+      var $this   = $(this)                                                                                            // 1738
+      var data    = $this.data('bs.tooltip')                                                                           // 1739
+      var options = typeof option == 'object' && option                                                                // 1740
+                                                                                                                       // 1741
+      if (!data && /destroy|hide/.test(option)) return                                                                 // 1742
+      if (!data) $this.data('bs.tooltip', (data = new Tooltip(this, options)))                                         // 1743
+      if (typeof option == 'string') data[option]()                                                                    // 1744
+    })                                                                                                                 // 1745
+  }                                                                                                                    // 1746
+                                                                                                                       // 1747
+  var old = $.fn.tooltip                                                                                               // 1748
                                                                                                                        // 1749
-                                                                                                                       // 1750
-  // NOTE: POPOVER EXTENDS tooltip.js                                                                                  // 1751
-  // ================================                                                                                  // 1752
+  $.fn.tooltip             = Plugin                                                                                    // 1750
+  $.fn.tooltip.Constructor = Tooltip                                                                                   // 1751
+                                                                                                                       // 1752
                                                                                                                        // 1753
-  Popover.prototype = $.extend({}, $.fn.tooltip.Constructor.prototype)                                                 // 1754
-                                                                                                                       // 1755
-  Popover.prototype.constructor = Popover                                                                              // 1756
-                                                                                                                       // 1757
-  Popover.prototype.getDefaults = function () {                                                                        // 1758
-    return Popover.DEFAULTS                                                                                            // 1759
+  // TOOLTIP NO CONFLICT                                                                                               // 1754
+  // ===================                                                                                               // 1755
+                                                                                                                       // 1756
+  $.fn.tooltip.noConflict = function () {                                                                              // 1757
+    $.fn.tooltip = old                                                                                                 // 1758
+    return this                                                                                                        // 1759
   }                                                                                                                    // 1760
                                                                                                                        // 1761
-  Popover.prototype.setContent = function () {                                                                         // 1762
-    var $tip    = this.tip()                                                                                           // 1763
-    var title   = this.getTitle()                                                                                      // 1764
-    var content = this.getContent()                                                                                    // 1765
-                                                                                                                       // 1766
-    $tip.find('.popover-title')[this.options.html ? 'html' : 'text'](title)                                            // 1767
-    $tip.find('.popover-content').children().detach().end()[ // we use append for html objects to maintain js events   // 1768
-      this.options.html ? (typeof content == 'string' ? 'html' : 'append') : 'text'                                    // 1769
-    ](content)                                                                                                         // 1770
+}(jQuery);                                                                                                             // 1762
+                                                                                                                       // 1763
+/* ========================================================================                                            // 1764
+ * Bootstrap: popover.js v3.3.5                                                                                        // 1765
+ * http://getbootstrap.com/javascript/#popovers                                                                        // 1766
+ * ========================================================================                                            // 1767
+ * Copyright 2011-2015 Twitter, Inc.                                                                                   // 1768
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)                                          // 1769
+ * ======================================================================== */                                         // 1770
                                                                                                                        // 1771
-    $tip.removeClass('fade top bottom left right in')                                                                  // 1772
-                                                                                                                       // 1773
-    // IE8 doesn't accept hiding via the `:empty` pseudo selector, we have to do                                       // 1774
-    // this manually by checking the contents.                                                                         // 1775
-    if (!$tip.find('.popover-title').html()) $tip.find('.popover-title').hide()                                        // 1776
-  }                                                                                                                    // 1777
+                                                                                                                       // 1772
++function ($) {                                                                                                        // 1773
+  'use strict';                                                                                                        // 1774
+                                                                                                                       // 1775
+  // POPOVER PUBLIC CLASS DEFINITION                                                                                   // 1776
+  // ===============================                                                                                   // 1777
                                                                                                                        // 1778
-  Popover.prototype.hasContent = function () {                                                                         // 1779
-    return this.getTitle() || this.getContent()                                                                        // 1780
+  var Popover = function (element, options) {                                                                          // 1779
+    this.init('popover', element, options)                                                                             // 1780
   }                                                                                                                    // 1781
                                                                                                                        // 1782
-  Popover.prototype.getContent = function () {                                                                         // 1783
-    var $e = this.$element                                                                                             // 1784
-    var o  = this.options                                                                                              // 1785
+  if (!$.fn.tooltip) throw new Error('Popover requires tooltip.js')                                                    // 1783
+                                                                                                                       // 1784
+  Popover.VERSION  = '3.3.5'                                                                                           // 1785
                                                                                                                        // 1786
-    return $e.attr('data-content')                                                                                     // 1787
-      || (typeof o.content == 'function' ?                                                                             // 1788
-            o.content.call($e[0]) :                                                                                    // 1789
-            o.content)                                                                                                 // 1790
-  }                                                                                                                    // 1791
-                                                                                                                       // 1792
-  Popover.prototype.arrow = function () {                                                                              // 1793
-    return (this.$arrow = this.$arrow || this.tip().find('.arrow'))                                                    // 1794
-  }                                                                                                                    // 1795
-                                                                                                                       // 1796
+  Popover.DEFAULTS = $.extend({}, $.fn.tooltip.Constructor.DEFAULTS, {                                                 // 1787
+    placement: 'right',                                                                                                // 1788
+    trigger: 'click',                                                                                                  // 1789
+    content: '',                                                                                                       // 1790
+    template: '<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
+  })                                                                                                                   // 1792
+                                                                                                                       // 1793
+                                                                                                                       // 1794
+  // NOTE: POPOVER EXTENDS tooltip.js                                                                                  // 1795
+  // ================================                                                                                  // 1796
                                                                                                                        // 1797
-  // POPOVER PLUGIN DEFINITION                                                                                         // 1798
-  // =========================                                                                                         // 1799
-                                                                                                                       // 1800
-  function Plugin(option) {                                                                                            // 1801
-    return this.each(function () {                                                                                     // 1802
-      var $this   = $(this)                                                                                            // 1803
-      var data    = $this.data('bs.popover')                                                                           // 1804
-      var options = typeof option == 'object' && option                                                                // 1805
-                                                                                                                       // 1806
-      if (!data && /destroy|hide/.test(option)) return                                                                 // 1807
-      if (!data) $this.data('bs.popover', (data = new Popover(this, options)))                                         // 1808
-      if (typeof option == 'string') data[option]()                                                                    // 1809
-    })                                                                                                                 // 1810
-  }                                                                                                                    // 1811
-                                                                                                                       // 1812
-  var old = $.fn.popover                                                                                               // 1813
-                                                                                                                       // 1814
-  $.fn.popover             = Plugin                                                                                    // 1815
-  $.fn.popover.Constructor = Popover                                                                                   // 1816
+  Popover.prototype = $.extend({}, $.fn.tooltip.Constructor.prototype)                                                 // 1798
+                                                                                                                       // 1799
+  Popover.prototype.constructor = Popover                                                                              // 1800
+                                                                                                                       // 1801
+  Popover.prototype.getDefaults = function () {                                                                        // 1802
+    return Popover.DEFAULTS                                                                                            // 1803
+  }                                                                                                                    // 1804
+                                                                                                                       // 1805
+  Popover.prototype.setContent = function () {                                                                         // 1806
+    var $tip    = this.tip()                                                                                           // 1807
+    var title   = this.getTitle()                                                                                      // 1808
+    var content = this.getContent()                                                                                    // 1809
+                                                                                                                       // 1810
+    $tip.find('.popover-title')[this.options.html ? 'html' : 'text'](title)                                            // 1811
+    $tip.find('.popover-content').children().detach().end()[ // we use append for html objects to maintain js events   // 1812
+      this.options.html ? (typeof content == 'string' ? 'html' : 'append') : 'text'                                    // 1813
+    ](content)                                                                                                         // 1814
+                                                                                                                       // 1815
+    $tip.removeClass('fade top bottom left right in')                                                                  // 1816
                                                                                                                        // 1817
-                                                                                                                       // 1818
-  // POPOVER NO CONFLICT                                                                                               // 1819
-  // ===================                                                                                               // 1820
-                                                                                                                       // 1821
-  $.fn.popover.noConflict = function () {                                                                              // 1822
-    $.fn.popover = old                                                                                                 // 1823
-    return this                                                                                                        // 1824
+    // IE8 doesn't accept hiding via the `:empty` pseudo selector, we have to do                                       // 1818
+    // this manually by checking the contents.                                                                         // 1819
+    if (!$tip.find('.popover-title').html()) $tip.find('.popover-title').hide()                                        // 1820
+  }                                                                                                                    // 1821
+                                                                                                                       // 1822
+  Popover.prototype.hasContent = function () {                                                                         // 1823
+    return this.getTitle() || this.getContent()                                                                        // 1824
   }                                                                                                                    // 1825
                                                                                                                        // 1826
-}(jQuery);                                                                                                             // 1827
-                                                                                                                       // 1828
-/* ========================================================================                                            // 1829
- * Bootstrap: scrollspy.js v3.3.4                                                                                      // 1830
- * http://getbootstrap.com/javascript/#scrollspy                                                                       // 1831
- * ========================================================================                                            // 1832
- * Copyright 2011-2015 Twitter, Inc.                                                                                   // 1833
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)                                          // 1834
- * ======================================================================== */                                         // 1835
+  Popover.prototype.getContent = function () {                                                                         // 1827
+    var $e = this.$element                                                                                             // 1828
+    var o  = this.options                                                                                              // 1829
+                                                                                                                       // 1830
+    return $e.attr('data-content')                                                                                     // 1831
+      || (typeof o.content == 'function' ?                                                                             // 1832
+            o.content.call($e[0]) :                                                                                    // 1833
+            o.content)                                                                                                 // 1834
+  }                                                                                                                    // 1835
                                                                                                                        // 1836
-                                                                                                                       // 1837
-+function ($) {                                                                                                        // 1838
-  'use strict';                                                                                                        // 1839
+  Popover.prototype.arrow = function () {                                                                              // 1837
+    return (this.$arrow = this.$arrow || this.tip().find('.arrow'))                                                    // 1838
+  }                                                                                                                    // 1839
                                                                                                                        // 1840
-  // SCROLLSPY CLASS DEFINITION                                                                                        // 1841
-  // ==========================                                                                                        // 1842
-                                                                                                                       // 1843
-  function ScrollSpy(element, options) {                                                                               // 1844
-    this.$body          = $(document.body)                                                                             // 1845
-    this.$scrollElement = $(element).is(document.body) ? $(window) : $(element)                                        // 1846
-    this.options        = $.extend({}, ScrollSpy.DEFAULTS, options)                                                    // 1847
-    this.selector       = (this.options.target || '') + ' .nav li > a'                                                 // 1848
-    this.offsets        = []                                                                                           // 1849
-    this.targets        = []                                                                                           // 1850
-    this.activeTarget   = null                                                                                         // 1851
-    this.scrollHeight   = 0                                                                                            // 1852
-                                                                                                                       // 1853
-    this.$scrollElement.on('scroll.bs.scrollspy', $.proxy(this.process, this))                                         // 1854
-    this.refresh()                                                                                                     // 1855
-    this.process()                                                                                                     // 1856
-  }                                                                                                                    // 1857
+                                                                                                                       // 1841
+  // POPOVER PLUGIN DEFINITION                                                                                         // 1842
+  // =========================                                                                                         // 1843
+                                                                                                                       // 1844
+  function Plugin(option) {                                                                                            // 1845
+    return this.each(function () {                                                                                     // 1846
+      var $this   = $(this)                                                                                            // 1847
+      var data    = $this.data('bs.popover')                                                                           // 1848
+      var options = typeof option == 'object' && option                                                                // 1849
+                                                                                                                       // 1850
+      if (!data && /destroy|hide/.test(option)) return                                                                 // 1851
+      if (!data) $this.data('bs.popover', (data = new Popover(this, options)))                                         // 1852
+      if (typeof option == 'string') data[option]()                                                                    // 1853
+    })                                                                                                                 // 1854
+  }                                                                                                                    // 1855
+                                                                                                                       // 1856
+  var old = $.fn.popover                                                                                               // 1857
                                                                                                                        // 1858
-  ScrollSpy.VERSION  = '3.3.4'                                                                                         // 1859
-                                                                                                                       // 1860
-  ScrollSpy.DEFAULTS = {                                                                                               // 1861
-    offset: 10                                                                                                         // 1862
-  }                                                                                                                    // 1863
-                                                                                                                       // 1864
-  ScrollSpy.prototype.getScrollHeight = function () {                                                                  // 1865
+  $.fn.popover             = Plugin                                                                                    // 1859
+  $.fn.popover.Constructor = Popover                                                                                   // 1860
+                                                                                                                       // 1861
+                                                                                                                       // 1862
+  // POPOVER NO CONFLICT                                                                                               // 1863
+  // ===================                                                                                               // 1864
+                                                                                                                       // 1865
+  $.fn.popover.noConflict = function () {                                                                              // 1866
+    $.fn.popover = old                                                                                                 // 1867
+    return this                                                                                                        // 1868
+  }                                                                                                                    // 1869
+                                                                                                                       // 1870
+}(jQuery);                                                                                                             // 1871
+                                                                                                                       // 1872
+/* ========================================================================                                            // 1873
+ * Bootstrap: scrollspy.js v3.3.5                                                                                      // 1874
+ * http://getbootstrap.com/javascript/#scrollspy                                                                       // 1875
+ * ========================================================================                                            // 1876
+ * Copyright 2011-2015 Twitter, Inc.                                                                                   // 1877
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)                                          // 1878
+ * ======================================================================== */                                         // 1879
+                                                                                                                       // 1880
+                                                                                                                       // 1881
++function ($) {                                                                                                        // 1882
+  'use strict';                                                                                                        // 1883
+                                                                                                                       // 1884
+  // SCROLLSPY CLASS DEFINITION                                                                                        // 1885
+  // ==========================                                                                                        // 1886
+                                                                                                                       // 1887
+  function ScrollSpy(element, options) {                                                                               // 1888
+    this.$body          = $(document.body)                                                                             // 1889
+    this.$scrollElement = $(element).is(document.body) ? $(window) : $(element)                                        // 1890
+    this.options        = $.extend({}, ScrollSpy.DEFAULTS, options)                                                    // 1891
+    this.selector       = (this.options.target || '') + ' .nav li > a'                                                 // 1892
+    this.offsets        = []                                                                                           // 1893
+    this.targets        = []                                                                                           // 1894
+    this.activeTarget   = null                                                                                         // 1895
+    this.scrollHeight   = 0                                                                                            // 1896
+                                                                                                                       // 1897
+    this.$scrollElement.on('scroll.bs.scrollspy', $.proxy(this.process, this))                                         // 1898
+    this.refresh()                                                                                                     // 1899
+    this.process()                                                                                                     // 1900
+  }                                                                                                                    // 1901
+                                                                                                                       // 1902
+  ScrollSpy.VERSION  = '3.3.5'                                                                                         // 1903
+                                                                                                                       // 1904
+  ScrollSpy.DEFAULTS = {                                                                                               // 1905
+    offset: 10                                                                                                         // 1906
+  }                                                                                                                    // 1907
+                                                                                                                       // 1908
+  ScrollSpy.prototype.getScrollHeight = function () {                                                                  // 1909
     return this.$scrollElement[0].scrollHeight || Math.max(this.$body[0].scrollHeight, document.documentElement.scrollHeight)
-  }                                                                                                                    // 1867
-                                                                                                                       // 1868
-  ScrollSpy.prototype.refresh = function () {                                                                          // 1869
-    var that          = this                                                                                           // 1870
-    var offsetMethod  = 'offset'                                                                                       // 1871
-    var offsetBase    = 0                                                                                              // 1872
-                                                                                                                       // 1873
-    this.offsets      = []                                                                                             // 1874
-    this.targets      = []                                                                                             // 1875
-    this.scrollHeight = this.getScrollHeight()                                                                         // 1876
-                                                                                                                       // 1877
-    if (!$.isWindow(this.$scrollElement[0])) {                                                                         // 1878
-      offsetMethod = 'position'                                                                                        // 1879
-      offsetBase   = this.$scrollElement.scrollTop()                                                                   // 1880
-    }                                                                                                                  // 1881
-                                                                                                                       // 1882
-    this.$body                                                                                                         // 1883
-      .find(this.selector)                                                                                             // 1884
-      .map(function () {                                                                                               // 1885
-        var $el   = $(this)                                                                                            // 1886
-        var href  = $el.data('target') || $el.attr('href')                                                             // 1887
-        var $href = /^#./.test(href) && $(href)                                                                        // 1888
-                                                                                                                       // 1889
-        return ($href                                                                                                  // 1890
-          && $href.length                                                                                              // 1891
-          && $href.is(':visible')                                                                                      // 1892
-          && [[$href[offsetMethod]().top + offsetBase, href]]) || null                                                 // 1893
-      })                                                                                                               // 1894
-      .sort(function (a, b) { return a[0] - b[0] })                                                                    // 1895
-      .each(function () {                                                                                              // 1896
-        that.offsets.push(this[0])                                                                                     // 1897
-        that.targets.push(this[1])                                                                                     // 1898
-      })                                                                                                               // 1899
-  }                                                                                                                    // 1900
-                                                                                                                       // 1901
-  ScrollSpy.prototype.process = function () {                                                                          // 1902
-    var scrollTop    = this.$scrollElement.scrollTop() + this.options.offset                                           // 1903
-    var scrollHeight = this.getScrollHeight()                                                                          // 1904
-    var maxScroll    = this.options.offset + scrollHeight - this.$scrollElement.height()                               // 1905
-    var offsets      = this.offsets                                                                                    // 1906
-    var targets      = this.targets                                                                                    // 1907
-    var activeTarget = this.activeTarget                                                                               // 1908
-    var i                                                                                                              // 1909
-                                                                                                                       // 1910
-    if (this.scrollHeight != scrollHeight) {                                                                           // 1911
-      this.refresh()                                                                                                   // 1912
-    }                                                                                                                  // 1913
-                                                                                                                       // 1914
-    if (scrollTop >= maxScroll) {                                                                                      // 1915
-      return activeTarget != (i = targets[targets.length - 1]) && this.activate(i)                                     // 1916
-    }                                                                                                                  // 1917
-                                                                                                                       // 1918
-    if (activeTarget && scrollTop < offsets[0]) {                                                                      // 1919
-      this.activeTarget = null                                                                                         // 1920
-      return this.clear()                                                                                              // 1921
-    }                                                                                                                  // 1922
-                                                                                                                       // 1923
-    for (i = offsets.length; i--;) {                                                                                   // 1924
-      activeTarget != targets[i]                                                                                       // 1925
-        && scrollTop >= offsets[i]                                                                                     // 1926
-        && (offsets[i + 1] === undefined || scrollTop < offsets[i + 1])                                                // 1927
-        && this.activate(targets[i])                                                                                   // 1928
-    }                                                                                                                  // 1929
-  }                                                                                                                    // 1930
-                                                                                                                       // 1931
-  ScrollSpy.prototype.activate = function (target) {                                                                   // 1932
-    this.activeTarget = target                                                                                         // 1933
-                                                                                                                       // 1934
-    this.clear()                                                                                                       // 1935
-                                                                                                                       // 1936
-    var selector = this.selector +                                                                                     // 1937
-      '[data-target="' + target + '"],' +                                                                              // 1938
-      this.selector + '[href="' + target + '"]'                                                                        // 1939
-                                                                                                                       // 1940
-    var active = $(selector)                                                                                           // 1941
-      .parents('li')                                                                                                   // 1942
-      .addClass('active')                                                                                              // 1943
-                                                                                                                       // 1944
-    if (active.parent('.dropdown-menu').length) {                                                                      // 1945
-      active = active                                                                                                  // 1946
-        .closest('li.dropdown')                                                                                        // 1947
-        .addClass('active')                                                                                            // 1948
-    }                                                                                                                  // 1949
-                                                                                                                       // 1950
-    active.trigger('activate.bs.scrollspy')                                                                            // 1951
-  }                                                                                                                    // 1952
-                                                                                                                       // 1953
-  ScrollSpy.prototype.clear = function () {                                                                            // 1954
-    $(this.selector)                                                                                                   // 1955
-      .parentsUntil(this.options.target, '.active')                                                                    // 1956
-      .removeClass('active')                                                                                           // 1957
-  }                                                                                                                    // 1958
-                                                                                                                       // 1959
-                                                                                                                       // 1960
-  // SCROLLSPY PLUGIN DEFINITION                                                                                       // 1961
-  // ===========================                                                                                       // 1962
-                                                                                                                       // 1963
-  function Plugin(option) {                                                                                            // 1964
-    return this.each(function () {                                                                                     // 1965
-      var $this   = $(this)                                                                                            // 1966
-      var data    = $this.data('bs.scrollspy')                                                                         // 1967
-      var options = typeof option == 'object' && option                                                                // 1968
-                                                                                                                       // 1969
-      if (!data) $this.data('bs.scrollspy', (data = new ScrollSpy(this, options)))                                     // 1970
-      if (typeof option == 'string') data[option]()                                                                    // 1971
-    })                                                                                                                 // 1972
-  }                                                                                                                    // 1973
-                                                                                                                       // 1974
-  var old = $.fn.scrollspy                                                                                             // 1975
-                                                                                                                       // 1976
-  $.fn.scrollspy             = Plugin                                                                                  // 1977
-  $.fn.scrollspy.Constructor = ScrollSpy                                                                               // 1978
-                                                                                                                       // 1979
+  }                                                                                                                    // 1911
+                                                                                                                       // 1912
+  ScrollSpy.prototype.refresh = function () {                                                                          // 1913
+    var that          = this                                                                                           // 1914
+    var offsetMethod  = 'offset'                                                                                       // 1915
+    var offsetBase    = 0                                                                                              // 1916
+                                                                                                                       // 1917
+    this.offsets      = []                                                                                             // 1918
+    this.targets      = []                                                                                             // 1919
+    this.scrollHeight = this.getScrollHeight()                                                                         // 1920
+                                                                                                                       // 1921
+    if (!$.isWindow(this.$scrollElement[0])) {                                                                         // 1922
+      offsetMethod = 'position'                                                                                        // 1923
+      offsetBase   = this.$scrollElement.scrollTop()                                                                   // 1924
+    }                                                                                                                  // 1925
+                                                                                                                       // 1926
+    this.$body                                                                                                         // 1927
+      .find(this.selector)                                                                                             // 1928
+      .map(function () {                                                                                               // 1929
+        var $el   = $(this)                                                                                            // 1930
+        var href  = $el.data('target') || $el.attr('href')                                                             // 1931
+        var $href = /^#./.test(href) && $(href)                                                                        // 1932
+                                                                                                                       // 1933
+        return ($href                                                                                                  // 1934
+          && $href.length                                                                                              // 1935
+          && $href.is(':visible')                                                                                      // 1936
+          && [[$href[offsetMethod]().top + offsetBase, href]]) || null                                                 // 1937
+      })                                                                                                               // 1938
+      .sort(function (a, b) { return a[0] - b[0] })                                                                    // 1939
+      .each(function () {                                                                                              // 1940
+        that.offsets.push(this[0])                                                                                     // 1941
+        that.targets.push(this[1])                                                                                     // 1942
+      })                                                                                                               // 1943
+  }                                                                                                                    // 1944
+                                                                                                                       // 1945
+  ScrollSpy.prototype.process = function () {                                                                          // 1946
+    var scrollTop    = this.$scrollElement.scrollTop() + this.options.offset                                           // 1947
+    var scrollHeight = this.getScrollHeight()                                                                          // 1948
+    var maxScroll    = this.options.offset + scrollHeight - this.$scrollElement.height()                               // 1949
+    var offsets      = this.offsets                                                                                    // 1950
+    var targets      = this.targets                                                                                    // 1951
+    var activeTarget = this.activeTarget                                                                               // 1952
+    var i                                                                                                              // 1953
+                                                                                                                       // 1954
+    if (this.scrollHeight != scrollHeight) {                                                                           // 1955
+      this.refresh()                                                                                                   // 1956
+    }                                                                                                                  // 1957
+                                                                                                                       // 1958
+    if (scrollTop >= maxScroll) {                                                                                      // 1959
+      return activeTarget != (i = targets[targets.length - 1]) && this.activate(i)                                     // 1960
+    }                                                                                                                  // 1961
+                                                                                                                       // 1962
+    if (activeTarget && scrollTop < offsets[0]) {                                                                      // 1963
+      this.activeTarget = null                                                                                         // 1964
+      return this.clear()                                                                                              // 1965
+    }                                                                                                                  // 1966
+                                                                                                                       // 1967
+    for (i = offsets.length; i--;) {                                                                                   // 1968
+      activeTarget != targets[i]                                                                                       // 1969
+        && scrollTop >= offsets[i]                                                                                     // 1970
+        && (offsets[i + 1] === undefined || scrollTop < offsets[i + 1])                                                // 1971
+        && this.activate(targets[i])                                                                                   // 1972
+    }                                                                                                                  // 1973
+  }                                                                                                                    // 1974
+                                                                                                                       // 1975
+  ScrollSpy.prototype.activate = function (target) {                                                                   // 1976
+    this.activeTarget = target                                                                                         // 1977
+                                                                                                                       // 1978
+    this.clear()                                                                                                       // 1979
                                                                                                                        // 1980
-  // SCROLLSPY NO CONFLICT                                                                                             // 1981
-  // =====================                                                                                             // 1982
-                                                                                                                       // 1983
-  $.fn.scrollspy.noConflict = function () {                                                                            // 1984
-    $.fn.scrollspy = old                                                                                               // 1985
-    return this                                                                                                        // 1986
-  }                                                                                                                    // 1987
+    var selector = this.selector +                                                                                     // 1981
+      '[data-target="' + target + '"],' +                                                                              // 1982
+      this.selector + '[href="' + target + '"]'                                                                        // 1983
+                                                                                                                       // 1984
+    var active = $(selector)                                                                                           // 1985
+      .parents('li')                                                                                                   // 1986
+      .addClass('active')                                                                                              // 1987
                                                                                                                        // 1988
-                                                                                                                       // 1989
-  // SCROLLSPY DATA-API                                                                                                // 1990
-  // ==================                                                                                                // 1991
-                                                                                                                       // 1992
-  $(window).on('load.bs.scrollspy.data-api', function () {                                                             // 1993
-    $('[data-spy="scroll"]').each(function () {                                                                        // 1994
-      var $spy = $(this)                                                                                               // 1995
-      Plugin.call($spy, $spy.data())                                                                                   // 1996
-    })                                                                                                                 // 1997
-  })                                                                                                                   // 1998
-                                                                                                                       // 1999
-}(jQuery);                                                                                                             // 2000
-                                                                                                                       // 2001
-/* ========================================================================                                            // 2002
- * Bootstrap: tab.js v3.3.4                                                                                            // 2003
- * http://getbootstrap.com/javascript/#tabs                                                                            // 2004
- * ========================================================================                                            // 2005
- * Copyright 2011-2015 Twitter, Inc.                                                                                   // 2006
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)                                          // 2007
- * ======================================================================== */                                         // 2008
-                                                                                                                       // 2009
-                                                                                                                       // 2010
-+function ($) {                                                                                                        // 2011
-  'use strict';                                                                                                        // 2012
+    if (active.parent('.dropdown-menu').length) {                                                                      // 1989
+      active = active                                                                                                  // 1990
+        .closest('li.dropdown')                                                                                        // 1991
+        .addClass('active')                                                                                            // 1992
+    }                                                                                                                  // 1993
+                                                                                                                       // 1994
+    active.trigger('activate.bs.scrollspy')                                                                            // 1995
+  }                                                                                                                    // 1996
+                                                                                                                       // 1997
+  ScrollSpy.prototype.clear = function () {                                                                            // 1998
+    $(this.selector)                                                                                                   // 1999
+      .parentsUntil(this.options.target, '.active')                                                                    // 2000
+      .removeClass('active')                                                                                           // 2001
+  }                                                                                                                    // 2002
+                                                                                                                       // 2003
+                                                                                                                       // 2004
+  // SCROLLSPY PLUGIN DEFINITION                                                                                       // 2005
+  // ===========================                                                                                       // 2006
+                                                                                                                       // 2007
+  function Plugin(option) {                                                                                            // 2008
+    return this.each(function () {                                                                                     // 2009
+      var $this   = $(this)                                                                                            // 2010
+      var data    = $this.data('bs.scrollspy')                                                                         // 2011
+      var options = typeof option == 'object' && option                                                                // 2012
                                                                                                                        // 2013
-  // TAB CLASS DEFINITION                                                                                              // 2014
-  // ====================                                                                                              // 2015
-                                                                                                                       // 2016
-  var Tab = function (element) {                                                                                       // 2017
-    this.element = $(element)                                                                                          // 2018
-  }                                                                                                                    // 2019
+      if (!data) $this.data('bs.scrollspy', (data = new ScrollSpy(this, options)))                                     // 2014
+      if (typeof option == 'string') data[option]()                                                                    // 2015
+    })                                                                                                                 // 2016
+  }                                                                                                                    // 2017
+                                                                                                                       // 2018
+  var old = $.fn.scrollspy                                                                                             // 2019
                                                                                                                        // 2020
-  Tab.VERSION = '3.3.4'                                                                                                // 2021
-                                                                                                                       // 2022
-  Tab.TRANSITION_DURATION = 150                                                                                        // 2023
+  $.fn.scrollspy             = Plugin                                                                                  // 2021
+  $.fn.scrollspy.Constructor = ScrollSpy                                                                               // 2022
+                                                                                                                       // 2023
                                                                                                                        // 2024
-  Tab.prototype.show = function () {                                                                                   // 2025
-    var $this    = this.element                                                                                        // 2026
-    var $ul      = $this.closest('ul:not(.dropdown-menu)')                                                             // 2027
-    var selector = $this.data('target')                                                                                // 2028
-                                                                                                                       // 2029
-    if (!selector) {                                                                                                   // 2030
-      selector = $this.attr('href')                                                                                    // 2031
-      selector = selector && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7                                   // 2032
-    }                                                                                                                  // 2033
-                                                                                                                       // 2034
-    if ($this.parent('li').hasClass('active')) return                                                                  // 2035
+  // SCROLLSPY NO CONFLICT                                                                                             // 2025
+  // =====================                                                                                             // 2026
+                                                                                                                       // 2027
+  $.fn.scrollspy.noConflict = function () {                                                                            // 2028
+    $.fn.scrollspy = old                                                                                               // 2029
+    return this                                                                                                        // 2030
+  }                                                                                                                    // 2031
+                                                                                                                       // 2032
+                                                                                                                       // 2033
+  // SCROLLSPY DATA-API                                                                                                // 2034
+  // ==================                                                                                                // 2035
                                                                                                                        // 2036
-    var $previous = $ul.find('.active:last a')                                                                         // 2037
-    var hideEvent = $.Event('hide.bs.tab', {                                                                           // 2038
-      relatedTarget: $this[0]                                                                                          // 2039
-    })                                                                                                                 // 2040
-    var showEvent = $.Event('show.bs.tab', {                                                                           // 2041
-      relatedTarget: $previous[0]                                                                                      // 2042
-    })                                                                                                                 // 2043
-                                                                                                                       // 2044
-    $previous.trigger(hideEvent)                                                                                       // 2045
-    $this.trigger(showEvent)                                                                                           // 2046
-                                                                                                                       // 2047
-    if (showEvent.isDefaultPrevented() || hideEvent.isDefaultPrevented()) return                                       // 2048
-                                                                                                                       // 2049
-    var $target = $(selector)                                                                                          // 2050
-                                                                                                                       // 2051
-    this.activate($this.closest('li'), $ul)                                                                            // 2052
-    this.activate($target, $target.parent(), function () {                                                             // 2053
-      $previous.trigger({                                                                                              // 2054
-        type: 'hidden.bs.tab',                                                                                         // 2055
-        relatedTarget: $this[0]                                                                                        // 2056
-      })                                                                                                               // 2057
-      $this.trigger({                                                                                                  // 2058
-        type: 'shown.bs.tab',                                                                                          // 2059
-        relatedTarget: $previous[0]                                                                                    // 2060
-      })                                                                                                               // 2061
-    })                                                                                                                 // 2062
-  }                                                                                                                    // 2063
-                                                                                                                       // 2064
-  Tab.prototype.activate = function (element, container, callback) {                                                   // 2065
-    var $active    = container.find('> .active')                                                                       // 2066
-    var transition = callback                                                                                          // 2067
-      && $.support.transition                                                                                          // 2068
-      && (($active.length && $active.hasClass('fade')) || !!container.find('> .fade').length)                          // 2069
+  $(window).on('load.bs.scrollspy.data-api', function () {                                                             // 2037
+    $('[data-spy="scroll"]').each(function () {                                                                        // 2038
+      var $spy = $(this)                                                                                               // 2039
+      Plugin.call($spy, $spy.data())                                                                                   // 2040
+    })                                                                                                                 // 2041
+  })                                                                                                                   // 2042
+                                                                                                                       // 2043
+}(jQuery);                                                                                                             // 2044
+                                                                                                                       // 2045
+/* ========================================================================                                            // 2046
+ * Bootstrap: tab.js v3.3.5                                                                                            // 2047
+ * http://getbootstrap.com/javascript/#tabs                                                                            // 2048
+ * ========================================================================                                            // 2049
+ * Copyright 2011-2015 Twitter, Inc.                                                                                   // 2050
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)                                          // 2051
+ * ======================================================================== */                                         // 2052
+                                                                                                                       // 2053
+                                                                                                                       // 2054
++function ($) {                                                                                                        // 2055
+  'use strict';                                                                                                        // 2056
+                                                                                                                       // 2057
+  // TAB CLASS DEFINITION                                                                                              // 2058
+  // ====================                                                                                              // 2059
+                                                                                                                       // 2060
+  var Tab = function (element) {                                                                                       // 2061
+    // jscs:disable requireDollarBeforejQueryAssignment                                                                // 2062
+    this.element = $(element)                                                                                          // 2063
+    // jscs:enable requireDollarBeforejQueryAssignment                                                                 // 2064
+  }                                                                                                                    // 2065
+                                                                                                                       // 2066
+  Tab.VERSION = '3.3.5'                                                                                                // 2067
+                                                                                                                       // 2068
+  Tab.TRANSITION_DURATION = 150                                                                                        // 2069
                                                                                                                        // 2070
-    function next() {                                                                                                  // 2071
-      $active                                                                                                          // 2072
-        .removeClass('active')                                                                                         // 2073
-        .find('> .dropdown-menu > .active')                                                                            // 2074
-          .removeClass('active')                                                                                       // 2075
-        .end()                                                                                                         // 2076
-        .find('[data-toggle="tab"]')                                                                                   // 2077
-          .attr('aria-expanded', false)                                                                                // 2078
-                                                                                                                       // 2079
-      element                                                                                                          // 2080
-        .addClass('active')                                                                                            // 2081
-        .find('[data-toggle="tab"]')                                                                                   // 2082
-          .attr('aria-expanded', true)                                                                                 // 2083
-                                                                                                                       // 2084
-      if (transition) {                                                                                                // 2085
-        element[0].offsetWidth // reflow for transition                                                                // 2086
-        element.addClass('in')                                                                                         // 2087
-      } else {                                                                                                         // 2088
-        element.removeClass('fade')                                                                                    // 2089
-      }                                                                                                                // 2090
-                                                                                                                       // 2091
-      if (element.parent('.dropdown-menu').length) {                                                                   // 2092
-        element                                                                                                        // 2093
-          .closest('li.dropdown')                                                                                      // 2094
-            .addClass('active')                                                                                        // 2095
-          .end()                                                                                                       // 2096
-          .find('[data-toggle="tab"]')                                                                                 // 2097
-            .attr('aria-expanded', true)                                                                               // 2098
-      }                                                                                                                // 2099
-                                                                                                                       // 2100
-      callback && callback()                                                                                           // 2101
-    }                                                                                                                  // 2102
-                                                                                                                       // 2103
-    $active.length && transition ?                                                                                     // 2104
-      $active                                                                                                          // 2105
-        .one('bsTransitionEnd', next)                                                                                  // 2106
-        .emulateTransitionEnd(Tab.TRANSITION_DURATION) :                                                               // 2107
-      next()                                                                                                           // 2108
-                                                                                                                       // 2109
-    $active.removeClass('in')                                                                                          // 2110
-  }                                                                                                                    // 2111
-                                                                                                                       // 2112
-                                                                                                                       // 2113
-  // TAB PLUGIN DEFINITION                                                                                             // 2114
-  // =====================                                                                                             // 2115
+  Tab.prototype.show = function () {                                                                                   // 2071
+    var $this    = this.element                                                                                        // 2072
+    var $ul      = $this.closest('ul:not(.dropdown-menu)')                                                             // 2073
+    var selector = $this.data('target')                                                                                // 2074
+                                                                                                                       // 2075
+    if (!selector) {                                                                                                   // 2076
+      selector = $this.attr('href')                                                                                    // 2077
+      selector = selector && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7                                   // 2078
+    }                                                                                                                  // 2079
+                                                                                                                       // 2080
+    if ($this.parent('li').hasClass('active')) return                                                                  // 2081
+                                                                                                                       // 2082
+    var $previous = $ul.find('.active:last a')                                                                         // 2083
+    var hideEvent = $.Event('hide.bs.tab', {                                                                           // 2084
+      relatedTarget: $this[0]                                                                                          // 2085
+    })                                                                                                                 // 2086
+    var showEvent = $.Event('show.bs.tab', {                                                                           // 2087
+      relatedTarget: $previous[0]                                                                                      // 2088
+    })                                                                                                                 // 2089
+                                                                                                                       // 2090
+    $previous.trigger(hideEvent)                                                                                       // 2091
+    $this.trigger(showEvent)                                                                                           // 2092
+                                                                                                                       // 2093
+    if (showEvent.isDefaultPrevented() || hideEvent.isDefaultPrevented()) return                                       // 2094
+                                                                                                                       // 2095
+    var $target = $(selector)                                                                                          // 2096
+                                                                                                                       // 2097
+    this.activate($this.closest('li'), $ul)                                                                            // 2098
+    this.activate($target, $target.parent(), function () {                                                             // 2099
+      $previous.trigger({                                                                                              // 2100
+        type: 'hidden.bs.tab',                                                                                         // 2101
+        relatedTarget: $this[0]                                                                                        // 2102
+      })                                                                                                               // 2103
+      $this.trigger({                                                                                                  // 2104
+        type: 'shown.bs.tab',                                                                                          // 2105
+        relatedTarget: $previous[0]                                                                                    // 2106
+      })                                                                                                               // 2107
+    })                                                                                                                 // 2108
+  }                                                                                                                    // 2109
+                                                                                                                       // 2110
+  Tab.prototype.activate = function (element, container, callback) {                                                   // 2111
+    var $active    = container.find('> .active')                                                                       // 2112
+    var transition = callback                                                                                          // 2113
+      && $.support.transition                                                                                          // 2114
+      && ($active.length && $active.hasClass('fade') || !!container.find('> .fade').length)                            // 2115
                                                                                                                        // 2116
-  function Plugin(option) {                                                                                            // 2117
-    return this.each(function () {                                                                                     // 2118
-      var $this = $(this)                                                                                              // 2119
-      var data  = $this.data('bs.tab')                                                                                 // 2120
-                                                                                                                       // 2121
-      if (!data) $this.data('bs.tab', (data = new Tab(this)))                                                          // 2122
-      if (typeof option == 'string') data[option]()                                                                    // 2123
-    })                                                                                                                 // 2124
-  }                                                                                                                    // 2125
-                                                                                                                       // 2126
-  var old = $.fn.tab                                                                                                   // 2127
-                                                                                                                       // 2128
-  $.fn.tab             = Plugin                                                                                        // 2129
-  $.fn.tab.Constructor = Tab                                                                                           // 2130
-                                                                                                                       // 2131
-                                                                                                                       // 2132
-  // TAB NO CONFLICT                                                                                                   // 2133
-  // ===============                                                                                                   // 2134
-                                                                                                                       // 2135
-  $.fn.tab.noConflict = function () {                                                                                  // 2136
-    $.fn.tab = old                                                                                                     // 2137
-    return this                                                                                                        // 2138
-  }                                                                                                                    // 2139
-                                                                                                                       // 2140
-                                                                                                                       // 2141
-  // TAB DATA-API                                                                                                      // 2142
-  // ============                                                                                                      // 2143
-                                                                                                                       // 2144
-  var clickHandler = function (e) {                                                                                    // 2145
-    e.preventDefault()                                                                                                 // 2146
-    Plugin.call($(this), 'show')                                                                                       // 2147
-  }                                                                                                                    // 2148
+    function next() {                                                                                                  // 2117
+      $active                                                                                                          // 2118
+        .removeClass('active')                                                                                         // 2119
+        .find('> .dropdown-menu > .active')                                                                            // 2120
+          .removeClass('active')                                                                                       // 2121
+        .end()                                                                                                         // 2122
+        .find('[data-toggle="tab"]')                                                                                   // 2123
+          .attr('aria-expanded', false)                                                                                // 2124
+                                                                                                                       // 2125
+      element                                                                                                          // 2126
+        .addClass('active')                                                                                            // 2127
+        .find('[data-toggle="tab"]')                                                                                   // 2128
+          .attr('aria-expanded', true)                                                                                 // 2129
+                                                                                                                       // 2130
+      if (transition) {                                                                                                // 2131
+        element[0].offsetWidth // reflow for transition                                                                // 2132
+        element.addClass('in')                                                                                         // 2133
+      } else {                                                                                                         // 2134
+        element.removeClass('fade')                                                                                    // 2135
+      }                                                                                                                // 2136
+                                                                                                                       // 2137
+      if (element.parent('.dropdown-menu').length) {                                                                   // 2138
+        element                                                                                                        // 2139
+          .closest('li.dropdown')                                                                                      // 2140
+            .addClass('active')                                                                                        // 2141
+          .end()                                                                                                       // 2142
+          .find('[data-toggle="tab"]')                                                                                 // 2143
+            .attr('aria-expanded', true)                                                                               // 2144
+      }                                                                                                                // 2145
+                                                                                                                       // 2146
+      callback && callback()                                                                                           // 2147
+    }                                                                                                                  // 2148
                                                                                                                        // 2149
-  $(document)                                                                                                          // 2150
-    .on('click.bs.tab.data-api', '[data-toggle="tab"]', clickHandler)                                                  // 2151
-    .on('click.bs.tab.data-api', '[data-toggle="pill"]', clickHandler)                                                 // 2152
-                                                                                                                       // 2153
-}(jQuery);                                                                                                             // 2154
+    $active.length && transition ?                                                                                     // 2150
+      $active                                                                                                          // 2151
+        .one('bsTransitionEnd', next)                                                                                  // 2152
+        .emulateTransitionEnd(Tab.TRANSITION_DURATION) :                                                               // 2153
+      next()                                                                                                           // 2154
                                                                                                                        // 2155
-/* ========================================================================                                            // 2156
- * Bootstrap: affix.js v3.3.4                                                                                          // 2157
- * http://getbootstrap.com/javascript/#affix                                                                           // 2158
- * ========================================================================                                            // 2159
- * Copyright 2011-2015 Twitter, Inc.                                                                                   // 2160
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)                                          // 2161
- * ======================================================================== */                                         // 2162
-                                                                                                                       // 2163
-                                                                                                                       // 2164
-+function ($) {                                                                                                        // 2165
-  'use strict';                                                                                                        // 2166
+    $active.removeClass('in')                                                                                          // 2156
+  }                                                                                                                    // 2157
+                                                                                                                       // 2158
+                                                                                                                       // 2159
+  // TAB PLUGIN DEFINITION                                                                                             // 2160
+  // =====================                                                                                             // 2161
+                                                                                                                       // 2162
+  function Plugin(option) {                                                                                            // 2163
+    return this.each(function () {                                                                                     // 2164
+      var $this = $(this)                                                                                              // 2165
+      var data  = $this.data('bs.tab')                                                                                 // 2166
                                                                                                                        // 2167
-  // AFFIX CLASS DEFINITION                                                                                            // 2168
-  // ======================                                                                                            // 2169
-                                                                                                                       // 2170
-  var Affix = function (element, options) {                                                                            // 2171
-    this.options = $.extend({}, Affix.DEFAULTS, options)                                                               // 2172
-                                                                                                                       // 2173
-    this.$target = $(this.options.target)                                                                              // 2174
-      .on('scroll.bs.affix.data-api', $.proxy(this.checkPosition, this))                                               // 2175
-      .on('click.bs.affix.data-api',  $.proxy(this.checkPositionWithEventLoop, this))                                  // 2176
+      if (!data) $this.data('bs.tab', (data = new Tab(this)))                                                          // 2168
+      if (typeof option == 'string') data[option]()                                                                    // 2169
+    })                                                                                                                 // 2170
+  }                                                                                                                    // 2171
+                                                                                                                       // 2172
+  var old = $.fn.tab                                                                                                   // 2173
+                                                                                                                       // 2174
+  $.fn.tab             = Plugin                                                                                        // 2175
+  $.fn.tab.Constructor = Tab                                                                                           // 2176
                                                                                                                        // 2177
-    this.$element     = $(element)                                                                                     // 2178
-    this.affixed      = null                                                                                           // 2179
-    this.unpin        = null                                                                                           // 2180
-    this.pinnedOffset = null                                                                                           // 2181
-                                                                                                                       // 2182
-    this.checkPosition()                                                                                               // 2183
-  }                                                                                                                    // 2184
-                                                                                                                       // 2185
-  Affix.VERSION  = '3.3.4'                                                                                             // 2186
+                                                                                                                       // 2178
+  // TAB NO CONFLICT                                                                                                   // 2179
+  // ===============                                                                                                   // 2180
+                                                                                                                       // 2181
+  $.fn.tab.noConflict = function () {                                                                                  // 2182
+    $.fn.tab = old                                                                                                     // 2183
+    return this                                                                                                        // 2184
+  }                                                                                                                    // 2185
+                                                                                                                       // 2186
                                                                                                                        // 2187
-  Affix.RESET    = 'affix affix-top affix-bottom'                                                                      // 2188
-                                                                                                                       // 2189
-  Affix.DEFAULTS = {                                                                                                   // 2190
-    offset: 0,                                                                                                         // 2191
-    target: window                                                                                                     // 2192
-  }                                                                                                                    // 2193
-                                                                                                                       // 2194
-  Affix.prototype.getState = function (scrollHeight, height, offsetTop, offsetBottom) {                                // 2195
-    var scrollTop    = this.$target.scrollTop()                                                                        // 2196
-    var position     = this.$element.offset()                                                                          // 2197
-    var targetHeight = this.$target.height()                                                                           // 2198
+  // TAB DATA-API                                                                                                      // 2188
+  // ============                                                                                                      // 2189
+                                                                                                                       // 2190
+  var clickHandler = function (e) {                                                                                    // 2191
+    e.preventDefault()                                                                                                 // 2192
+    Plugin.call($(this), 'show')                                                                                       // 2193
+  }                                                                                                                    // 2194
+                                                                                                                       // 2195
+  $(document)                                                                                                          // 2196
+    .on('click.bs.tab.data-api', '[data-toggle="tab"]', clickHandler)                                                  // 2197
+    .on('click.bs.tab.data-api', '[data-toggle="pill"]', clickHandler)                                                 // 2198
                                                                                                                        // 2199
-    if (offsetTop != null && this.affixed == 'top') return scrollTop < offsetTop ? 'top' : false                       // 2200
+}(jQuery);                                                                                                             // 2200
                                                                                                                        // 2201
-    if (this.affixed == 'bottom') {                                                                                    // 2202
-      if (offsetTop != null) return (scrollTop + this.unpin <= position.top) ? false : 'bottom'                        // 2203
-      return (scrollTop + targetHeight <= scrollHeight - offsetBottom) ? false : 'bottom'                              // 2204
-    }                                                                                                                  // 2205
-                                                                                                                       // 2206
-    var initializing   = this.affixed == null                                                                          // 2207
-    var colliderTop    = initializing ? scrollTop : position.top                                                       // 2208
-    var colliderHeight = initializing ? targetHeight : height                                                          // 2209
+/* ========================================================================                                            // 2202
+ * Bootstrap: affix.js v3.3.5                                                                                          // 2203
+ * http://getbootstrap.com/javascript/#affix                                                                           // 2204
+ * ========================================================================                                            // 2205
+ * Copyright 2011-2015 Twitter, Inc.                                                                                   // 2206
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)                                          // 2207
+ * ======================================================================== */                                         // 2208
+                                                                                                                       // 2209
                                                                                                                        // 2210
-    if (offsetTop != null && scrollTop <= offsetTop) return 'top'                                                      // 2211
-    if (offsetBottom != null && (colliderTop + colliderHeight >= scrollHeight - offsetBottom)) return 'bottom'         // 2212
++function ($) {                                                                                                        // 2211
+  'use strict';                                                                                                        // 2212
                                                                                                                        // 2213
-    return false                                                                                                       // 2214
-  }                                                                                                                    // 2215
+  // AFFIX CLASS DEFINITION                                                                                            // 2214
+  // ======================                                                                                            // 2215
                                                                                                                        // 2216
-  Affix.prototype.getPinnedOffset = function () {                                                                      // 2217
-    if (this.pinnedOffset) return this.pinnedOffset                                                                    // 2218
-    this.$element.removeClass(Affix.RESET).addClass('affix')                                                           // 2219
-    var scrollTop = this.$target.scrollTop()                                                                           // 2220
-    var position  = this.$element.offset()                                                                             // 2221
-    return (this.pinnedOffset = position.top - scrollTop)                                                              // 2222
-  }                                                                                                                    // 2223
-                                                                                                                       // 2224
-  Affix.prototype.checkPositionWithEventLoop = function () {                                                           // 2225
-    setTimeout($.proxy(this.checkPosition, this), 1)                                                                   // 2226
-  }                                                                                                                    // 2227
+  var Affix = function (element, options) {                                                                            // 2217
+    this.options = $.extend({}, Affix.DEFAULTS, options)                                                               // 2218
+                                                                                                                       // 2219
+    this.$target = $(this.options.target)                                                                              // 2220
+      .on('scroll.bs.affix.data-api', $.proxy(this.checkPosition, this))                                               // 2221
+      .on('click.bs.affix.data-api',  $.proxy(this.checkPositionWithEventLoop, this))                                  // 2222
+                                                                                                                       // 2223
+    this.$element     = $(element)                                                                                     // 2224
+    this.affixed      = null                                                                                           // 2225
+    this.unpin        = null                                                                                           // 2226
+    this.pinnedOffset = null                                                                                           // 2227
                                                                                                                        // 2228
-  Affix.prototype.checkPosition = function () {                                                                        // 2229
-    if (!this.$element.is(':visible')) return                                                                          // 2230
+    this.checkPosition()                                                                                               // 2229
+  }                                                                                                                    // 2230
                                                                                                                        // 2231
-    var height       = this.$element.height()                                                                          // 2232
-    var offset       = this.options.offset                                                                             // 2233
-    var offsetTop    = offset.top                                                                                      // 2234
-    var offsetBottom = offset.bottom                                                                                   // 2235
-    var scrollHeight = $(document.body).height()                                                                       // 2236
-                                                                                                                       // 2237
-    if (typeof offset != 'object')         offsetBottom = offsetTop = offset                                           // 2238
-    if (typeof offsetTop == 'function')    offsetTop    = offset.top(this.$element)                                    // 2239
-    if (typeof offsetBottom == 'function') offsetBottom = offset.bottom(this.$element)                                 // 2240
-                                                                                                                       // 2241
-    var affix = this.getState(scrollHeight, height, offsetTop, offsetBottom)                                           // 2242
-                                                                                                                       // 2243
-    if (this.affixed != affix) {                                                                                       // 2244
-      if (this.unpin != null) this.$element.css('top', '')                                                             // 2245
-                                                                                                                       // 2246
-      var affixType = 'affix' + (affix ? '-' + affix : '')                                                             // 2247
-      var e         = $.Event(affixType + '.bs.affix')                                                                 // 2248
-                                                                                                                       // 2249
-      this.$element.trigger(e)                                                                                         // 2250
-                                                                                                                       // 2251
-      if (e.isDefaultPrevented()) return                                                                               // 2252
-                                                                                                                       // 2253
-      this.affixed = affix                                                                                             // 2254
-      this.unpin = affix == 'bottom' ? this.getPinnedOffset() : null                                                   // 2255
+  Affix.VERSION  = '3.3.5'                                                                                             // 2232
+                                                                                                                       // 2233
+  Affix.RESET    = 'affix affix-top affix-bottom'                                                                      // 2234
+                                                                                                                       // 2235
+  Affix.DEFAULTS = {                                                                                                   // 2236
+    offset: 0,                                                                                                         // 2237
+    target: window                                                                                                     // 2238
+  }                                                                                                                    // 2239
+                                                                                                                       // 2240
+  Affix.prototype.getState = function (scrollHeight, height, offsetTop, offsetBottom) {                                // 2241
+    var scrollTop    = this.$target.scrollTop()                                                                        // 2242
+    var position     = this.$element.offset()                                                                          // 2243
+    var targetHeight = this.$target.height()                                                                           // 2244
+                                                                                                                       // 2245
+    if (offsetTop != null && this.affixed == 'top') return scrollTop < offsetTop ? 'top' : false                       // 2246
+                                                                                                                       // 2247
+    if (this.affixed == 'bottom') {                                                                                    // 2248
+      if (offsetTop != null) return (scrollTop + this.unpin <= position.top) ? false : 'bottom'                        // 2249
+      return (scrollTop + targetHeight <= scrollHeight - offsetBottom) ? false : 'bottom'                              // 2250
+    }                                                                                                                  // 2251
+                                                                                                                       // 2252
+    var initializing   = this.affixed == null                                                                          // 2253
+    var colliderTop    = initializing ? scrollTop : position.top                                                       // 2254
+    var colliderHeight = initializing ? targetHeight : height                                                          // 2255
                                                                                                                        // 2256
-      this.$element                                                                                                    // 2257
-        .removeClass(Affix.RESET)                                                                                      // 2258
-        .addClass(affixType)                                                                                           // 2259
-        .trigger(affixType.replace('affix', 'affixed') + '.bs.affix')                                                  // 2260
-    }                                                                                                                  // 2261
+    if (offsetTop != null && scrollTop <= offsetTop) return 'top'                                                      // 2257
+    if (offsetBottom != null && (colliderTop + colliderHeight >= scrollHeight - offsetBottom)) return 'bottom'         // 2258
+                                                                                                                       // 2259
+    return false                                                                                                       // 2260
+  }                                                                                                                    // 2261
                                                                                                                        // 2262
-    if (affix == 'bottom') {                                                                                           // 2263
-      this.$element.offset({                                                                                           // 2264
-        top: scrollHeight - height - offsetBottom                                                                      // 2265
-      })                                                                                                               // 2266
-    }                                                                                                                  // 2267
-  }                                                                                                                    // 2268
-                                                                                                                       // 2269
+  Affix.prototype.getPinnedOffset = function () {                                                                      // 2263
+    if (this.pinnedOffset) return this.pinnedOffset                                                                    // 2264
+    this.$element.removeClass(Affix.RESET).addClass('affix')                                                           // 2265
+    var scrollTop = this.$target.scrollTop()                                                                           // 2266
+    var position  = this.$element.offset()                                                                             // 2267
+    return (this.pinnedOffset = position.top - scrollTop)                                                              // 2268
+  }                                                                                                                    // 2269
                                                                                                                        // 2270
-  // AFFIX PLUGIN DEFINITION                                                                                           // 2271
-  // =======================                                                                                           // 2272
-                                                                                                                       // 2273
-  function Plugin(option) {                                                                                            // 2274
-    return this.each(function () {                                                                                     // 2275
-      var $this   = $(this)                                                                                            // 2276
-      var data    = $this.data('bs.affix')                                                                             // 2277
-      var options = typeof option == 'object' && option                                                                // 2278
-                                                                                                                       // 2279
-      if (!data) $this.data('bs.affix', (data = new Affix(this, options)))                                             // 2280
-      if (typeof option == 'string') data[option]()                                                                    // 2281
-    })                                                                                                                 // 2282
-  }                                                                                                                    // 2283
-                                                                                                                       // 2284
-  var old = $.fn.affix                                                                                                 // 2285
-                                                                                                                       // 2286
-  $.fn.affix             = Plugin                                                                                      // 2287
-  $.fn.affix.Constructor = Affix                                                                                       // 2288
+  Affix.prototype.checkPositionWithEventLoop = function () {                                                           // 2271
+    setTimeout($.proxy(this.checkPosition, this), 1)                                                                   // 2272
+  }                                                                                                                    // 2273
+                                                                                                                       // 2274
+  Affix.prototype.checkPosition = function () {                                                                        // 2275
+    if (!this.$element.is(':visible')) return                                                                          // 2276
+                                                                                                                       // 2277
+    var height       = this.$element.height()                                                                          // 2278
+    var offset       = this.options.offset                                                                             // 2279
+    var offsetTop    = offset.top                                                                                      // 2280
+    var offsetBottom = offset.bottom                                                                                   // 2281
+    var scrollHeight = Math.max($(document).height(), $(document.body).height())                                       // 2282
+                                                                                                                       // 2283
+    if (typeof offset != 'object')         offsetBottom = offsetTop = offset                                           // 2284
+    if (typeof offsetTop == 'function')    offsetTop    = offset.top(this.$element)                                    // 2285
+    if (typeof offsetBottom == 'function') offsetBottom = offset.bottom(this.$element)                                 // 2286
+                                                                                                                       // 2287
+    var affix = this.getState(scrollHeight, height, offsetTop, offsetBottom)                                           // 2288
                                                                                                                        // 2289
-                                                                                                                       // 2290
-  // AFFIX NO CONFLICT                                                                                                 // 2291
-  // =================                                                                                                 // 2292
-                                                                                                                       // 2293
-  $.fn.affix.noConflict = function () {                                                                                // 2294
-    $.fn.affix = old                                                                                                   // 2295
-    return this                                                                                                        // 2296
-  }                                                                                                                    // 2297
-                                                                                                                       // 2298
+    if (this.affixed != affix) {                                                                                       // 2290
+      if (this.unpin != null) this.$element.css('top', '')                                                             // 2291
+                                                                                                                       // 2292
+      var affixType = 'affix' + (affix ? '-' + affix : '')                                                             // 2293
+      var e         = $.Event(affixType + '.bs.affix')                                                                 // 2294
+                                                                                                                       // 2295
+      this.$element.trigger(e)                                                                                         // 2296
+                                                                                                                       // 2297
+      if (e.isDefaultPrevented()) return                                                                               // 2298
                                                                                                                        // 2299
-  // AFFIX DATA-API                                                                                                    // 2300
-  // ==============                                                                                                    // 2301
+      this.affixed = affix                                                                                             // 2300
+      this.unpin = affix == 'bottom' ? this.getPinnedOffset() : null                                                   // 2301
                                                                                                                        // 2302
-  $(window).on('load', function () {                                                                                   // 2303
-    $('[data-spy="affix"]').each(function () {                                                                         // 2304
-      var $spy = $(this)                                                                                               // 2305
-      var data = $spy.data()                                                                                           // 2306
-                                                                                                                       // 2307
-      data.offset = data.offset || {}                                                                                  // 2308
-                                                                                                                       // 2309
-      if (data.offsetBottom != null) data.offset.bottom = data.offsetBottom                                            // 2310
-      if (data.offsetTop    != null) data.offset.top    = data.offsetTop                                               // 2311
-                                                                                                                       // 2312
-      Plugin.call($spy, data)                                                                                          // 2313
-    })                                                                                                                 // 2314
-  })                                                                                                                   // 2315
+      this.$element                                                                                                    // 2303
+        .removeClass(Affix.RESET)                                                                                      // 2304
+        .addClass(affixType)                                                                                           // 2305
+        .trigger(affixType.replace('affix', 'affixed') + '.bs.affix')                                                  // 2306
+    }                                                                                                                  // 2307
+                                                                                                                       // 2308
+    if (affix == 'bottom') {                                                                                           // 2309
+      this.$element.offset({                                                                                           // 2310
+        top: scrollHeight - height - offsetBottom                                                                      // 2311
+      })                                                                                                               // 2312
+    }                                                                                                                  // 2313
+  }                                                                                                                    // 2314
+                                                                                                                       // 2315
                                                                                                                        // 2316
-}(jQuery);                                                                                                             // 2317
-                                                                                                                       // 2318
+  // AFFIX PLUGIN DEFINITION                                                                                           // 2317
+  // =======================                                                                                           // 2318
+                                                                                                                       // 2319
+  function Plugin(option) {                                                                                            // 2320
+    return this.each(function () {                                                                                     // 2321
+      var $this   = $(this)                                                                                            // 2322
+      var data    = $this.data('bs.affix')                                                                             // 2323
+      var options = typeof option == 'object' && option                                                                // 2324
+                                                                                                                       // 2325
+      if (!data) $this.data('bs.affix', (data = new Affix(this, options)))                                             // 2326
+      if (typeof option == 'string') data[option]()                                                                    // 2327
+    })                                                                                                                 // 2328
+  }                                                                                                                    // 2329
+                                                                                                                       // 2330
+  var old = $.fn.affix                                                                                                 // 2331
+                                                                                                                       // 2332
+  $.fn.affix             = Plugin                                                                                      // 2333
+  $.fn.affix.Constructor = Affix                                                                                       // 2334
+                                                                                                                       // 2335
+                                                                                                                       // 2336
+  // AFFIX NO CONFLICT                                                                                                 // 2337
+  // =================                                                                                                 // 2338
+                                                                                                                       // 2339
+  $.fn.affix.noConflict = function () {                                                                                // 2340
+    $.fn.affix = old                                                                                                   // 2341
+    return this                                                                                                        // 2342
+  }                                                                                                                    // 2343
+                                                                                                                       // 2344
+                                                                                                                       // 2345
+  // AFFIX DATA-API                                                                                                    // 2346
+  // ==============                                                                                                    // 2347
+                                                                                                                       // 2348
+  $(window).on('load', function () {                                                                                   // 2349
+    $('[data-spy="affix"]').each(function () {                                                                         // 2350
+      var $spy = $(this)                                                                                               // 2351
+      var data = $spy.data()                                                                                           // 2352
+                                                                                                                       // 2353
+      data.offset = data.offset || {}                                                                                  // 2354
+                                                                                                                       // 2355
+      if (data.offsetBottom != null) data.offset.bottom = data.offsetBottom                                            // 2356
+      if (data.offsetTop    != null) data.offset.top    = data.offsetTop                                               // 2357
+                                                                                                                       // 2358
+      Plugin.call($spy, data)                                                                                          // 2359
+    })                                                                                                                 // 2360
+  })                                                                                                                   // 2361
+                                                                                                                       // 2362
+}(jQuery);                                                                                                             // 2363
+                                                                                                                       // 2364
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                     // 2374
+}).call(this);                                                       // 2375
+                                                                     // 2376
+///////////////////////////////////////////////////////////////////////
 
 }).call(this);
 

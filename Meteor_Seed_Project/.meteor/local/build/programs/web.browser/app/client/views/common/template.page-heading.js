@@ -29,4 +29,4 @@ Template["pageHeading"] = new Template("Template.pageHeading", (function() {
   })), "\n                "), "\n            "), "\n        "), "\n    ");
 }));
 
-})();
+}).call(this);

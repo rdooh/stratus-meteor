@@ -2,15 +2,8 @@
 //                                                                      //
 // This is a generated file. You can view the original                  //
 // source in your browser if your browser supports source maps.         //
-//                                                                      //
-// If you are using Chrome, open the Developer Tools and click the gear //
-// icon in its lower right corner. In the General Settings panel, turn  //
-// on 'Enable source maps'.                                             //
-//                                                                      //
-// If you are using Firefox 23, go to `about:config` and set the        //
-// `devtools.debugger.source-maps-enabled` preference to true.          //
-// (The preference should be on by default in Firefox 24; versions      //
-// older than 23 do not support source maps.)                           //
+// Source maps are supported by all recent versions of Chrome, Safari,  //
+// and Firefox, and by Internet Explorer 11.                            //
 //                                                                      //
 //////////////////////////////////////////////////////////////////////////
 
@@ -23,7 +16,7 @@ var Meteor = Package.meteor.Meteor;
 /* Package-scope variables */
 var $, jQuery;
 
-(function () {
+(function(){
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                                   //
@@ -2927,7 +2920,7 @@ jQuery.extend({                                                                 
 		var matched = [],                                                                                                  // 2894
 			cur = elem[ dir ];                                                                                                // 2895
                                                                                                                      // 2896
-		while ( cur && cur.nodeType !== 9 && (until === undefined || cur.nodeType !== 1 || !jQuery( cur ).is( until )) ) { // 2897
+		while ( cur && cur.nodeType !== 9 && (until === undefined || cur.nodeType !== 1 || !jQuery( cur ).is( until )) ) {
 			if ( cur.nodeType === 1 ) {                                                                                       // 2898
 				matched.push( cur );                                                                                             // 2899
 			}                                                                                                                 // 2900
@@ -8483,7 +8476,7 @@ jQuery.fn.extend({                                                              
 			i = 0,                                                                                                            // 8450
 			l = this.length;                                                                                                  // 8451
 		for ( ; i < l; i++ ) {                                                                                             // 8452
-			if ( this[i].nodeType === 1 && (" " + this[i].className + " ").replace(rclass, " ").indexOf( className ) >= 0 ) { // 8453
+			if ( this[i].nodeType === 1 && (" " + this[i].className + " ").replace(rclass, " ").indexOf( className ) >= 0 ) {
 				return true;                                                                                                     // 8454
 			}                                                                                                                 // 8455
 		}                                                                                                                  // 8456
@@ -10387,7 +10380,7 @@ return jQuery;                                                                  
 
 
 
-(function () {
+(function(){
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                                   //

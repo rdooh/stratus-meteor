@@ -4,5 +4,4 @@
     home: 'pageOne'
 
 });
-
-})();
+}).call(this);

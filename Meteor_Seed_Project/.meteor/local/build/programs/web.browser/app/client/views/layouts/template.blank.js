@@ -5,4 +5,4 @@ Template["blankLayout"] = new Template("Template.blankLayout", (function() {
   return [ HTML.Raw("<!-- Main view  -->\n    "), Spacebars.include(view.lookupTemplate("yield")) ];
 }));
 
-})();
+}).call(this);

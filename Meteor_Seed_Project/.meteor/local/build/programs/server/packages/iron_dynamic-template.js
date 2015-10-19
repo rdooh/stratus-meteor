@@ -16,11 +16,11 @@ var HTML = Package.htmljs.HTML;
 /* Package-scope variables */
 var DynamicTemplate;
 
-(function () {
+(function(){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                                //
-// packages/iron:dynamic-template/version_conflict_error.js                                                       //
+// packages/iron_dynamic-template/version_conflict_error.js                                                       //
 //                                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                                                                   //
@@ -53,11 +53,11 @@ if (Package['cmather:iron-dynamic-template']) {                                 
 
 
 
-(function () {
+(function(){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                                //
-// packages/iron:dynamic-template/dynamic_template.js                                                             //
+// packages/iron_dynamic-template/dynamic_template.js                                                             //
 //                                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                                                                   //
@@ -466,7 +466,7 @@ DynamicTemplate.prototype.insert = function (options) {                         
   var $el = $(el);                                                                                                // 403
                                                                                                                   // 404
   if ($el.length === 0)                                                                                           // 405
-    throw new Error("No element to insert layout into. Is your element defined? Try a Meteor.startup callback."); // 406
+    throw new Error("No element to insert layout into. Is your element defined? Try a Meteor.startup callback.");
                                                                                                                   // 407
   if (!this.view)                                                                                                 // 408
     this.create(options);                                                                                         // 409
@@ -687,11 +687,11 @@ Iron.DynamicTemplate = DynamicTemplate;                                         
 
 
 
-(function () {
+(function(){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                                //
-// packages/iron:dynamic-template/blaze_overrides.js                                                              //
+// packages/iron_dynamic-template/blaze_overrides.js                                                              //
 //                                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                                                                   //

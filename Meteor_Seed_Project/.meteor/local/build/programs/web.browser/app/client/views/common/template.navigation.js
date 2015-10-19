@@ -37,4 +37,4 @@ Template["navigation"] = new Template("Template.navigation", (function() {
   }, HTML.Raw('<i class="fa fa-diamond"></i>'), " ", HTML.Raw('<span class="nav-label">Page two</span>'), " "), "\n                "), "\n            "), "\n\n        "), "\n    ");
 }));
 
-})();
+}).call(this);

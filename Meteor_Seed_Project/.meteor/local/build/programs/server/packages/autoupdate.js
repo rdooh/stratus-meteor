@@ -5,8 +5,10 @@ var Meteor = Package.meteor.Meteor;
 var WebApp = Package.webapp.WebApp;
 var main = Package.webapp.main;
 var WebAppInternals = Package.webapp.WebAppInternals;
-var DDP = Package.ddp.DDP;
-var DDPServer = Package.ddp.DDPServer;
+var check = Package.check.check;
+var Match = Package.check.Match;
+var DDP = Package['ddp-client'].DDP;
+var DDPServer = Package['ddp-server'].DDPServer;
 var MongoInternals = Package.mongo.MongoInternals;
 var Mongo = Package.mongo.Mongo;
 var _ = Package.underscore._;
@@ -14,7 +16,7 @@ var _ = Package.underscore._;
 /* Package-scope variables */
 var Autoupdate, ClientVersions;
 
-(function () {
+(function(){
 
 //////////////////////////////////////////////////////////////////////////////////
 //                                                                              //
@@ -51,7 +53,7 @@ var Autoupdate, ClientVersions;
 // version available.                                                           // 27
 //                                                                              // 28
 // In this implementation only two documents are present in the collection      // 29
-// the current refreshable client version and the current nonRefreshable client // 30
+// the current refreshable client version and the current nonRefreshable client
 // version.  Developers can easily experiment with different versioning and     // 31
 // updating models by forking this package.                                     // 32
                                                                                 // 33
@@ -213,12 +215,12 @@ process.on('message', Meteor.bindEnvironment(function (m) {                     
   if (m && m.refresh === 'client') {                                            // 189
     enqueueVersionsRefresh();                                                   // 190
   }                                                                             // 191
-}));                                                                            // 192
+}, "handling client refresh message"));                                         // 192
                                                                                 // 193
 // Another way to tell the process to refresh: send SIGHUP signal               // 194
 process.on('SIGHUP', Meteor.bindEnvironment(function () {                       // 195
   enqueueVersionsRefresh();                                                     // 196
-}));                                                                            // 197
+}, "handling SIGHUP signal for refresh"));                                      // 197
                                                                                 // 198
                                                                                 // 199
 //////////////////////////////////////////////////////////////////////////////////

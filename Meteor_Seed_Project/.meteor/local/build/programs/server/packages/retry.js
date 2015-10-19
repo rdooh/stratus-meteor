@@ -8,7 +8,7 @@ var Random = Package.random.Random;
 /* Package-scope variables */
 var Retry;
 
-(function () {
+(function(){
 
 /////////////////////////////////////////////////////////////////////////////
 //                                                                         //
@@ -69,7 +69,7 @@ _.extend(Retry.prototype, {                                                // 26
     return timeout;                                                        // 51
   },                                                                       // 52
                                                                            // 53
-  // Call `fn` after a delay, based on the `count` of which retry this is. // 54
+  // Call `fn` after a delay, based on the `count` of which retry this is.
   retryLater: function (count, fn) {                                       // 55
     var self = this;                                                       // 56
     var timeout = self._timeout(count);                                    // 57

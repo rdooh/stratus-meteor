@@ -13,4 +13,4 @@ Template["topNavbar"] = new Template("Template.topNavbar", (function() {
   }, "\n                ", HTML.Raw('<li>\n                    <a href="#">\n                        <i class="fa fa-sign-out"></i> Log out\n                    </a>\n                </li>'), "\n                ", HTML.LI("\n                  ", Spacebars.include(view.lookupTemplate("loginButtons")), "\n                "), "\n\n            "), "\n\n        "), "\n    ");
 }));
 
-})();
+}).call(this);

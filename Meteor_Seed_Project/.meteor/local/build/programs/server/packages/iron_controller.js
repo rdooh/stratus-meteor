@@ -11,11 +11,11 @@ var Iron = Package['iron:core'].Iron;
 /* Package-scope variables */
 var Controller;
 
-(function () {
+(function(){
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                         //
-// packages/iron:controller/lib/controller.js                                              //
+// packages/iron_controller/lib/controller.js                                              //
 //                                                                                         //
 /////////////////////////////////////////////////////////////////////////////////////////////
                                                                                            //
@@ -127,7 +127,7 @@ var mergeStaticInheritedObjectProperty = function (ctor, prop) {                
   var merge = {};                                                                          // 106
                                                                                            // 107
   if (ctor.__super__)                                                                      // 108
-    _.extend(merge, mergeStaticInheritedObjectProperty(ctor.__super__.constructor, prop)); // 109
+    _.extend(merge, mergeStaticInheritedObjectProperty(ctor.__super__.constructor, prop));
                                                                                            // 110
   return _.has(ctor, prop) ? _.extend(merge, ctor[prop]) : merge;                          // 111
 };                                                                                         // 112
@@ -188,11 +188,11 @@ Iron.Controller = Controller;                                                   
 
 
 
-(function () {
+(function(){
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                         //
-// packages/iron:controller/lib/controller_server.js                                       //
+// packages/iron_controller/lib/controller_server.js                                       //
 //                                                                                         //
 /////////////////////////////////////////////////////////////////////////////////////////////
                                                                                            //

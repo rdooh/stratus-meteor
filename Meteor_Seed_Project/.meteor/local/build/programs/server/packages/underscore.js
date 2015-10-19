@@ -1,9 +1,9 @@
 (function () {
 
 /* Package-scope variables */
-var _, exports;
+var exports, _;
 
-(function () {
+(function(){
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                       //
@@ -24,7 +24,7 @@ exports = {};                                                                   
 
 
 
-(function () {
+(function(){
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                       //
@@ -658,7 +658,7 @@ exports = {};                                                                   
   // available.                                                                                          // 624
   _.bind = function(func, context) {                                                                     // 625
     var args, bound;                                                                                     // 626
-    if (nativeBind && func.bind === nativeBind) return nativeBind.apply(func, slice.call(arguments, 1)); // 627
+    if (nativeBind && func.bind === nativeBind) return nativeBind.apply(func, slice.call(arguments, 1));
     if (!_.isFunction(func)) throw new TypeError;                                                        // 628
     args = slice.call(arguments, 2);                                                                     // 629
     return bound = function() {                                                                          // 630
@@ -1344,7 +1344,7 @@ exports = {};                                                                   
 
 
 
-(function () {
+(function(){
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                       //
