@@ -3,6 +3,8 @@
 Router = Package['iron:router'].Router;
 RouteController = Package['iron:router'].RouteController;
 IronRouterAutoscroll = Package['okgrow:iron-router-autoscroll'].IronRouterAutoscroll;
+moment = Package['momentjs:moment'].moment;
+R = Package['ramda:ramda'].R;
 Meteor = Package.meteor.Meteor;
 WebApp = Package.webapp.WebApp;
 main = Package.webapp.main;
@@ -24,5 +26,6 @@ _ = Package.underscore._;
 Random = Package.random.Random;
 EJSON = Package.ejson.EJSON;
 Iron = Package['iron:core'].Iron;
+Accounts = Package['accounts-base'].Accounts;
 HTML = Package.htmljs.HTML;
 

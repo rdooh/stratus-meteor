@@ -1,6 +1,6 @@
 {
   "format": "javascript-image-pre1",
-  "arch": "os",
+  "arch": "os.osx.x86_64",
   "load": [
     {
       "sourceMap": "packages/underscore.js.map",
@@ -290,6 +290,103 @@
       "sourceMap": "packages/okgrow_iron-router-autoscroll.js.map",
       "sourceMapRoot": "packages",
       "path": "packages/okgrow_iron-router-autoscroll.js"
+    },
+    {
+      "sourceMap": "packages/accounts-base.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/accounts-base.js"
+    },
+    {
+      "sourceMap": "packages/service-configuration.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/service-configuration.js"
+    },
+    {
+      "sourceMap": "packages/localstorage.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/localstorage.js"
+    },
+    {
+      "sourceMap": "packages/url.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/url.js"
+    },
+    {
+      "sourceMap": "packages/oauth.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/oauth.js",
+      "assets": {
+        "end_of_popup_response.html": "assets/packages/oauth/end_of_popup_response.html",
+        "end_of_redirect_response.html": "assets/packages/oauth/end_of_redirect_response.html"
+      }
+    },
+    {
+      "sourceMap": "packages/accounts-oauth.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/accounts-oauth.js"
+    },
+    {
+      "node_modules": "npm/npm-bcrypt/node_modules",
+      "sourceMap": "packages/npm-bcrypt.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/npm-bcrypt.js"
+    },
+    {
+      "sourceMap": "packages/sha.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/sha.js"
+    },
+    {
+      "sourceMap": "packages/srp.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/srp.js"
+    },
+    {
+      "node_modules": "npm/email/node_modules",
+      "sourceMap": "packages/email.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/email.js"
+    },
+    {
+      "sourceMap": "packages/accounts-password.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/accounts-password.js"
+    },
+    {
+      "sourceMap": "packages/accounts-ui-unstyled.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/accounts-ui-unstyled.js"
+    },
+    {
+      "sourceMap": "packages/oauth2.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/oauth2.js"
+    },
+    {
+      "node_modules": "npm/http/node_modules",
+      "sourceMap": "packages/http.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/http.js"
+    },
+    {
+      "sourceMap": "packages/google.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/google.js"
+    },
+    {
+      "sourceMap": "packages/accounts-google.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/accounts-google.js"
+    },
+    {
+      "sourceMap": "packages/momentjs_moment.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/momentjs_moment.js"
+    },
+    {
+      "sourceMap": "packages/ramda_ramda.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/ramda_ramda.js"
     },
     {
       "sourceMap": "packages/session.js.map",
