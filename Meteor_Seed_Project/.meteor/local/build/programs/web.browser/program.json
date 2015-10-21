@@ -1038,11 +1038,11 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/domains/projects/template.projects.js?cbd48de62908c3c77e795ad5cd34bf403f2ec6ce",
+      "url": "/app/domains/projects/template.projects.js?c48e3c5d5ca8121bdddf1f18ac704d852f5b1b53",
       "sourceMap": "app/domains/projects/template.projects.js.map",
-      "sourceMapUrl": "/app/domains/projects/cbd48de62908c3c77e795ad5cd34bf403f2ec6ce.map",
-      "size": 7810,
-      "hash": "cbd48de62908c3c77e795ad5cd34bf403f2ec6ce"
+      "sourceMapUrl": "/app/domains/projects/c48e3c5d5ca8121bdddf1f18ac704d852f5b1b53.map",
+      "size": 5102,
+      "hash": "c48e3c5d5ca8121bdddf1f18ac704d852f5b1b53"
     },
     {
       "path": "app/client/views/layouts/template.main.js",
