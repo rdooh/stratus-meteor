@@ -390,6 +390,10 @@
     },
     {
       "path": "packages/global-imports.js"
+    },
+    {
+      "sourceMap": "app/domains/projects/projects.js.map",
+      "path": "app/domains/projects/projects.js"
     }
   ]
 }

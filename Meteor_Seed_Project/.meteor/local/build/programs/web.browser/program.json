@@ -1016,11 +1016,11 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/views/pages/template.pageOne.js?599dbd02382df59844debcf4ccad3f47b4ae0d70",
+      "url": "/app/client/views/pages/template.pageOne.js?4fa04f1251c6f9bdd1d59b5e1848e3b256368fcf",
       "sourceMap": "app/client/views/pages/template.pageOne.js.map",
-      "sourceMapUrl": "/app/client/views/pages/599dbd02382df59844debcf4ccad3f47b4ae0d70.map",
-      "size": 975,
-      "hash": "599dbd02382df59844debcf4ccad3f47b4ae0d70"
+      "sourceMapUrl": "/app/client/views/pages/4fa04f1251c6f9bdd1d59b5e1848e3b256368fcf.map",
+      "size": 1096,
+      "hash": "4fa04f1251c6f9bdd1d59b5e1848e3b256368fcf"
     },
     {
       "path": "app/client/views/pages/template.pageTwo.js",
@@ -1032,6 +1032,17 @@
       "sourceMapUrl": "/app/client/views/pages/9f37b37e004826135b9b1c91834ca4116e05a987.map",
       "size": 790,
       "hash": "9f37b37e004826135b9b1c91834ca4116e05a987"
+    },
+    {
+      "path": "app/domains/projects/template.projects.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/app/domains/projects/template.projects.js?cbd48de62908c3c77e795ad5cd34bf403f2ec6ce",
+      "sourceMap": "app/domains/projects/template.projects.js.map",
+      "sourceMapUrl": "/app/domains/projects/cbd48de62908c3c77e795ad5cd34bf403f2ec6ce.map",
+      "size": 7810,
+      "hash": "cbd48de62908c3c77e795ad5cd34bf403f2ec6ce"
     },
     {
       "path": "app/client/views/layouts/template.main.js",
@@ -1175,6 +1186,17 @@
       "sourceMapUrl": "/app/client/startup/18a9ddc33d8556661c223c564f2e03ab42e84b52.map",
       "size": 104,
       "hash": "18a9ddc33d8556661c223c564f2e03ab42e84b52"
+    },
+    {
+      "path": "app/domains/projects/projects.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/app/domains/projects/projects.js?88331cb2a416a3686e9953e829ce83be92e4e45f",
+      "sourceMap": "app/domains/projects/projects.js.map",
+      "sourceMapUrl": "/app/domains/projects/88331cb2a416a3686e9953e829ce83be92e4e45f.map",
+      "size": 243,
+      "hash": "88331cb2a416a3686e9953e829ce83be92e4e45f"
     },
     {
       "path": "app/client/views/layouts/main.js",
