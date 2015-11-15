@@ -930,9 +930,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/packages/global-imports.js?3eb9bb13296152d4a5e05322b2a6fd58f0fed6c7",
-      "size": 1329,
-      "hash": "3eb9bb13296152d4a5e05322b2a6fd58f0fed6c7"
+      "url": "/packages/global-imports.js?fba4a047d2e7073ee0bf632a972714671170de09",
+      "size": 1591,
+      "hash": "fba4a047d2e7073ee0bf632a972714671170de09"
     },
     {
       "path": "app/client/views/common/footer.tpl.jade.js",
@@ -1071,44 +1071,44 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/lib/blueimp/jquery.blueimp-gallery.min.js?e64461a6a03d19c8ca8ccf90e27223eb9e54452b",
+      "url": "/app/client/lib/blueimp/jquery.blueimp-gallery.min.js?f8fce9b356388b32ff52bb3d17c1cea595fefae2",
       "sourceMap": "app/client/lib/blueimp/jquery.blueimp-gallery.min.js.map",
-      "sourceMapUrl": "/app/client/lib/blueimp/e64461a6a03d19c8ca8ccf90e27223eb9e54452b.map",
-      "size": 31592,
-      "hash": "e64461a6a03d19c8ca8ccf90e27223eb9e54452b"
+      "sourceMapUrl": "/app/client/lib/blueimp/f8fce9b356388b32ff52bb3d17c1cea595fefae2.map",
+      "size": 51269,
+      "hash": "f8fce9b356388b32ff52bb3d17c1cea595fefae2"
     },
     {
       "path": "app/client/lib/metisMenu/jquery.metisMenu.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/lib/metisMenu/jquery.metisMenu.js?8c47c6b7606fc228b1d6bf41475f89f3b22891be",
+      "url": "/app/client/lib/metisMenu/jquery.metisMenu.js?4aaf06ab16e14a22063617a09ac8b65b4d8659f2",
       "sourceMap": "app/client/lib/metisMenu/jquery.metisMenu.js.map",
-      "sourceMapUrl": "/app/client/lib/metisMenu/8c47c6b7606fc228b1d6bf41475f89f3b22891be.map",
-      "size": 3284,
-      "hash": "8c47c6b7606fc228b1d6bf41475f89f3b22891be"
+      "sourceMapUrl": "/app/client/lib/metisMenu/4aaf06ab16e14a22063617a09ac8b65b4d8659f2.map",
+      "size": 6448,
+      "hash": "4aaf06ab16e14a22063617a09ac8b65b4d8659f2"
     },
     {
       "path": "app/client/lib/pace/pace.min.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/lib/pace/pace.min.js?80e96895af77b670e374f6166dbca39e0b8b2774",
+      "url": "/app/client/lib/pace/pace.min.js?17b13b41240f8222a83dd307085d7a7b6698a6bd",
       "sourceMap": "app/client/lib/pace/pace.min.js.map",
-      "sourceMapUrl": "/app/client/lib/pace/80e96895af77b670e374f6166dbca39e0b8b2774.map",
-      "size": 12391,
-      "hash": "80e96895af77b670e374f6166dbca39e0b8b2774"
+      "sourceMapUrl": "/app/client/lib/pace/17b13b41240f8222a83dd307085d7a7b6698a6bd.map",
+      "size": 28871,
+      "hash": "17b13b41240f8222a83dd307085d7a7b6698a6bd"
     },
     {
       "path": "app/client/lib/slimscroll/jquery.slimscroll.min.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/lib/slimscroll/jquery.slimscroll.min.js?99a70875791f6ab8c788cfc37d11656450b74494",
+      "url": "/app/client/lib/slimscroll/jquery.slimscroll.min.js?9a1546d20c3836bf234e0e533f65b932d078ef66",
       "sourceMap": "app/client/lib/slimscroll/jquery.slimscroll.min.js.map",
-      "sourceMapUrl": "/app/client/lib/slimscroll/99a70875791f6ab8c788cfc37d11656450b74494.map",
-      "size": 4710,
-      "hash": "99a70875791f6ab8c788cfc37d11656450b74494"
+      "sourceMapUrl": "/app/client/lib/slimscroll/9a1546d20c3836bf234e0e533f65b932d078ef66.map",
+      "size": 9470,
+      "hash": "9a1546d20c3836bf234e0e533f65b932d078ef66"
     },
     {
       "path": "app/client/views/common/footer.coffee.js",
@@ -1170,11 +1170,11 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/views/layouts/blank.js?921e810a2ed5cfdb8001cdc565f15ae64d03ac28",
+      "url": "/app/client/views/layouts/blank.js?72b25ad0be22bbab843ed5a8ba1fff957d33e495",
       "sourceMap": "app/client/views/layouts/blank.js.map",
-      "sourceMapUrl": "/app/client/views/layouts/921e810a2ed5cfdb8001cdc565f15ae64d03ac28.map",
-      "size": 296,
-      "hash": "921e810a2ed5cfdb8001cdc565f15ae64d03ac28"
+      "sourceMapUrl": "/app/client/views/layouts/72b25ad0be22bbab843ed5a8ba1fff957d33e495.map",
+      "size": 1371,
+      "hash": "72b25ad0be22bbab843ed5a8ba1fff957d33e495"
     },
     {
       "path": "app/client/views/layouts/mainLayout.coffee.js",
