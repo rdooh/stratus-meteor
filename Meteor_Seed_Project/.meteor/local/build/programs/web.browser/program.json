@@ -935,67 +935,67 @@
       "hash": "3eb9bb13296152d4a5e05322b2a6fd58f0fed6c7"
     },
     {
-      "path": "app/client/views/common/footer.jade.js",
+      "path": "app/client/views/common/footer.tpl.jade.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/views/common/footer.jade.js?22cbf1d96384ec627b0a7626d07d9a502eb40f3d",
-      "sourceMap": "app/client/views/common/footer.jade.js.map",
+      "url": "/app/client/views/common/footer.tpl.jade.js?22cbf1d96384ec627b0a7626d07d9a502eb40f3d",
+      "sourceMap": "app/client/views/common/footer.tpl.jade.js.map",
       "sourceMapUrl": "/app/client/views/common/22cbf1d96384ec627b0a7626d07d9a502eb40f3d.map",
       "size": 357,
       "hash": "22cbf1d96384ec627b0a7626d07d9a502eb40f3d"
     },
     {
-      "path": "app/client/views/common/ibox-tools.jade.js",
+      "path": "app/client/views/common/iboxTools.tpl.jade.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/views/common/ibox-tools.jade.js?88e6025bf0bfb66f07f6cab327dc2307a3948269",
-      "sourceMap": "app/client/views/common/ibox-tools.jade.js.map",
+      "url": "/app/client/views/common/iboxTools.tpl.jade.js?88e6025bf0bfb66f07f6cab327dc2307a3948269",
+      "sourceMap": "app/client/views/common/iboxTools.tpl.jade.js.map",
       "sourceMapUrl": "/app/client/views/common/88e6025bf0bfb66f07f6cab327dc2307a3948269.map",
       "size": 576,
       "hash": "88e6025bf0bfb66f07f6cab327dc2307a3948269"
     },
     {
-      "path": "app/client/views/common/navigation.jade.js",
+      "path": "app/client/views/common/navigation.tpl.jade.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/views/common/navigation.jade.js?696e55fdc2d50cfe03639f7da9ddd0ffe08ff395",
-      "sourceMap": "app/client/views/common/navigation.jade.js.map",
-      "sourceMapUrl": "/app/client/views/common/696e55fdc2d50cfe03639f7da9ddd0ffe08ff395.map",
-      "size": 1469,
-      "hash": "696e55fdc2d50cfe03639f7da9ddd0ffe08ff395"
+      "url": "/app/client/views/common/navigation.tpl.jade.js?95bbcc87c629929a8651a61a3b9592e9242e98cb",
+      "sourceMap": "app/client/views/common/navigation.tpl.jade.js.map",
+      "sourceMapUrl": "/app/client/views/common/95bbcc87c629929a8651a61a3b9592e9242e98cb.map",
+      "size": 2111,
+      "hash": "95bbcc87c629929a8651a61a3b9592e9242e98cb"
     },
     {
-      "path": "app/client/views/common/page-heading.jade.js",
+      "path": "app/client/views/common/pageHeading.tpl.jade.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/views/common/page-heading.jade.js?19a6699bcc6345ae4e8a05bc91ee9df159146df1",
-      "sourceMap": "app/client/views/common/page-heading.jade.js.map",
-      "sourceMapUrl": "/app/client/views/common/19a6699bcc6345ae4e8a05bc91ee9df159146df1.map",
-      "size": 1095,
-      "hash": "19a6699bcc6345ae4e8a05bc91ee9df159146df1"
+      "url": "/app/client/views/common/pageHeading.tpl.jade.js?6f3429e93c3e70e3fbe16e3ee86dcd8182a26f3f",
+      "sourceMap": "app/client/views/common/pageHeading.tpl.jade.js.map",
+      "sourceMapUrl": "/app/client/views/common/6f3429e93c3e70e3fbe16e3ee86dcd8182a26f3f.map",
+      "size": 1089,
+      "hash": "6f3429e93c3e70e3fbe16e3ee86dcd8182a26f3f"
     },
     {
-      "path": "app/client/views/common/top-navbar.jade.js",
+      "path": "app/client/views/common/topNavbar.tpl.jade.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/views/common/top-navbar.jade.js?5d6b4acb3aaaa3769401d7388a5b6f6ea7a85764",
-      "sourceMap": "app/client/views/common/top-navbar.jade.js.map",
+      "url": "/app/client/views/common/topNavbar.tpl.jade.js?5d6b4acb3aaaa3769401d7388a5b6f6ea7a85764",
+      "sourceMap": "app/client/views/common/topNavbar.tpl.jade.js.map",
       "sourceMapUrl": "/app/client/views/common/5d6b4acb3aaaa3769401d7388a5b6f6ea7a85764.map",
       "size": 903,
       "hash": "5d6b4acb3aaaa3769401d7388a5b6f6ea7a85764"
     },
     {
-      "path": "app/client/views/common/top-navigation.jade.js",
+      "path": "app/client/views/common/topNavigation.tpl.jade.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/views/common/top-navigation.jade.js?cca2271df74441af4a6c96e38297fa6996df80b3",
-      "sourceMap": "app/client/views/common/top-navigation.jade.js.map",
+      "url": "/app/client/views/common/topNavigation.tpl.jade.js?cca2271df74441af4a6c96e38297fa6996df80b3",
+      "sourceMap": "app/client/views/common/topNavigation.tpl.jade.js.map",
       "sourceMapUrl": "/app/client/views/common/cca2271df74441af4a6c96e38297fa6996df80b3.map",
       "size": 2849,
       "hash": "cca2271df74441af4a6c96e38297fa6996df80b3"
@@ -1023,26 +1023,26 @@
       "hash": "f816feec1f0139205295f903ae516f2656af83ce"
     },
     {
-      "path": "app/client/views/pages/template.pageOne.js",
+      "path": "app/client/views/pages/pageOne.tpl.jade.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/views/pages/template.pageOne.js?4fa04f1251c6f9bdd1d59b5e1848e3b256368fcf",
-      "sourceMap": "app/client/views/pages/template.pageOne.js.map",
-      "sourceMapUrl": "/app/client/views/pages/4fa04f1251c6f9bdd1d59b5e1848e3b256368fcf.map",
-      "size": 1096,
-      "hash": "4fa04f1251c6f9bdd1d59b5e1848e3b256368fcf"
+      "url": "/app/client/views/pages/pageOne.tpl.jade.js?1d743114d7a4cb64108753602a44be25f4b4c872",
+      "sourceMap": "app/client/views/pages/pageOne.tpl.jade.js.map",
+      "sourceMapUrl": "/app/client/views/pages/1d743114d7a4cb64108753602a44be25f4b4c872.map",
+      "size": 875,
+      "hash": "1d743114d7a4cb64108753602a44be25f4b4c872"
     },
     {
-      "path": "app/client/views/pages/template.pageTwo.js",
+      "path": "app/client/views/pages/pageTwo.tpl.jade.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/views/pages/template.pageTwo.js?9f37b37e004826135b9b1c91834ca4116e05a987",
-      "sourceMap": "app/client/views/pages/template.pageTwo.js.map",
-      "sourceMapUrl": "/app/client/views/pages/9f37b37e004826135b9b1c91834ca4116e05a987.map",
-      "size": 790,
-      "hash": "9f37b37e004826135b9b1c91834ca4116e05a987"
+      "url": "/app/client/views/pages/pageTwo.tpl.jade.js?14b4484b700e4ad3083fec9d01422889f91affc4",
+      "sourceMap": "app/client/views/pages/pageTwo.tpl.jade.js.map",
+      "sourceMapUrl": "/app/client/views/pages/14b4484b700e4ad3083fec9d01422889f91affc4.map",
+      "size": 628,
+      "hash": "14b4484b700e4ad3083fec9d01422889f91affc4"
     },
     {
       "path": "app/domains/projects/template.projects.js",
@@ -1111,59 +1111,59 @@
       "hash": "99a70875791f6ab8c788cfc37d11656450b74494"
     },
     {
-      "path": "app/client/views/common/footer.js",
+      "path": "app/client/views/common/footer.coffee.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/views/common/footer.js?60204c368df3c1977bc66ffa6603f58ffa0301c9",
-      "sourceMap": "app/client/views/common/footer.js.map",
-      "sourceMapUrl": "/app/client/views/common/60204c368df3c1977bc66ffa6603f58ffa0301c9.map",
-      "size": 239,
-      "hash": "60204c368df3c1977bc66ffa6603f58ffa0301c9"
+      "url": "/app/client/views/common/footer.coffee.js?e50ad4aa1b49d0ca466ff2542c90ac16b2f99abd",
+      "sourceMap": "app/client/views/common/footer.coffee.js.map",
+      "sourceMapUrl": "/app/client/views/common/e50ad4aa1b49d0ca466ff2542c90ac16b2f99abd.map",
+      "size": 821,
+      "hash": "e50ad4aa1b49d0ca466ff2542c90ac16b2f99abd"
     },
     {
-      "path": "app/client/views/common/ibox-tools.js",
+      "path": "app/client/views/common/iboxTools.coffee.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/views/common/ibox-tools.js?1497f4277898f9a49c7777e7dbae71d40a97cb08",
-      "sourceMap": "app/client/views/common/ibox-tools.js.map",
-      "sourceMapUrl": "/app/client/views/common/1497f4277898f9a49c7777e7dbae71d40a97cb08.map",
-      "size": 756,
-      "hash": "1497f4277898f9a49c7777e7dbae71d40a97cb08"
+      "url": "/app/client/views/common/iboxTools.coffee.js?8c942f335c4ac455d5220dc3e96a45162771fd73",
+      "sourceMap": "app/client/views/common/iboxTools.coffee.js.map",
+      "sourceMapUrl": "/app/client/views/common/8c942f335c4ac455d5220dc3e96a45162771fd73.map",
+      "size": 2411,
+      "hash": "8c942f335c4ac455d5220dc3e96a45162771fd73"
     },
     {
-      "path": "app/client/views/common/navigation.js",
+      "path": "app/client/views/common/navigation.coffee.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/views/common/navigation.js?74948d51c0727e17c098c25febd8c28e2dd414eb",
-      "sourceMap": "app/client/views/common/navigation.js.map",
-      "sourceMapUrl": "/app/client/views/common/74948d51c0727e17c098c25febd8c28e2dd414eb.map",
-      "size": 136,
-      "hash": "74948d51c0727e17c098c25febd8c28e2dd414eb"
+      "url": "/app/client/views/common/navigation.coffee.js?1e6d171472ea80d01946b843bf636ecbd2be1abc",
+      "sourceMap": "app/client/views/common/navigation.coffee.js.map",
+      "sourceMapUrl": "/app/client/views/common/1e6d171472ea80d01946b843bf636ecbd2be1abc.map",
+      "size": 973,
+      "hash": "1e6d171472ea80d01946b843bf636ecbd2be1abc"
     },
     {
-      "path": "app/client/views/common/page-heading.js",
+      "path": "app/client/views/common/pageHeading.coffee.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/views/common/page-heading.js?10ac567373bade13f53b024a7f0c19b479df1d7a",
-      "sourceMap": "app/client/views/common/page-heading.js.map",
-      "sourceMapUrl": "/app/client/views/common/10ac567373bade13f53b024a7f0c19b479df1d7a.map",
-      "size": 126,
-      "hash": "10ac567373bade13f53b024a7f0c19b479df1d7a"
+      "url": "/app/client/views/common/pageHeading.coffee.js?8c134529cd3db0f3229cfaaddaf7f085d846762d",
+      "sourceMap": "app/client/views/common/pageHeading.coffee.js.map",
+      "sourceMapUrl": "/app/client/views/common/8c134529cd3db0f3229cfaaddaf7f085d846762d.map",
+      "size": 971,
+      "hash": "8c134529cd3db0f3229cfaaddaf7f085d846762d"
     },
     {
-      "path": "app/client/views/common/top-navbar.js",
+      "path": "app/client/views/common/topNavbar.coffee.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/views/common/top-navbar.js?6a938334051c521c555f426e4f0f7eccd7d095de",
-      "sourceMap": "app/client/views/common/top-navbar.js.map",
-      "sourceMapUrl": "/app/client/views/common/6a938334051c521c555f426e4f0f7eccd7d095de.map",
-      "size": 1323,
-      "hash": "6a938334051c521c555f426e4f0f7eccd7d095de"
+      "url": "/app/client/views/common/topNavbar.coffee.js?b32f8fbf897acf99a6b7873e0e4fca86dffdb52c",
+      "sourceMap": "app/client/views/common/topNavbar.coffee.js.map",
+      "sourceMapUrl": "/app/client/views/common/b32f8fbf897acf99a6b7873e0e4fca86dffdb52c.map",
+      "size": 2338,
+      "hash": "b32f8fbf897acf99a6b7873e0e4fca86dffdb52c"
     },
     {
       "path": "app/client/views/layouts/blank.js",
@@ -1177,26 +1177,26 @@
       "hash": "921e810a2ed5cfdb8001cdc565f15ae64d03ac28"
     },
     {
-      "path": "app/client/config/router.js",
+      "path": "app/client/config/router.coffee.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/config/router.js?5d1cce1acf45140afc4735471ffccd2554560330",
-      "sourceMap": "app/client/config/router.js.map",
-      "sourceMapUrl": "/app/client/config/5d1cce1acf45140afc4735471ffccd2554560330.map",
-      "size": 358,
-      "hash": "5d1cce1acf45140afc4735471ffccd2554560330"
+      "url": "/app/client/config/router.coffee.js?38c05d3632c634e248edcd85a29438b87be7aeab",
+      "sourceMap": "app/client/config/router.coffee.js.map",
+      "sourceMapUrl": "/app/client/config/38c05d3632c634e248edcd85a29438b87be7aeab.map",
+      "size": 1957,
+      "hash": "38c05d3632c634e248edcd85a29438b87be7aeab"
     },
     {
-      "path": "app/client/startup/default.js",
+      "path": "app/client/startup/default.coffee.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/startup/default.js?18a9ddc33d8556661c223c564f2e03ab42e84b52",
-      "sourceMap": "app/client/startup/default.js.map",
-      "sourceMapUrl": "/app/client/startup/18a9ddc33d8556661c223c564f2e03ab42e84b52.map",
-      "size": 104,
-      "hash": "18a9ddc33d8556661c223c564f2e03ab42e84b52"
+      "url": "/app/client/startup/default.coffee.js?23a9d4bce4780874d9da891e2ccffc30d172abf5",
+      "sourceMap": "app/client/startup/default.coffee.js.map",
+      "sourceMapUrl": "/app/client/startup/23a9d4bce4780874d9da891e2ccffc30d172abf5.map",
+      "size": 821,
+      "hash": "23a9d4bce4780874d9da891e2ccffc30d172abf5"
     },
     {
       "path": "app/domains/projects/projects.js",
@@ -1415,7 +1415,7 @@
       "path": "head.html",
       "where": "internal",
       "type": "head",
-      "hash": "79d88e20070cc3252323d0d4007bce2f5f3f389a"
+      "hash": "3be4ad5563c5d0e2211339e55947325de449b9f0"
     }
   ]
 }
