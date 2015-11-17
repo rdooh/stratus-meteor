@@ -1,0 +1,3 @@
+Basically, I should move the template out of here...
+
+The template should go somewhere in views, with an associated file for helpers, if needed.  Otherwise, all of the business logic associated with the collection should remain here, tightly bound.
