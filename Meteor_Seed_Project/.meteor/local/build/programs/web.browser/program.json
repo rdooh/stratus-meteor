@@ -1214,11 +1214,11 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/domains/projects/projects.coffee.js?4bd44cbd8e531e48ce8ac7f6abdd0e20879895aa",
+      "url": "/app/domains/projects/projects.coffee.js?a1cd2a7d7383c637727caa9cb13d0e2814e4bb34",
       "sourceMap": "app/domains/projects/projects.coffee.js.map",
-      "sourceMapUrl": "/app/domains/projects/4bd44cbd8e531e48ce8ac7f6abdd0e20879895aa.map",
-      "size": 2395,
-      "hash": "4bd44cbd8e531e48ce8ac7f6abdd0e20879895aa"
+      "sourceMapUrl": "/app/domains/projects/a1cd2a7d7383c637727caa9cb13d0e2814e4bb34.map",
+      "size": 2397,
+      "hash": "a1cd2a7d7383c637727caa9cb13d0e2814e4bb34"
     },
     {
       "path": "merged-stylesheets.css",
